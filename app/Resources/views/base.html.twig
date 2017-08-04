@@ -2,73 +2,50 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %} Billetterie du Louvre {% endblock %}</title>
+        <title>{% block title %} Billetterie du Louvre {% endblock %}</title>
 
-    {% block stylesheets %}
-        {# On charge le CSS de bootstrap depuis le site directement #}
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/nao.css') }}">
-        <link rel="icon" href="{{ asset('images/favicon.ico') }}">
-    {% endblock %}
-</head>
+        {% block stylesheets %}
+            {# On charge le CSS de bootstrap depuis le site directement #}
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/nao.css') }}">
+            <link rel="icon" href="{{ asset('images/favicon.ico') }}">
+        {% endblock %}
+    </head>
 
-<body>
-<div
-        id="js-vars"
-        data-vars="{{ js_vars|json_encode|e('html_attr') }}">
+    <body>
+    {#Intégration de variables pour JS#}
+    {#<div>#}
+            {#id="js-vars"#}
+            {#data-vars="{{ js_vars|json_encode|e('html_attr') }}">#}
 
-</div>
-<div class="container">
-    <div id="header" class="jumbotron">
+    {#</div>#}
+
+    <div class="container">
+        {% include 'default/header.html.twig'%}
         <div class="row">
-            <div class="col-lg-8">
-                <img src="{{ asset("images/logo-nao.jpg") }}" width="182" height="55" alt="Logo du musée du Louvre - Page d’accueil du site internet du musée du Louvre (Paris, France) " /></a>
-                <h1>Billetterie du Louvre</h1>
-
-            </div>
-            <div class="col-lg-4">
-                <div class="alert span5 alert-info">
-                    <h3>Tarifs</h3>
-                    <ul class="list-unstyled">
-
-                        <li><br><strong>Tarif demi-journée : </strong> à partir de</li>
-                    </ul>
-                </div>
+            <div id="content" class="col-md-12">
+                {% block body %}
+                {% endblock %}
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div id="content" class="col-md-12">
-            {% block body %}
-            {% endblock %}
-        </div>
+
+        <hr>
+
+        {% include 'default/footer.html.twig'%}
     </div>
 
-    <hr>
+    {% block javascripts %}
+        {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+        <script src="{{ asset('js/nao.js') }}"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        {# Pour Bootstrap-datepicker #}
 
-    <footer>
-        <center>
-            <div class="medium-7 large-7 small-12 columns jumbotron">
-                <span>Paiement 100% Sécurisé.</span>
+    {% endblock %}
 
-                <p>© Musée du Louvre {{ 'now'|date('Y') }}.</p>
-            </div>
-        </center>
-    </footer>
-</div>
-
-{% block javascripts %}
-    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
-    <script src="{{ asset('js/nao.js') }}"></script>
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    {# Pour Bootstrap-datepicker #}
-
-{% endblock %}
-
-</body>
+    </body>
 </html>

@@ -1,6 +1,22 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %}
+
 {% block body %}
- Page d'accueil
+    {#Gestion des FlashMessages#}
+    {% for flashMessage in app.session.flashbag.get('succes') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('alert') %}
+        <div class="alert alert-danger">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    <br><br><br><br><br><br><br><br><br>
+    Page d'accueil
 {% endblock %}
 
