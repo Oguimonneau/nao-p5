@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-//use AppBundle\AppBundle;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
