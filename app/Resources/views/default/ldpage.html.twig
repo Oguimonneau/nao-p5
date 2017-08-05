@@ -1,0 +1,36 @@
+{# src/NAO/SiteBundle/Resources/views/Site/ldpage.html.twig #}
+
+{% extends "NAOSiteBundle::layout.html.twig" %}
+
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %}
+
+{% block naosite_body %}
+    {#Gestion des FlashMessages#}
+    {% for flashMessage in app.session.flashbag.get('succes') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('alert') %}
+    <div class="alert alert-danger">
+        {{ flashMessage }}
+    </div>
+    {% endfor %}
+    <!-- =========================
+        START ABOUT US SECTION
+   ============================== -->
+    {% include 'NAOSiteBundle:Site:about.html.twig' %}
+    {% include 'NAOSiteBundle:Site:testimonial.html.twig' %}
+    {% include 'NAOSiteBundle:Site:feature.html.twig' %}
+    {% include 'NAOSiteBundle:Site:download.html.twig' %}
+    {% include 'NAOSiteBundle:Site:screen.html.twig' %}
+    {% include 'NAOSiteBundle:Site:download_now.html.twig' %}
+    {% include 'NAOSiteBundle:Site:contact_us.html.twig' %}
+    {% include 'NAOSiteBundle:Site:subscribe.html.twig' %}
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{%  endblock %}

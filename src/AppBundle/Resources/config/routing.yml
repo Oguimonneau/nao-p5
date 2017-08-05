@@ -1,0 +1,9 @@
+#src/Louvre/BilletterieBundle/Ressources/config/routing.yml
+NAO_home:
+    path:      /
+    defaults:
+        _controller: AppBundle:Default:index
+    methods:  [GET, POST]
+        
+
+

@@ -5,15 +5,31 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>NAO | Nos amis les oiseaux</title>
 
-        <title>{% block title %} Billetterie du Louvre {% endblock %}</title>
+        <!-- Google Font -->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:500,600,700,800,900,400,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,300italic,400italic' rel='stylesheet' type='text/css'>
+        <!-- Owl Carousel Assets -->
+        <link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/owl.theme.css') }}" rel="stylesheet">
+        <!-- Pixeden Icon Font -->
+        <link rel="stylesheet" href="{{ asset('css/Pe-icon-7-stroke.css')}}">
+        <!-- Font Awesome -->
+        <link href="{{ asset('css/font-awesome.min.css')}}" rel="stylesheet">
+        <!-- PrettyPhoto -->
+        <link href="{{ asset('css/prettyPhoto.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <!-- Style -->
+        <link href="{{ asset('css/style.css')}}" rel="stylesheet">
 
-        {% block stylesheets %}
-            {# On charge le CSS de bootstrap depuis le site directement #}
-            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/nao.css') }}">
-            <link rel="icon" href="{{ asset('images/favicon.ico') }}">
-        {% endblock %}
+        <link href="{{ asset('css/animate.css')}}" rel="stylesheet">
+        <!-- Responsive CSS -->
+        <link href="{{ asset('css/responsive.css')}}" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ asset('css/nao.css') }}">
+        <link rel="icon" href="{{ asset('images/favicon.ico') }}">
+
     </head>
 
     <body>
@@ -23,29 +39,30 @@
             {#data-vars="{{ js_vars|json_encode|e('html_attr') }}">#}
 
     {#</div>#}
-
-    <div class="container">
-        {% include 'default/header.html.twig'%}
-        <div class="row">
-            <div id="content" class="col-md-12">
+        {% include 'default/header.html.twig' %}
                 {% block body %}
+
                 {% endblock %}
-            </div>
-        </div>
-
-        <hr>
-
-        {% include 'default/footer.html.twig'%}
-    </div>
+        {% include 'default/footer.html.twig' %}
 
     {% block javascripts %}
-        {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
-        <script src="{{ asset('js/nao.js') }}"></script>
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/owl.carousel.js') }}"></script>
+        <script src="{{ asset('js/jquery.fitvids.js') }}"></script>
+        <script src="{{ asset('js/smoothscroll.js') }}"></script>
+        <script src="{{ asset('js/jquery.parallax-1.1.3.js') }}"></script>
+        <script src="{{ asset('js/jquery.prettyPhoto.js') }}"></script>
+        <script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.ajaxchimp.langs.js') }}"></script>
+        <script src="{{ asset('js/wow.min.js') }}"></script>
+        <script src="{{ asset('js/waypoints.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
+        <script src="{{ asset('js/script.js') }}"></script>
         {# Pour Bootstrap-datepicker #}
 
     {% endblock %}
 
     </body>
 </html>
+

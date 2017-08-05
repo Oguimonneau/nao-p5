@@ -1,0 +1,43 @@
+{# src/NAO/SiteBundle/Resources/views/Site/footer.html.twig #}
+<section class="subscribe parallax subscribe-parallax" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
+    <div class="section_overlay wow lightSpeedIn">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+
+                    <!-- Start Subscribe Section Title -->
+                    <div class="section_title">
+                        <h2>SUBSCRIBE US</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                    </div>
+                    <!-- End Subscribe Section Title -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row  wow lightSpeedIn">
+                <div class="col-md-6 col-md-offset-3">
+                    <!-- SUBSCRIPTION SUCCESSFUL OR ERROR MESSAGES -->
+                    <div class="subscription-success"></div>
+                    <div class="subscription-error"></div>
+                    <!-- Check this topic on how to add email subscription list, http://kb.mailchimp.com/lists/signup-forms/host-your-own-signup-forms -->
+                    <form id="mc-form" action="https://designscrazed.us8.list-manage.com/subscribe/post" method="POST" class="subscribe_form">
+                        <input type="hidden" name="u" value="6908378c60c82103f3d7e8f1c">
+                        <input type="hidden" name="id" value="8c5074025d">
+                        <div class="form-group">
+                            <!-- EMAIL INPUT BOX -->
+                            <input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" class="required email form-control" id="mce-EMAIL" placeholder="Enter Email Address" value="" >
+                        </div>
+                        <!-- SUBSCRIBE BUTTON -->
+                        <button type="submit" class="btn btn-default subs-btn">Submit</button>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- END SUBSCRIPBE FORM -->
