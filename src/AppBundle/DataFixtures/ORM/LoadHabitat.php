@@ -6,7 +6,7 @@
  * Time: 12:07
  */
 
-// src/OC/PlatformBundle/DataFixtures/ORM/LoadCategory.php
+// src/AppBundle/DataFixtures/ORM/LoadHabitat.php
 
 namespace AppBundle\DataFixtures\ORM;
 

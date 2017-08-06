@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 06 Août 2017 à 13:47
+-- Généré le :  Dim 06 Août 2017 à 20:47
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -19,6 +19,43 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `nao`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `nao_geographie`
+--
+
+CREATE TABLE `nao_geographie` (
+  `id` int(11) NOT NULL,
+  `cle` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `libelle` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `latitude` decimal(10,7) NOT NULL,
+  `longitude` decimal(10,7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `nao_geographie`
+--
+
+INSERT INTO `nao_geographie` (`id`, `cle`, `libelle`, `latitude`, `longitude`) VALUES
+(7, 'FR', 'Statut biogéographique en France métropolitaine', '46.2276380', '2.2137490'),
+(8, 'GF', 'Statut biogéographique en Guyane française', '3.9338890', '-53.1257820'),
+(9, 'MAR', 'Statut biogéographique à la Martinique', '14.6415280', '-61.0241740'),
+(10, 'GUA', 'Statut biogéographique à la Guadeloupe', '16.2650000', '-61.5510000'),
+(11, 'SM', 'Statut biogéographique à Saint-Martin', '18.0708298', '-63.0500809'),
+(12, 'SB', 'Statut biogéographique à Saint-Barthélemy', '17.9000000', '-62.8333330'),
+(13, 'SPM', 'Statut biogéographique à Saint-Pierre et Miquelon', '46.8852000', '-56.0315900'),
+(14, 'MAY', 'Statut biogéographique à Mayotte', '-12.8275000', '45.1662440'),
+(15, 'EPA', 'Statut biogéographique aux Îles Éparses', '0.0000000', '0.0000000'),
+(16, 'REU', 'Statut biogéographique à la Réunion', '-21.1151410', '55.5363840'),
+(17, 'SA', 'Statut biogéographique aux îles subantarctiques', '0.0000000', '0.0000000'),
+(18, 'TA', 'Statut biogéographique en Terre Adélie', '0.0000000', '0.0000000'),
+(19, 'TAAF', 'Statut biogéographique aux TAAF, calculé à partir des champs SA et TA', '0.0000000', '0.0000000'),
+(20, 'PF', 'Statut biogéographique en Polynésie française', '-17.6797420', '-149.4068430'),
+(21, 'NC', 'Statut biogéographique en Nouvelle-Calédonie', '-20.9043050', '165.6180420'),
+(22, 'WF', 'Statut biogéographique à Wallis et Futuna', '-14.2938000', '-178.1165000'),
+(23, 'CLI', 'Statut biogéographique à Clipperton', '10.2833333', '-109.2166667');
 
 -- --------------------------------------------------------
 
@@ -44,6 +81,39 @@ INSERT INTO `nao_habitat` (`id`, `description`) VALUES
 (6, 'Eau saumâtre'),
 (7, 'Continental (terrestre et/ou eau douce)'),
 (8, 'Continental (terrestre et eau douce)');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `nao_statut`
+--
+
+CREATE TABLE `nao_statut` (
+  `id` int(11) NOT NULL,
+  `cle` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `libelle` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `nao_statut`
+--
+
+INSERT INTO `nao_statut` (`id`, `cle`, `libelle`) VALUES
+(1, 'P', 'Présent(indigène ou indéterminé)'),
+(2, 'B', 'Occasionnel'),
+(3, 'E', 'Endémique'),
+(4, 'S', 'Subendémique'),
+(5, 'C', 'Cryptogène'),
+(6, 'I', 'Introduit'),
+(7, 'J', 'Introduit envahissant'),
+(8, 'M', 'Introduit non établi (dont domestique)'),
+(9, 'D', 'Douteux'),
+(10, 'A', 'Absent'),
+(11, 'W', 'Disparu'),
+(12, 'E', 'Eteint'),
+(13, 'Y', 'Introduit éteint / disparu'),
+(14, 'Z', 'Endémique éteint'),
+(15, 'Q', 'Mentionné par erreur');
 
 -- --------------------------------------------------------
 
@@ -2425,9 +2495,22 @@ INSERT INTO `nao_taxref` (`id`, `cd_nom`, `cd_sup`, `rang`, `lb_nom`, `lb_auteur
 --
 
 --
+-- Index pour la table `nao_geographie`
+--
+ALTER TABLE `nao_geographie`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_D0A9ECBA41401D17` (`cle`);
+
+--
 -- Index pour la table `nao_habitat`
 --
 ALTER TABLE `nao_habitat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `nao_statut`
+--
+ALTER TABLE `nao_statut`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2443,10 +2526,20 @@ ALTER TABLE `nao_taxref`
 --
 
 --
+-- AUTO_INCREMENT pour la table `nao_geographie`
+--
+ALTER TABLE `nao_geographie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+--
 -- AUTO_INCREMENT pour la table `nao_habitat`
 --
 ALTER TABLE `nao_habitat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT pour la table `nao_statut`
+--
+ALTER TABLE `nao_statut`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT pour la table `nao_taxref`
 --

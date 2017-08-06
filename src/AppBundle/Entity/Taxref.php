@@ -228,6 +228,7 @@ class Taxref
     {
         return $this->cdNom;
     }
+
     /**
      * Set cdNom
      *
@@ -803,4 +804,4 @@ class Taxref
     {
         return $this->cli;
     }
-
+}
