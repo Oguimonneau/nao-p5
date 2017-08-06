@@ -13,6 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class Taxref
 {
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Habitat", inversedBy="taxrefs")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $habitat;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -68,12 +74,6 @@ class Taxref
      */
     private $nomVernEng;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="habitat", type="integer")
-     */
-    private $habitat;
 
     /**
      * @var string
@@ -803,5 +803,4 @@ class Taxref
     {
         return $this->cli;
     }
-}
 
