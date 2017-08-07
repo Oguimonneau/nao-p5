@@ -37,7 +37,8 @@
       "twig/twig": "^1.0||^2.0",
       "stripe/stripe-php": "4.*",
       "swiftmailer/swiftmailer":"^6.0",
-      "coresphere/console-bundle": "~0.4"
+      "coresphere/console-bundle": "~0.4",
+      "friendsofsymfony/user-bundle": "~2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
