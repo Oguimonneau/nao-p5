@@ -1,1 +1,68 @@
+.image-nav{
+    height: 35px;
+    padding: 0px;
+    position: absolute;
+    left: 25px;
+    top:5px;
+}
+.titre-nav{
+    position: absolute;
+    left: 120px;
+    top:16px;
+}
+.img-home {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+.navbar-inverse .navbar-brand {
+    padding: 9px 15px;
+    color: #01FF99;
+}
+
+
+.navbar-menu{
+    top:-20px;
+}
+
+.navbar-search{
+    top:-40px;
+}
+
+.inline-form input {
+    display: inline-block;
+    width: 100px;
+}
+.download-btn{
+    position: absolute;
+    left: 760px;
+    top: -100px;
+}
+@media all and (max-device-width: 1024px)
+{
+    /* Vos règles CSS pour iPad V */
+    .download-btn{
+        position: absolute;
+        left: 525px;
+        top: -70px;
+}
+@media all and (max-device-width: 768px)
+{
+    /* Vos règles CSS pour iPad H */
+    .download-btn{
+        position: absolute;
+        left: 330px;
+        top: -70px;
+}
+@media all and (max-device-width: 480px)
+{
+    /* Vos règles CSS pour les mobiles ici */
+    .download-btn{
+        position: absolute;
+        left: 23px;
+        top: -70px;
+}
 

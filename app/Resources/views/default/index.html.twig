@@ -1,19 +1,6 @@
 {% extends 'base.html.twig' %}
 
-
-
 {% block body %}
-    {#Gestion des FlashMessages#}
-    {% for flashMessage in app.session.flashbag.get('succes') %}
-        <div class="alert alert-success">
-            {{ flashMessage }}
-        </div>
-    {% endfor %}
-    {% for flashMessage in app.session.flashbag.get('alert') %}
-        <div class="alert alert-danger">
-            {{ flashMessage }}
-        </div>
-    {% endfor %}
     <img  class="img-home" src="{{ asset('images/Image1.jpg') }}">
     <div class="container">
         <div class="row">
@@ -22,8 +9,8 @@
                     <!-- TITLE AND DESC -->
                     <div class="download-btn">
                         <!-- BUTTON -->
-                        <a class="btn home-btn wow fadeInLeft" href="#DOWNLOAD">Faire une observation</a>
-                        <a class="tuor btn wow fadeInRight" href="#ABOUT">Trouver une espèce<i class="fa fa-angle-down"></i></a>
+                        <button type="button" class="btn btn-success ">Faire une observation</button>
+                        <button type="button" class="btn btn-warning ">Trouver une espèce</button>
                     </div>
                 </div>
             </div>
