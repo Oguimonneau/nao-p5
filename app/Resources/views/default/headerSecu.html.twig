@@ -1,26 +1,38 @@
 {#navbar Securité#}
     <nav class="navbar navbar-default navbar-inscription" role="navigation">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="{{ path('NAO_home') }}">
-                    <img class="image-nav" src="{{ asset('images/logo.png') }}" alt="Logo NAO"><p class ="titre-nav">Partez à la rencontre des oiseaux</p>
-                </a>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-target">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <a class="navbar-brand" href="{{ path('NAO_home') }}">
+                    <img class="image-nav" src="{{ asset('images/logo.png') }}" alt="Logo NAO"><p class ="titre-nav">Partez à la rencontre des oiseaux</p>
+                </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-target">
                 <ul class="nav navbar-nav navbar-right">
-                    {% if app.user is null  %}
-                        <li><a href="{{ path('logout') }}">Inscription</a> </li>
-                        <li><a href="{{ path('login') }}">Connectez-vous </a> </li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user"></span> Bonjour, {{ app.user.username }} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('logout') }}">Se déconnecter</a></li>
+                            </ul>
+                        </li>
+                        {#Tester si Admin ou User#}
+                        {% if app.user.roles[0] == "ROLE_NATURALISTE" %}
+                            <li><a href="{{ path('login') }}">Admin</a></li>
+                        {% endif %}
                     {% else %}
-                        <li>Bonjour {{ app.user.username }}</li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user"></span> Non Connecté <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('login') }}">Se connecter</a></li>
+                                <li><a href="{{ path('login') }}">S'inscrire</a></li>
+                            </ul>
+                        </li>
                     {% endif %}
                 </ul>
             </div>
