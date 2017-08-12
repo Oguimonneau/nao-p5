@@ -41,28 +41,33 @@
     left: 760px;
     top: -100px;
 }
-@media all and (max-device-width: 1024px)
-{
+.adminTable {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media all and (max-device-width: 1024px) {
     /* Vos règles CSS pour iPad V */
-    .download-btn{
+    .download-btn {
         position: absolute;
         left: 525px;
         top: -70px;
+    }
 }
-@media all and (max-device-width: 768px)
-{
+@media all and (max-device-width: 768px) {
     /* Vos règles CSS pour iPad H */
-    .download-btn{
+    .download-btn {
         position: absolute;
         left: 330px;
         top: -70px;
+    }
 }
-@media all and (max-device-width: 480px)
-{
+@media all and (max-device-width: 480px) {
     /* Vos règles CSS pour les mobiles ici */
-    .download-btn{
+    .download-btn {
         position: absolute;
         left: 23px;
         top: -70px;
+    }
 }
 

@@ -32,4 +32,4 @@ security:
         target: NAO_home
 
   access_control:
-    #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/back, roles: ROLE_NATURALISTE }

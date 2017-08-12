@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class DefaultController extends Controller
 {
@@ -14,13 +15,23 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // Code teste si l'utilisateur est authentifié
-        $user = $this->getUser();
-        if (null === $user) {
-            // Ici, l'utilisateur est anonyme ou l'URL n'est pas derrière un pare-feu
-        } else {
-            dump($user);
-        }
+
         return $this->render('default/index.html.twig');
     }
+
+    public function backAction(Request $request)
+    {
+
+        return $this->render('default/back.html.twig');
+    }
+
+    /**
+     * @Security("has_role('ROLE_PARTICULIER') or has_role('ROLE_NATURALISTE')")
+     */
+    public function addOvservationAction(Request $request)
+    {
+
+        return $this->render('default/addObservation.html.twig');
+    }
+
 }

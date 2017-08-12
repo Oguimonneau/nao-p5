@@ -22,7 +22,7 @@
                         </li>
                         {#Tester si Admin ou User#}
                         {% if app.user.roles[0] == "ROLE_NATURALISTE" %}
-                            <li><a href="{{ path('login') }}">Admin</a></li>
+                            <li><a href="{{ path('NAO_back') }}">Admin</a></li>
                         {% endif %}
                     {% else %}
                         <li class="dropdown">
