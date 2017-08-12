@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ path('NAO_home') }}">
                     <img class="image-nav" src="{{ asset('images/logo.png') }}" alt="Logo NAO"><p class ="titre-nav">Partez à la rencontre des oiseaux</p>
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -17,9 +17,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- NAV -->
-                    <li><a href="#Inscription">Inscription</a> </li>
-                    <li><a href="#Connection">Connectez-vous </a> </li>
+                    {% if app.user is null  %}
+                        <li><a href="{{ path('logout') }}">Inscription</a> </li>
+                        <li><a href="{{ path('login') }}">Connectez-vous </a> </li>
+                    {% else %}
+                        <li>Bonjour {{ app.user.username }}</li>
+                    {% endif %}
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
