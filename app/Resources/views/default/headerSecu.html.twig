@@ -17,7 +17,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <span class="glyphicon glyphicon-user"></span> Bonjour, {{ app.user.username }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('logout') }}">Se déconnecter</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
                             </ul>
                         </li>
                         {#Tester si Admin ou User#}
@@ -29,8 +29,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <span class="glyphicon glyphicon-user"></span> Non Connecté <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('login') }}">Se connecter</a></li>
-                                <li><a href="{{ path('login') }}">S'inscrire</a></li>
+                                <li><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
+                                <li><a href="{{ path('fos_user_registration_register') }}">S'inscrire</a></li>
                             </ul>
                         </li>
                     {% endif %}

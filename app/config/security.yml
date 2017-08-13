@@ -2,8 +2,7 @@
 # https://symfony.com/doc/current/security.html
 security:
   encoders:
-    Symfony\Component\Security\Core\User\User: plaintext
-    UserBundle\Entity\User: plaintext
+    UserBundle\Entity\User: sha512
 
   role_hierarchy:
     ROLE_ADMIN:       ROLE_PARTICULIER
@@ -11,9 +10,7 @@ security:
 
   providers:
     main:
-      entity:
-        class:    UserBundle\Entity\User
-        property: username
+      id: fos_user.user_provider.username
 
   firewalls:
     dev:
@@ -25,12 +22,13 @@ security:
       anonymous:    true
       provider:     main
       form_login:
-        login_path: login
-        check_path: login_check
-
+        login_path: fos_user_security_login
+        check_path: fos_user_security_check
       logout:
-        path: logout
-        target: NAO_home
+        path:       fos_user_security_logout
+        target:     NAO_home
+      remember_me:
+        secret:     %secret% # %secret% est un paramètre de parameter
 
   access_control:
         - { path: ^/back, roles: ROLE_NATURALISTE }
