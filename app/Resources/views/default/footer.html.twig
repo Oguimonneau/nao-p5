@@ -9,14 +9,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-collapse">
                     <!-- NAV -->
-                    <li><a href="#HOME">Conditions générales</a> </li>
-                    <li><a href="#ABOUT">FAQ </a> </li>
-                    <li><a href="#FEATURES">Mentions légales</a></li>
-                    <li><a href="#SCREENS">Plan du site</a> </li>
-                    <li><a href="#DOWNLOAD">Contact </a> </li>
-                    <li><a href="#CONTACT">Adhérer</a> </li>
+                    <li><a href="{{ path('NAO_conditions') }}">Conditions générales</a> </li>
+                    <li><a href="{{ path('NAO_mentions') }}">Mentions légales</a></li>
+                    <li><a href="{{ path('NAO_contact') }}">Contact </a> </li>
+                    <li><a href="{{ path('fos_user_registration_register') }}">Adhérer</a> </li>
                 </ul>
-            </div>        </div>
+            </div>
+        </div>
     </nav>
 </section>
 

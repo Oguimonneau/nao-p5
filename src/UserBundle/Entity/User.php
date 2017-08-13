@@ -22,5 +22,15 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * User constructor.
+     */
+    public function __construct()
+    {
+//        Par défaut, un user est créé dans le groupe "ROLE_PARTICULIER"
+        $this->roles[0] = "ROLE_PARTICULIER";
+
+    }
 }
 

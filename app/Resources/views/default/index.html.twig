@@ -10,7 +10,7 @@
                     <div class="download-btn">
                         <!-- BUTTON -->
                         <a href="{{ path('NAO_addObservation') }}" class="btn btn-success ">Faire une observation</a>
-                        <a href="{{ path('NAO_addObservation') }}" class="btn btn-warning ">Trouver une espèce</a>
+                        <a href="{{ path('NAO_searchEspece') }}" class="btn btn-warning ">Trouver une espèce</a>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                         <h3 class="panel-title">Les derniers spécimens observés</h3>
                     </div>
                     <div class="panel-body">
-                        <img  class="img-home" src="{{ asset('images/Image2.jpg') }}">
+                        <a href="{{ path('NAO_listObservation') }}"> <img  class="img-home" src="{{ asset('images/Image2.jpg') }}"></a>
                     </div>
                 </div>
             </div>

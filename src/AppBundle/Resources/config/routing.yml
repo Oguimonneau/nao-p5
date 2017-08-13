@@ -11,10 +11,46 @@ NAO_back:
         _controller: AppBundle:Default:back
     methods:  [GET, POST]
 
+NAO_listObservation:
+    path:      /observation/liste
+    defaults:
+        _controller: AppBundle:Default:listObservation
+    methods:  [GET, POST]
+
 NAO_addObservation:
     path:      /observation/add
     defaults:
-        _controller: AppBundle:Default:addOvservation
+        _controller: AppBundle:Default:addObservation
+    methods:  [GET, POST]
+
+NAO_searchEspece:
+    path:     /searchEspece
+    defaults:
+        _controller: AppBundle:Taxref:index
+    methods:  [GET, POST]
+
+NAO_about:
+    path:     /about
+    defaults:
+        _controller: AppBundle:Default:about
+    methods:  [GET, POST]
+
+NAO_contact:
+    path:     /contact
+    defaults:
+        _controller: AppBundle:Default:contact
+    methods:  [GET, POST]
+
+NAO_mentions:
+    path:     /mentions
+    defaults:
+        _controller: AppBundle:Default:mentions
+    methods:  [GET, POST]
+
+NAO_conditions:
+    path:     /conditions
+    defaults:
+        _controller: AppBundle:Default:conditions
     methods:  [GET, POST]
 
 
