@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 06 Août 2017 à 20:47
+-- Généré le :  Dim 13 Août 2017 à 09:38
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -2490,6 +2490,20 @@ INSERT INTO `nao_taxref` (`id`, `cd_nom`, `cd_sup`, `rang`, `lb_nom`, `lb_auteur
 (2325, 838104, 197027, 'ES', 'Rallus crepitans', 'Gmelin, 1789', '', '', '', '', 'P', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', 3),
 (2326, 838315, 3112, 'SSES', 'Himantopus himantopus himantopus', '(Linnaeus, 1758)', '', '', 'P', '', '', 'B', '', '', '', '', '', '', '', '', '', '', '', '', '', 5);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `nao_user`
+--
+
+CREATE TABLE `nao_user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `salt` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `roles` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:array)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 --
 -- Index pour les tables exportées
 --
@@ -2522,6 +2536,13 @@ ALTER TABLE `nao_taxref`
   ADD KEY `IDX_CAAE9CF3AFFE2D26` (`habitat_id`);
 
 --
+-- Index pour la table `nao_user`
+--
+ALTER TABLE `nao_user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_62B4C671F85E0677` (`username`);
+
+--
 -- AUTO_INCREMENT pour les tables exportées
 --
 
@@ -2545,6 +2566,11 @@ ALTER TABLE `nao_statut`
 --
 ALTER TABLE `nao_taxref`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2327;
+--
+-- AUTO_INCREMENT pour la table `nao_user`
+--
+ALTER TABLE `nao_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Contraintes pour les tables exportées
 --

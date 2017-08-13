@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +19,7 @@ class SecurityController extends Controller
         // (mauvais mot de passe par exemple)
         $authenticationUtils = $this->get('security.authentication_utils');
 
-        return $this->render('form/login.html.twig', array(
+        return $this->render('UserBundle:Security:login.html.twig', array(
             'last_username' => $authenticationUtils->getLastUsername(),
             'error'         => $authenticationUtils->getLastAuthenticationError(),
         ));

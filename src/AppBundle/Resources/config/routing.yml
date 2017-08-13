@@ -1,4 +1,4 @@
-#src/Louvre/BilletterieBundle/Ressources/config/routing.yml
+
 NAO_home:
     path:      /
     defaults:
@@ -17,14 +17,5 @@ NAO_addObservation:
         _controller: AppBundle:Default:addOvservation
     methods:  [GET, POST]
 
-login:
-    path: /login
-    defaults:
-        _controller: AppBundle:Security:login
 
-login_check:
-    path: /login_check
-
-logout:
-    path: /logout
 
