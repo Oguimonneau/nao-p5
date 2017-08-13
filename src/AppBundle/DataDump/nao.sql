@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 13 Août 2017 à 09:38
+-- Généré le :  Dim 13 Août 2017 à 16:59
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -39,23 +39,23 @@ CREATE TABLE `nao_geographie` (
 --
 
 INSERT INTO `nao_geographie` (`id`, `cle`, `libelle`, `latitude`, `longitude`) VALUES
-(7, 'FR', 'Statut biogéographique en France métropolitaine', '46.2276380', '2.2137490'),
-(8, 'GF', 'Statut biogéographique en Guyane française', '3.9338890', '-53.1257820'),
-(9, 'MAR', 'Statut biogéographique à la Martinique', '14.6415280', '-61.0241740'),
-(10, 'GUA', 'Statut biogéographique à la Guadeloupe', '16.2650000', '-61.5510000'),
-(11, 'SM', 'Statut biogéographique à Saint-Martin', '18.0708298', '-63.0500809'),
-(12, 'SB', 'Statut biogéographique à Saint-Barthélemy', '17.9000000', '-62.8333330'),
-(13, 'SPM', 'Statut biogéographique à Saint-Pierre et Miquelon', '46.8852000', '-56.0315900'),
-(14, 'MAY', 'Statut biogéographique à Mayotte', '-12.8275000', '45.1662440'),
-(15, 'EPA', 'Statut biogéographique aux Îles Éparses', '0.0000000', '0.0000000'),
-(16, 'REU', 'Statut biogéographique à la Réunion', '-21.1151410', '55.5363840'),
-(17, 'SA', 'Statut biogéographique aux îles subantarctiques', '0.0000000', '0.0000000'),
-(18, 'TA', 'Statut biogéographique en Terre Adélie', '0.0000000', '0.0000000'),
-(19, 'TAAF', 'Statut biogéographique aux TAAF, calculé à partir des champs SA et TA', '0.0000000', '0.0000000'),
-(20, 'PF', 'Statut biogéographique en Polynésie française', '-17.6797420', '-149.4068430'),
-(21, 'NC', 'Statut biogéographique en Nouvelle-Calédonie', '-20.9043050', '165.6180420'),
-(22, 'WF', 'Statut biogéographique à Wallis et Futuna', '-14.2938000', '-178.1165000'),
-(23, 'CLI', 'Statut biogéographique à Clipperton', '10.2833333', '-109.2166667');
+(1, 'FR', 'Statut biogéographique en France métropolitaine', '46.2276380', '2.2137490'),
+(2, 'GF', 'Statut biogéographique en Guyane française', '3.9338890', '-53.1257820'),
+(3, 'MAR', 'Statut biogéographique à la Martinique', '14.6415280', '-61.0241740'),
+(4, 'GUA', 'Statut biogéographique à la Guadeloupe', '16.2650000', '-61.5510000'),
+(5, 'SM', 'Statut biogéographique à Saint-Martin', '18.0708298', '-63.0500809'),
+(6, 'SB', 'Statut biogéographique à Saint-Barthélemy', '17.9000000', '-62.8333330'),
+(7, 'SPM', 'Statut biogéographique à Saint-Pierre et Miquelon', '46.8852000', '-56.0315900'),
+(8, 'MAY', 'Statut biogéographique à Mayotte', '-12.8275000', '45.1662440'),
+(9, 'EPA', 'Statut biogéographique aux Îles Éparses', '0.0000000', '0.0000000'),
+(10, 'REU', 'Statut biogéographique à la Réunion', '-21.1151410', '55.5363840'),
+(11, 'SA', 'Statut biogéographique aux îles subantarctiques', '0.0000000', '0.0000000'),
+(12, 'TA', 'Statut biogéographique en Terre Adélie', '0.0000000', '0.0000000'),
+(13, 'TAAF', 'Statut biogéographique aux TAAF, calculé à partir des champs SA et TA', '0.0000000', '0.0000000'),
+(14, 'PF', 'Statut biogéographique en Polynésie française', '-17.6797420', '-149.4068430'),
+(15, 'NC', 'Statut biogéographique en Nouvelle-Calédonie', '-20.9043050', '165.6180420'),
+(16, 'WF', 'Statut biogéographique à Wallis et Futuna', '-14.2938000', '-178.1165000'),
+(17, 'CLI', 'Statut biogéographique à Clipperton', '10.2833333', '-109.2166667');
 
 -- --------------------------------------------------------
 
@@ -2498,11 +2498,27 @@ INSERT INTO `nao_taxref` (`id`, `cd_nom`, `cd_sup`, `rang`, `lb_nom`, `lb_auteur
 
 CREATE TABLE `nao_user` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
+  `username_canonical` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
+  `email_canonical` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `salt` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `salt` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `last_login` datetime DEFAULT NULL,
+  `confirmation_token` varchar(180) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password_requested_at` datetime DEFAULT NULL,
   `roles` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:array)'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `nao_user`
+--
+
+INSERT INTO `nao_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `confirmation_token`, `password_requested_at`, `roles`) VALUES
+(1, 'Particulier', 'particulier', 'particulier@kahilom.com', 'particulier@kahilom.com', 1, '/TsgZaAExCl2FcsFEEZdPoqHJfma6EGVx.IsNp9ob2o', 'a9O6EhOVpZj3HZAZf0+htwDhB9waE0mrqISDFDVZhsPzURZ73veQ9OcMWnGxvTeujLc8awP//ORimtZLwD0iTQ==', '2017-08-13 15:51:35', NULL, NULL, 'a:1:{i:0;s:16:"ROLE_PARTICULIER";}'),
+(2, 'Naturaliste', 'naturaliste', 'naturaliste@kahilom.com', 'naturaliste@kahilom.com', 1, 'c5ZmLCTBjEwh4NuKaQwn8G7LwoHFVt2z/lkTpnbFCtY', 'aFson+EZiGl8uCjTMABQkA3fyqcgfGV8M5Q8qfW/MZWkOXcKpuzFeLn6Hzjzh5x7D3MiU3pUhFVuXVcHSC7bBw==', '2017-08-13 16:54:38', NULL, NULL, 'a:1:{i:0;s:16:"ROLE_NATURALISTE";}'),
+(5, 'Olivier', 'olivier', 'oguimonneau@gmail.com', 'oguimonneau@gmail.com', 1, '21Jt3lanJVetW6HnD3Tz4wCndc6NHPDvHNU6jT.0L9c', '4oq1NhL5uwVjkXDlYn9IiG4Ia34nWpVDk5v+lf+KPjPTBO6G4uMs6HPHeAs6dD8o1SZUgQSOSMI5JwAJmG7LcA==', '2017-08-13 16:47:27', NULL, NULL, 'a:1:{i:0;s:16:"ROLE_PARTICULIER";}');
 
 --
 -- Index pour les tables exportées
@@ -2540,7 +2556,9 @@ ALTER TABLE `nao_taxref`
 --
 ALTER TABLE `nao_user`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_62B4C671F85E0677` (`username`);
+  ADD UNIQUE KEY `UNIQ_62B4C67192FC23A8` (`username_canonical`),
+  ADD UNIQUE KEY `UNIQ_62B4C671A0D96FBF` (`email_canonical`),
+  ADD UNIQUE KEY `UNIQ_62B4C671C05FB297` (`confirmation_token`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -2550,7 +2568,7 @@ ALTER TABLE `nao_user`
 -- AUTO_INCREMENT pour la table `nao_geographie`
 --
 ALTER TABLE `nao_geographie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT pour la table `nao_habitat`
 --
@@ -2570,7 +2588,7 @@ ALTER TABLE `nao_taxref`
 -- AUTO_INCREMENT pour la table `nao_user`
 --
 ALTER TABLE `nao_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Contraintes pour les tables exportées
 --
