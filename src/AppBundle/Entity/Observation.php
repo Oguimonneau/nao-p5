@@ -23,15 +23,6 @@ class Observation
      */
     private $user;
 
-    public function setPhoto(Photo $photo = null)
-    {
-        $this->photo = $photo;
-    }
-
-    public function getPhoto()
-    {
-        return $this->photo;
-    }
 
     /**
      * @var int
@@ -81,6 +72,27 @@ class Observation
     {
         // Par défaut, la date de l'observation est la date d'aujourd'hui
         $this->date = new \Datetime();
+    }
+    public function setPhoto(Photo $photo = null)
+    {
+        $this->photo = $photo;
+    }
+
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getUser()
+    {
+        return $this->user;
     }
 
     /**

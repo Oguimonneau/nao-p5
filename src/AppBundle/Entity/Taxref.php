@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,6 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Taxref
 {
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Photo", cascade={"persist"})
+     */
+    private $photos;
+
+
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Habitat", inversedBy="taxrefs")
      * @ORM\JoinColumn(nullable=true)
@@ -194,7 +201,10 @@ class Taxref
      */
     private $cli;
 
-
+    public function __construct()
+    {
+        $this->photos = new ArrayCollection();
+    }
     /**
      * Get id
      *
@@ -803,5 +813,39 @@ class Taxref
     public function getCli()
     {
         return $this->cli;
+    }
+
+    /**
+     * Add photo
+     *
+     * @param \AppBundle\Entity\Photo $photo
+     *
+     * @return Taxref
+     */
+    public function addPhoto(\AppBundle\Entity\Photo $photo)
+    {
+        $this->photos[] = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Remove photo
+     *
+     * @param \AppBundle\Entity\Photo $photo
+     */
+    public function removePhoto(\AppBundle\Entity\Photo $photo)
+    {
+        $this->photos->removeElement($photo);
+    }
+
+    /**
+     * Get photos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
     }
 }
