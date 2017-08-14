@@ -17,6 +17,12 @@ class Observation
      */
     private $photo;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function setPhoto(Photo $photo = null)
     {
         $this->photo = $photo;
