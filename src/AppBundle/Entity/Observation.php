@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Observation
  *
@@ -22,6 +23,12 @@ class Observation
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Taxref")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $taxref;
 
 
     /**
@@ -64,32 +71,92 @@ class Observation
     /**
      * @var string
      *
+     * @ORM\Column(name="note", type="text")
+     */
+    private $note;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="valide", type="boolean")
      */
     private $valide = false;
+
+
 
     public function __construct()
     {
         // Par défaut, la date de l'observation est la date d'aujourd'hui
         $this->date = new \Datetime();
     }
-    public function setPhoto(Photo $photo = null)
+    /**
+     * Set taxref
+     *
+     * @param \AppBundle\Entity\Taxref $taxref
+     *
+     * @return Observation
+     */
+    public function setTaxref(\AppBundle\Entity\Taxref $taxref)
     {
-        $this->photo = $photo;
+        $this->taxref = $taxref;
+
+        return $this;
     }
 
+    /**
+     * Get taxref
+     *
+     * @return \AppBundle\Entity\Taxref
+     */
+    public function getTaxref()
+    {
+        return $this->taxref;
+    }
+
+
+    /**
+     * Set photo
+     *
+     * @param \AppBundle\Entity\Photo $photo
+     *
+     * @return Observation
+     */
+    public function setPhoto(\AppBundle\Entity\Photo $photo = null)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return \AppBundle\Entity\Photo
+     */
     public function getPhoto()
     {
         return $this->photo;
     }
 
-    public function setUser(User $user)
+    /**
+     * Set user
+     *
+     * @param \UserBundle\Entity\User $user
+     *
+     * @return Observation
+     */
+    public function setUser(\UserBundle\Entity\User $user)
     {
         $this->user = $user;
 
         return $this;
     }
 
+    /**
+     * Get user
+     *
+     * @return \UserBundle\Entity\User
+     */
     public function getUser()
     {
         return $this->user;
@@ -224,4 +291,29 @@ class Observation
     {
         return $this->valide;
     }
+
+    /**
+     * Set note
+     *
+     * @param string $note
+     *
+     * @return Observation
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    /**
+     * Get note
+     *
+     * @return string
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
 }

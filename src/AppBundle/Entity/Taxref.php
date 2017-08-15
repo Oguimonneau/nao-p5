@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Taxref
  *
- * @ORM\Table(name="nao_taxref")
+ * @ORM\Table(name="nao_taxref", indexes={@ORM\Index(name="nom_vern_idx", columns={"nom_vern"})})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TaxrefRepository")
  */
 class Taxref
@@ -37,7 +37,7 @@ class Taxref
     /**
      * @var int
      *
-     * @ORM\Column(name="cd_nom", type="integer", nullable=true, unique=true)
+     * @ORM\Column(name="cd_nom", type="integer")
      */
     private $cdNom;
     /**

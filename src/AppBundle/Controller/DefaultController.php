@@ -44,20 +44,4 @@ class DefaultController extends Controller
     {
         return $this->render('default/conditions.html.twig');
     }
-
-    /**
-     * @Security("has_role('ROLE_PARTICULIER') or has_role('ROLE_NATURALISTE')")
-     */
-    public function addObservationAction(Request $request)
-    {
-
-        return $this->render('default/addObservation.html.twig');
-    }
-
-    public function listObservationAction(Request $request)
-    {
-
-        return $this->render('default/listObservation.html.twig');
-    }
-
 }

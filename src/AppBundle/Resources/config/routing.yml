@@ -1,32 +1,8 @@
-
+#Pages du Bundle App
 NAO_home:
     path:      /
     defaults:
         _controller: AppBundle:Default:index
-    methods:  [GET, POST]
-
-NAO_back:
-    path:      /back
-    defaults:
-        _controller: AppBundle:Default:back
-    methods:  [GET, POST]
-
-NAO_listObservation:
-    path:      /observation/liste
-    defaults:
-        _controller: AppBundle:Default:listObservation
-    methods:  [GET, POST]
-
-NAO_addObservation:
-    path:      /observation/add
-    defaults:
-        _controller: AppBundle:Default:addObservation
-    methods:  [GET, POST]
-
-NAO_searchEspece:
-    path:     /searchEspece
-    defaults:
-        _controller: AppBundle:Taxref:index
     methods:  [GET, POST]
 
 NAO_about:
@@ -53,5 +29,32 @@ NAO_conditions:
         _controller: AppBundle:Default:conditions
     methods:  [GET, POST]
 
+#Pages Observation
+
+NAO_listObservation:
+    path:      /observation/liste
+    defaults:
+        _controller: AppBundle:Observation:list
+    methods:  [GET, POST]
+
+NAO_addObservation:
+    path:      /observation/add
+    defaults:
+        _controller: AppBundle:Observation:add
+    methods:  [GET, POST]
+
+# Pages Taxref
+NAO_searchEspece:
+    path:     /searchEspece
+    defaults:
+        _controller: AppBundle:Taxref:index
+    methods:  [GET, POST]
+
+#Pages Back-Office
+NAO_back:
+    path:      /back
+    defaults:
+        _controller: AppBundle:Default:back
+    methods:  [GET, POST]
 
 
