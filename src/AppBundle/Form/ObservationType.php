@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -30,12 +31,15 @@ class ObservationType extends AbstractType
                 'choice_label'  => 'nom_vern',
                 'multiple'      =>  false,
             ))
-            ->add('date',       DateType::class)
+            ->add('date', DateType::class, array(
+                'widget'    => 'single_text',
+                'html5'      => false,
+                'attr'      => ['class' => 'js-datepicker']
+            ))
             ->add('latitude',   NumberType::class)
             ->add('longitude',  NumberType::class)
             ->add('commune',    TextType::class)
             ->add('note',       TextareaType::class)
-
 //            ->add('photo',      FileType::class)
 
             ->add('Poster',     submitType::class);

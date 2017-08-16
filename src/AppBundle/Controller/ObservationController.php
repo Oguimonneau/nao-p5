@@ -24,11 +24,6 @@ class ObservationController extends Controller
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             // On fait le lien avec l'utilisateur en cours
             $observation->setUser($this->getUser());
-            //Si utilisateur est Naturaliste
-            if ($this->getUser()->getRoles()[0] === "ROLE_NATURALISTE"){
-                dump($this->getUser()->getRoles()[0]);
-                $observation->setValide(true);
-            }
             $em = $this->getDoctrine()->getManager();
             $em->persist($observation);
             $em->flush();

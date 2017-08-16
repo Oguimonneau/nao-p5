@@ -148,7 +148,11 @@ class Observation
     public function setUser(\UserBundle\Entity\User $user)
     {
         $this->user = $user;
+        if(in_array('ROLE_NATURALISTE', $user->getRoles())) {
 
+//        if ($this->getUser()->getRoles()[0] === "ROLE_NATURALISTE"){
+            $this->setValide(true);
+        }
         return $this;
     }
 
