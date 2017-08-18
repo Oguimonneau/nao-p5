@@ -23,6 +23,7 @@ class ObservationController extends Controller
         $form = $this->get('form.factory')->create(ObservationType::class, $observation);
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             // On fait le lien avec l'utilisateur en cours
+            // essaye GIT
             $observation->setUser($this->getUser());
             $em = $this->getDoctrine()->getManager();
             $em->persist($observation);
