@@ -1,6 +1,6 @@
 $('.js-datepicker').datepicker({
     language: "fr",
-    format: "yyyy-mm-dd",
+    format: "dd-mm-yyyy",
     todayHighlight: true,
     endDate:"d",
     todayBtn: true,

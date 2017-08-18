@@ -24,6 +24,9 @@ class ObservationController extends Controller
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             // On fait le lien avec l'utilisateur en cours
             $observation->setUser($this->getUser());
+            //On déplace l'immage
+            $observation->getPhoto()->upload();
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($observation);
             $em->flush();
