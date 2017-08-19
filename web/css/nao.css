@@ -46,6 +46,11 @@
     margin-bottom: 20px;
 }
 
+#map {
+    height: 592px;
+}
+
+
 @media all and (max-device-width: 1024px) {
     /* Vos règles CSS pour iPad V */
     .download-btn {
