@@ -25,9 +25,9 @@ class Photo
     /**
      * @var string
      *
-     * @ORM\Column(name="chemin", type="string", length=255)
+     * @ORM\Column(name="url", type="string", length=255)
      */
-    private $chemin;
+    private $url;
 
     /**
      * @ORM\Column(name="alt", type="string", length=255)
@@ -50,7 +50,7 @@ class Photo
         $this->file->move($this->getUploadRootDir(), $name);
 
         // On sauvegarde le nom de fichier dans notre attribut $url
-        $this->chemin = $name;
+        $this->url = $name;
 
         // On crée également le futur attribut alt de notre balise <img>
         $this->alt = $name;
@@ -87,30 +87,6 @@ class Photo
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set chemin
-     *
-     * @param string $chemin
-     *
-     * @return Photo
-     */
-    public function setChemin($chemin)
-    {
-        $this->chemin = $chemin;
-
-        return $this;
-    }
-
-    /**
-     * Get chemin
-     *
-     * @return string
-     */
-    public function getChemin()
-    {
-        return $this->chemin;
     }
 
     /**

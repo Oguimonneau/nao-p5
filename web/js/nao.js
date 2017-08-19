@@ -42,8 +42,8 @@ function initMap() {
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(browserHasGeolocation ?
-        'Error: The Geolocation service failed.' :
-        'Error: Your browser doesn\'t support geolocation.');
+        'Erreur: De Service de Géolocalisation est indisponible.' :
+        'Error: Votre navigateur ne supporte pas la Géolocalisation.');
 }
 
 function geocodeLatLng(geocoder, map, infowindow) {
@@ -53,9 +53,9 @@ function geocodeLatLng(geocoder, map, infowindow) {
     var lng = document.getElementById('appbundle_observation_longitude').value;
     var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
     geocoder.geocode({'location': latlng}, function(results, status) {
-        $(appbundle_observation_commune).val(results[1].formatted_address);
         if (status === 'OK') {
             if (results[1]) {
+                $(appbundle_observation_commune).val(results[1].formatted_address);
                 map.setZoom(11);
                 var marker = new google.maps.Marker({
                     position: latlng,
@@ -64,10 +64,12 @@ function geocodeLatLng(geocoder, map, infowindow) {
                 infowindow.setContent(results[1].formatted_address);
                 infowindow.open(map, marker);
             } else {
-                window.alert('No results found');
+                $(appbundle_observation_commune).val('Adresse inconnue');
+                window.alert('Aucun résultat trouvé');
             }
         } else {
-            window.alert('Geocoder failed due to: ' + status);
+            $(appbundle_observation_commune).val('Geocoder indisponible');
+            window.alert('Geocoder indisponible : ' + status);
         }
     });
 }
