@@ -25,7 +25,7 @@ class ObservationController extends Controller
             // On fait le lien avec l'utilisateur en cours
             $observation->setUser($this->getUser());
             //On déplace l'immage
-            $observation->getPhoto()->upload();
+//            $observation->getPhoto()->upload();
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($observation);
