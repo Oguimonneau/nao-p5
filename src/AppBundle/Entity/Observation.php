@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Observation
@@ -14,7 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Observation
 {
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Photo", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Photo", cascade={"persist", "remove"})
+     * @Assert\Valid()
      */
     private $photo;
 

@@ -19,14 +19,11 @@ class ObservationController extends Controller
     public function addAction(Request $request)
     {
         $observation = new Observation();
-
         $form = $this->get('form.factory')->create(ObservationType::class, $observation);
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             // On fait le lien avec l'utilisateur en cours
             $observation->setUser($this->getUser());
             //On déplace l'immage
-//            $observation->getPhoto()->upload();
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($observation);
             $em->flush();
@@ -35,7 +32,6 @@ class ObservationController extends Controller
 
             return $this->redirectToRoute('NAO_home');
         }
-
         return $this->render('default/addObservation.html.twig', array(
             'form' => $form->createView(),
         ));
