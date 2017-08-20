@@ -83,6 +83,27 @@ class Photo
         );
     }
 
+    /**
+     * @ORM\PreRemove()
+     */
+    public function preRemoveUpload()
+    {
+        // On sauvegarde temporairement le nom du fichier, car il dépend de l'id
+        $this->tempFilename = $this->getUploadRootDir().'/'.$this->id.'.'.$this->extention;
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        // En PostRemove, on n'a pas accès à l'id, on utilise notre nom sauvegardé
+        if (file_exists($this->tempFilename)) {
+            // On supprime le fichier
+            unlink($this->tempFilename);
+        }
+    }
+
     public function getUploadDir()
     {
         // On retourne le chemin relatif vers l'image pour un navigateur (relatif au répertoire /web donc)
