@@ -2,16 +2,21 @@
 <project version="4">
   <component name="PublishConfigData" serverName="nao-p5" deleteMissingItems="true">
     <serverData>
+      <paths name="Karim">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="nao-p5">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
-            <mapping local="" />
           </mappings>
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/.idea" />
             <excludedPath local="true" path="$PROJECT_DIR$/var" />
-            <excludedPath local="true" path="$PROJECT_DIR$/vendor" />
             <excludedPath local="true" path="$PROJECT_DIR$/app/config/parameters.yml" />
           </excludedPaths>
         </serverdata>
