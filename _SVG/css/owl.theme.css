@@ -22,8 +22,7 @@
 	-moz-border-radius: 30px;
 	border-radius: 30px;
 	background: #869791;
-	filter: Alpha(Opacity=50);/*IE7 fix*/
-	opacity: 0.5;
+	
 }
 /* Clickable class fix problem with hover on touch devices */
 /* Use it for non-touch hover action */

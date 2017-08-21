@@ -1,6 +1,68 @@
-<div class="section_overlay">
-    {% include ':default:headerSecu.html.twig' %}
-    {% include ':default:headerMenu.html.twig' %}
-    {% include ':default:headerSearch.html.twig' %}
-</div>
+<!--
+==================================================
+Header Section Start
+================================================== -->
+<header id="top-bar" class="navbar-fixed-top animated-header">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- responsive nav button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- /responsive nav button -->
+
+            <!-- logo -->
+            <div class="navbar-brand">
+                <a href="{{ path('NAO_home') }}" >
+                    <img class="image-nav" src="{{ asset('images/logo.png') }}" alt="Logo NAO - Nos Amis les Oiseau">
+                </a>
+            </div>
+            <!-- /logo -->
+        </div>
+        <!-- main menu -->
+        <nav class="collapse navbar-collapse" role="navigation">
+            <div class="main-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ path('NAO_home') }}">ACCUEIL</a> </li>
+                    <li><a href="{{ path('NAO_searchEspece') }}">CARTE INTERACTIVE </a> </li>
+                    <li><a href="{{ path('NAO_addObservation') }}">SOUMETTRE UNE OBSERVATION</a></li>
+                    <li><a href="{{ path('NAO_about') }}">QUI SOMMES NOUS</a> </li>
+                    <li><a href="{{ path('NAO_contact') }}">CONTACT</a> </li>
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user"></span> Bonjour, {{ app.user.username }} <span class="caret"></span></a>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        {#Tester si Admin ou User#}
+                        {% if app.user.roles[0] == "ROLE_NATURALISTE" %}
+                            <li><a href="{{ path('NAO_back') }}">Back-Office</a></li>
+                        {% endif %}
+                    {% else %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user"></span> Non Connecté <span class="caret"></span></a>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
+                                    <li><a href="{{ path('fos_user_registration_register') }}">S'inscrire</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <!-- /main nav -->
+    </div>
+</header>
+
+
 

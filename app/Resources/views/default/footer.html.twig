@@ -1,22 +1,46 @@
 {# src/NAO/SiteBundle/Resources/views/Site/footer.html.twig #}
-<!-- =========================
-     FOOTER
-============================== -->
-<section class="footer">
-    <nav class="navbar navbar-inverse navbar-fixed-bottom">
-        <div class="container">
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-collapse">
-                    <!-- NAV -->
-                    <li><a href="{{ path('NAO_conditions') }}">Conditions générales</a> </li>
-                    <li><a href="{{ path('NAO_mentions') }}">Mentions légales</a></li>
-                    <li><a href="{{ path('NAO_contact') }}">Contact </a> </li>
-                    <li><a href="{{ path('fos_user_registration_register') }}">Adhérer</a> </li>
-                </ul>
-            </div>
+<!--
+==================================================
+Footer Section Start
+================================================== -->
+<footer id="footer" class="footer">
+    <div class="container">
+        <div class="col-md-1">
+            <a href="{{ path('NAO_home') }}" >
+                <img class="image-footer" src="{{ asset('images/logo.png') }}" alt="Logo NAO - Nos Amis les Oiseau">
+            </a>
+
         </div>
-    </nav>
-</section>
+        <div class="col-md-7">
+            <p class="copyright">Copyright: <span>2017</span> . Design and Developed by <a href="http://www.Themefisher.com">Team-P5</a></p>
+        </div>
+        <div class="col-md-4">
+            <!-- Social Media -->
+            <ul class="social">
+                <li>
+                    <a href="http://wwww.fb.com/nao-P5" class="Facebook">
+                        <i class="ion-social-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://wwww.twitter.com/nao-P5" class="Twitter">
+                        <i class="ion-social-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://wwww.linkedin.com/nao-P5" class="Linkedin">
+                        <i class="ion-social-linkedin"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://wwww.fb.com/nao-P5" class="Google Plus">
+                        <i class="ion-social-googleplus"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer> <!-- /#footer -->
+
 
 <!-- END FOOTER -->

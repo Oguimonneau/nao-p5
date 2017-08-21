@@ -1,20 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
     <head>
+        <!-- Basic Page Needs
+        ================================================== -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="icon" href="{{ asset('images/favicon.ico') }}">
+
         <title>NAO | Nos amis les oiseaux</title>
+        <meta name="description" content="NAO - Nos amis les oiseaux">
+        <meta name="keywords" content="Oiseaux">
+        <meta name="author" content="La Team-P5 - OpenClassRoom">
+
+        <!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Template CSS Files
+        ================================================== -->
+        <!-- Twitter Bootstrs CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Ionicons Fonts Css -->
+        <link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}">
+        <!-- animate css -->
+        <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+        <!-- Hero area slider css-->
+        <link rel="stylesheet" href="{{ asset('css/slider.css') }}">
+        <!-- owl craousel css -->
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.theme.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.css') }}">
+        <!-- template main css file -->
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+        <!-- responsive css -->
+        <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
         <!-- Google Font -->
         <link href='https://fonts.googleapis.com/css?family=Raleway:500,600,700,800,900,400,300' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,300italic,400italic' rel='stylesheet' type='text/css'>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
         <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">        <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker3.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker3.css') }}">
         <link rel="stylesheet" href="{{ asset('css/nao.css') }}">
-        <link rel="icon" href="{{ asset('images/favicon.ico') }}">
 
     </head>
 
@@ -32,12 +59,35 @@
         {% include 'default/footer.html.twig' %}
 
     {% block javascripts %}
-        {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+
+        <!-- Template Javascript Files
+        ================================================== -->
+        <!-- modernizr js -->
+        <script src="{{ asset('js/vendor/modernizr-2.6.2.min.js') }}"></script>
+        <!-- jquery -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+        <!-- owl carouserl js -->
+        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+
+        <!-- bootstrap js -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <!-- wow js -->
+        <script src="{{ asset('js/wow.min.js') }}"></script>
+        <!-- slider js -->
+        <script src="{{ asset('js/slider.js') }}"></script>
+        <script src="{{ asset('js/jquery.fancybox.js') }}"></script>
+        <!-- Datepicker -->
+        <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
         <script src="{{ asset('js/bootstrap-datepicker.fr.min.js') }}"></script>
+        <!-- Geolocalisation-->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFLTldKU5XQdx7B_ldPv__ZHbTTISL9PU&callback=initMap"></script>
+        <script src="{{ asset('js/nao-geolocalisation.js') }}"></script>
+        <!-- template main js -->
+        <script src="{{ asset('js/main.js') }}"></script>
         <script src="{{ asset('js/nao.js') }}"></script>
+
+
     {% endblock %}
 
     </body>

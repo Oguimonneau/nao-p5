@@ -1,70 +1,86 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <img  class="img-home" src="{{ asset('images/Image1.jpg') }}">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="home_text">
-                    <!-- TITLE AND DESC -->
-                    <div class="download-btn">
-                        <!-- BUTTON -->
-                        <a href="{{ path('NAO_addObservation') }}" class="btn btn-success ">Faire une observation</a>
-                        <a href="{{ path('NAO_searchEspece') }}" class="btn btn-warning ">Trouver une espèce</a>
+    <!--
+==================================================
+Slider Section Start
+================================================== -->
+    <section id="hero-area" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="block wow fadeInUp" data-wow-delay=".3s">
+                        <!-- Slider -->
+                        <section class="cd-intro">
+                            <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s" >
+                                <span>Partez à la recherche des oiseaux</span><br>
+                                <span class="cd-words-wrapper">
+                                    <b class="is-visible">Découvrir</b>
+                                    <b>Observer</b>
+                                    <b>Protéger</b>
+                                </span>
+                            </h1>
+                        </section> <!-- cd-intro -->
+                        <!-- /.slider -->
+                        <a class="btn-lines dark light wow fadeInUp animated smooth-scroll btn btn-default btn-green" data-wow-delay=".9s" href="{{ path('NAO_addObservation') }}" data-section="#works" >Soumettre une observation</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-4">
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Les derniers spécimens observés</h3>
+    </section><!--/#main-slider-->
+
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
+                        <h2>
+                            Découvrez l'association
+                        </h2>
+                        <p>
+                            Un texte spécifique à l'association<br>
+                            BlablaBlabla BlablaBlabla BlablaBlabla BlablaBlabla BlablaBlabla BlablaBlabla BlablaBlabla BlablaBlabla BlablaBlabla BlablaBlabla BlablaBlabla BlablaBlabla Blabla
+                        </p>
                     </div>
-                    <div class="panel-body">
-                        <a href="{{ path('NAO_listObservation') }}"> <img  class="img-home" src="{{ asset('images/Image2.jpg') }}"></a>
-                    </div>
+
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-4">
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Découvrez l'association</h3>
-                    </div>
-                    <div class="panel-body">
-                        <img  class="img-home" src="{{ asset('images/Image3.jpg') }}">
-                    </div>
+                <div class="col-sm-4 col-xs-12">
+                    <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
+                        <div class="img-wrapper">
+                            <img src="{{ asset('images/Image3.jpg') }}" class="img-responsive" alt="this is a title" >
+
+                        </div>
+                    </figure>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-4">
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Soyez informés</h3>
-                    </div>
-                    <div class="panel-body">
-                        <center>
-                            <p>Abonnez-vous à notre newsletter !<br>
-                            Et recevez les dernières actus de l'association<br><br>
-                            </p>
-                        </center>
-                        <form class="form-horizontal">
-                            <div class="row">
-                                <div class="form-group">
-                                    <div class="col-lg-12">
-                                        <input type="text" class="form-control" id="text" placeholder="Votre email">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button class="pull-left btn btn-success">Inscription</button>
-                            </div>
-                        </form>
-                    </div>
+                <div class="col-sm-4 col-xs-12">
+                    <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
+                        <div class="img-wrapper">
+                            <img src="{{ asset('images/Image2.jpg') }}" class="img-responsive" alt="this is a title" >
+
+                        </div>
+                    </figure>
                 </div>
             </div>
         </div>
+    </section> <!-- /#about -->
+
+{#==================================================#}
+{#Portfolio Section Start#}
+{#==================================================#}
+    {% include 'default/Observation/default/Observation/lastObservation.html.twig' %}
+
+{#==================================================#}
+{#Call To Action Section Start#}
+{#================================================== -->#}
+<section id="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://app.mailjet.com/widget/iframe/2wPL/3Ua" width="100%" height="242"></iframe>            </div>
+
+        </div>
     </div>
+</section>
+
 {% endblock %}
 
