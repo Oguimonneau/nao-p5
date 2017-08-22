@@ -1,6 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <!--
+    ==================================================
+        Global Page Section Start
+    ================================================== -->
+    <section class="global-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h2>Ajouter une observation</h2>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="index.html">
+                                    <i class="ion-ios-home"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="active">Ajouter une observation</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <div class="container-fluid">
     <div class="row">
@@ -25,4 +49,11 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
+    <!-- Datepicker -->
+    <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datepicker.fr.min.js') }}"></script>
+    <!-- Geolocalisation-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFLTldKU5XQdx7B_ldPv__ZHbTTISL9PU&callback=initMap"></script>
+    <script src="{{ asset('js/nao-geolocalisation.js') }}"></script>
+    <script src="{{ asset('js/nao-datepicker.js') }}"></script>
 {%  endblock %}

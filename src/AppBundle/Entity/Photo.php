@@ -3,7 +3,10 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Photo
@@ -35,6 +38,10 @@ class Photo
      */
     private $alt;
 
+    /**
+     * @var File;
+     * @Assert\Image(maxSize="2M")
+     */
     private $file;
 
     private $tempFilename;
