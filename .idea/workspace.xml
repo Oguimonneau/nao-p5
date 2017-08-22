@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45000142-d318-45dc-8a3c-e963fce97129" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/team/Image3.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/about/about.jpg" afterPath="$PROJECT_DIR$/web/images/about/about.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/about.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/about.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/addObservation.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/addObservation.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/conditions.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/conditions.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/contact.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/contact.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/logo.png" afterPath="$PROJECT_DIR$/web/images/logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/lastObservation.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/lastObservation.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/searchEspece.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/searchEspece.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Photo.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Photo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/main.css" afterPath="$PROJECT_DIR$/web/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/nao.css" afterPath="$PROJECT_DIR$/web/css/nao.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/main.js" afterPath="$PROJECT_DIR$/web/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/nao.js" afterPath="$PROJECT_DIR$/web/js/nao.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,32 +29,131 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="addObservation.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/addObservation.html.twig">
+      <file leaf-file-name="searchEspece.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/searchEspece.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="51" lean-forward="false" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+            <state relative-caret-position="119">
+              <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="Taxref.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Taxref.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="47" column="6" lean-forward="true" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
-              <folding />
+            <state relative-caret-position="323">
+              <caret line="74" column="21" lean-forward="false" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+              <folding>
+                <marker date="1503430120401" expanded="true" signature="322:12587" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="1399:1431" ph=" @var string ..." />
+                <marker date="1503430120401" expanded="true" signature="4847:4934" ph=" Set lbNom ..." />
+                <marker date="1503430120401" expanded="true" signature="4973:5039" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="5048:5100" ph=" Get lbNom ..." />
+                <marker date="1503430120401" expanded="true" signature="5133:5174" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="5183:5276" ph=" Set lbAuteur ..." />
+                <marker date="1503430120401" expanded="true" signature="5321:5393" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="5402:5457" ph=" Get lbAuteur ..." />
+                <marker date="1503430120401" expanded="true" signature="5493:5537" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="5546:5637" ph=" Set nomVern ..." />
+                <marker date="1503430120401" expanded="true" signature="5680:5750" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="5759:5813" ph=" Get nomVern ..." />
+                <marker date="1503430120401" expanded="true" signature="5848:5891" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="5900:5997" ph=" Set nomVernEng ..." />
+                <marker date="1503430120401" expanded="true" signature="6046:6122" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="6131:6188" ph=" Get nomVernEng ..." />
+                <marker date="1503430120401" expanded="true" signature="6226:6272" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="6281:6373" ph=" Set habitat ..." />
+                <marker date="1503430120401" expanded="true" signature="6416:6486" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="6495:6546" ph=" Get habitat ..." />
+                <marker date="1503430120401" expanded="true" signature="6581:6624" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="6633:6714" ph=" Set fr ..." />
+                <marker date="1503430120401" expanded="true" signature="6747:6807" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="6816:6865" ph=" Get fr ..." />
+                <marker date="1503430120401" expanded="true" signature="6895:6933" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="6942:7023" ph=" Set gf ..." />
+                <marker date="1503430120401" expanded="true" signature="7056:7116" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="7125:7174" ph=" Get gf ..." />
+                <marker date="1503430120401" expanded="true" signature="7204:7242" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="7251:7334" ph=" Set mar ..." />
+                <marker date="1503430120401" expanded="true" signature="7369:7431" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="7440:7490" ph=" Get mar ..." />
+                <marker date="1503430120401" expanded="true" signature="7521:7560" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="7569:7652" ph=" Set gua ..." />
+                <marker date="1503430120401" expanded="true" signature="7687:7749" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="7758:7808" ph=" Get gua ..." />
+                <marker date="1503430120401" expanded="true" signature="7839:7878" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="7887:7968" ph=" Set sm ..." />
+                <marker date="1503430120401" expanded="true" signature="8001:8061" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="8070:8119" ph=" Get sm ..." />
+                <marker date="1503430120401" expanded="true" signature="8149:8187" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="8196:8277" ph=" Set sb ..." />
+                <marker date="1503430120401" expanded="true" signature="8310:8370" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="8379:8428" ph=" Get sb ..." />
+                <marker date="1503430120401" expanded="true" signature="8458:8496" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="8505:8588" ph=" Set spm ..." />
+                <marker date="1503430120401" expanded="true" signature="8623:8685" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="8694:8744" ph=" Get spm ..." />
+                <marker date="1503430120401" expanded="true" signature="8775:8814" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="8823:8906" ph=" Set may ..." />
+                <marker date="1503430120401" expanded="true" signature="8941:9003" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="9012:9062" ph=" Get may ..." />
+                <marker date="1503430120401" expanded="true" signature="9093:9132" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="9141:9224" ph=" Set epa ..." />
+                <marker date="1503430120401" expanded="true" signature="9259:9321" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="9330:9380" ph=" Get epa ..." />
+                <marker date="1503430120401" expanded="true" signature="9411:9450" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="9459:9542" ph=" Set reu ..." />
+                <marker date="1503430120401" expanded="true" signature="9577:9639" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="9648:9698" ph=" Get reu ..." />
+                <marker date="1503430120401" expanded="true" signature="9729:9768" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="9777:9858" ph=" Set sa ..." />
+                <marker date="1503430120401" expanded="true" signature="9891:9951" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="9960:10009" ph=" Get sa ..." />
+                <marker date="1503430120401" expanded="true" signature="10039:10077" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="10086:10167" ph=" Set ta ..." />
+                <marker date="1503430120401" expanded="true" signature="10200:10260" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="10269:10318" ph=" Get ta ..." />
+                <marker date="1503430120401" expanded="true" signature="10348:10386" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="10395:10480" ph=" Set taaf ..." />
+                <marker date="1503430120401" expanded="true" signature="10517:10581" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="10590:10641" ph=" Get taaf ..." />
+                <marker date="1503430120401" expanded="true" signature="10673:10713" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="10722:10803" ph=" Set pf ..." />
+                <marker date="1503430120401" expanded="true" signature="10836:10896" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="10905:10954" ph=" Get pf ..." />
+                <marker date="1503430120401" expanded="true" signature="10984:11022" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="11031:11112" ph=" Set nc ..." />
+                <marker date="1503430120401" expanded="true" signature="11145:11205" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="11214:11263" ph=" Get nc ..." />
+                <marker date="1503430120401" expanded="true" signature="11293:11331" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="11340:11421" ph=" Set wf ..." />
+                <marker date="1503430120401" expanded="true" signature="11454:11514" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="11523:11572" ph=" Get wf ..." />
+                <marker date="1503430120401" expanded="true" signature="11602:11640" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="11649:11732" ph=" Set cli ..." />
+                <marker date="1503430120401" expanded="true" signature="11767:11829" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="11838:11888" ph=" Get cli ..." />
+                <marker date="1503430120401" expanded="true" signature="11919:11958" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="11967:12071" ph=" Add photo ..." />
+                <marker date="1503430120401" expanded="true" signature="12134:12203" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="12212:12290" ph=" Remove photo ..." />
+                <marker date="1503430120401" expanded="true" signature="12356:12414" ph="{...}" />
+                <marker date="1503430120401" expanded="true" signature="12423:12509" ph=" Get photos ..." />
+                <marker date="1503430120401" expanded="true" signature="12543:12585" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lastObservation.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/lastObservation.html.twig">
+      <file leaf-file-name="footer.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/footer.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="50" column="61" lean-forward="false" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
-              <folding />
+            <state relative-caret-position="170">
+              <caret line="11" column="99" lean-forward="false" selection-start-line="11" selection-start-column="99" selection-end-line="11" selection-end-column="99" />
+              <folding>
+                <element signature="e#528#542#0#Twig" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -151,7 +234,6 @@
         <option value="$PROJECT_DIR$/web/js/main.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/contact.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/searchEspece.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/conditions.html.twig" />
@@ -159,6 +241,7 @@
         <option value="$PROJECT_DIR$/app/Resources/views/default/lastObservation.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/addObservation.html.twig" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" />
       </list>
     </option>
   </component>
@@ -318,79 +401,12 @@
             <path>
               <item name="nao-p5" type="b2602c69:ProjectViewProjectNode" />
               <item name="nao-p5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="nao-p5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nao-p5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="nao-p5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nao-p5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="nao-p5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nao-p5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="default" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="nao-p5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nao-p5" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="nao-p5" type="b2602c69:ProjectViewProjectNode" />
               <item name="nao-p5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="nao-p5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nao-p5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="nao-p5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nao-p5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="nao-p5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nao-p5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="nao-p5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nao-p5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="nao-p5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nao-p5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="about" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="nao-p5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nao-p5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="var" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="nao-p5" type="b2602c69:ProjectViewProjectNode" />
@@ -405,7 +421,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/config/parameters.yml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/_SVG" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.quicklists" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
@@ -415,19 +431,19 @@
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\wamp64\www\nao-p5\app\Resources\views\default" />
-      <recent name="D:\wamp64\www\nao-p5\app\Resources\views\default\Observation" />
-      <recent name="D:\wamp64\www\nao-p5\web\js" />
-      <recent name="D:\wamp64\www\nao-p5\web\images" />
-      <recent name="D:\wamp64\www\nao-p5\web\css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\wamp64\www\nao-p5\web\js\vendor" />
       <recent name="D:\wamp64\www\nao-p5\web\css" />
       <recent name="D:\wamp64\www\nao-p5\app\Resources\views\default" />
       <recent name="D:\wamp64\www\nao-p5\_SVG\css" />
       <recent name="D:\wamp64\www\nao-p5\web\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\wamp64\www\nao-p5\app\Resources\views\default" />
+      <recent name="D:\wamp64\www\nao-p5\app\Resources\views\default\Observation" />
+      <recent name="D:\wamp64\www\nao-p5\web\js" />
+      <recent name="D:\wamp64\www\nao-p5\web\images" />
+      <recent name="D:\wamp64\www\nao-p5\web\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -470,31 +486,38 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="290350000" />
+    <option name="totallyTimeSpent" value="292053000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18656716" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18656716" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.51059085" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.59643257" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18952063" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.065774806" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.51059085" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.59643257" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18952063" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37473348" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18656716" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995495" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -561,8 +584,106 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Taxref.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1420">
-          <caret line="72" column="61" lean-forward="false" selection-start-line="72" selection-start-column="61" selection-end-line="72" selection-end-column="61" />
+        <state relative-caret-position="323">
+          <caret line="74" column="21" lean-forward="false" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+          <folding>
+            <marker date="1503430120401" expanded="true" signature="322:12587" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="1399:1431" ph=" @var string ..." />
+            <marker date="1503430120401" expanded="true" signature="4847:4934" ph=" Set lbNom ..." />
+            <marker date="1503430120401" expanded="true" signature="4973:5039" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="5048:5100" ph=" Get lbNom ..." />
+            <marker date="1503430120401" expanded="true" signature="5133:5174" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="5183:5276" ph=" Set lbAuteur ..." />
+            <marker date="1503430120401" expanded="true" signature="5321:5393" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="5402:5457" ph=" Get lbAuteur ..." />
+            <marker date="1503430120401" expanded="true" signature="5493:5537" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="5546:5637" ph=" Set nomVern ..." />
+            <marker date="1503430120401" expanded="true" signature="5680:5750" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="5759:5813" ph=" Get nomVern ..." />
+            <marker date="1503430120401" expanded="true" signature="5848:5891" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="5900:5997" ph=" Set nomVernEng ..." />
+            <marker date="1503430120401" expanded="true" signature="6046:6122" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="6131:6188" ph=" Get nomVernEng ..." />
+            <marker date="1503430120401" expanded="true" signature="6226:6272" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="6281:6373" ph=" Set habitat ..." />
+            <marker date="1503430120401" expanded="true" signature="6416:6486" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="6495:6546" ph=" Get habitat ..." />
+            <marker date="1503430120401" expanded="true" signature="6581:6624" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="6633:6714" ph=" Set fr ..." />
+            <marker date="1503430120401" expanded="true" signature="6747:6807" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="6816:6865" ph=" Get fr ..." />
+            <marker date="1503430120401" expanded="true" signature="6895:6933" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="6942:7023" ph=" Set gf ..." />
+            <marker date="1503430120401" expanded="true" signature="7056:7116" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="7125:7174" ph=" Get gf ..." />
+            <marker date="1503430120401" expanded="true" signature="7204:7242" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="7251:7334" ph=" Set mar ..." />
+            <marker date="1503430120401" expanded="true" signature="7369:7431" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="7440:7490" ph=" Get mar ..." />
+            <marker date="1503430120401" expanded="true" signature="7521:7560" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="7569:7652" ph=" Set gua ..." />
+            <marker date="1503430120401" expanded="true" signature="7687:7749" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="7758:7808" ph=" Get gua ..." />
+            <marker date="1503430120401" expanded="true" signature="7839:7878" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="7887:7968" ph=" Set sm ..." />
+            <marker date="1503430120401" expanded="true" signature="8001:8061" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="8070:8119" ph=" Get sm ..." />
+            <marker date="1503430120401" expanded="true" signature="8149:8187" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="8196:8277" ph=" Set sb ..." />
+            <marker date="1503430120401" expanded="true" signature="8310:8370" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="8379:8428" ph=" Get sb ..." />
+            <marker date="1503430120401" expanded="true" signature="8458:8496" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="8505:8588" ph=" Set spm ..." />
+            <marker date="1503430120401" expanded="true" signature="8623:8685" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="8694:8744" ph=" Get spm ..." />
+            <marker date="1503430120401" expanded="true" signature="8775:8814" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="8823:8906" ph=" Set may ..." />
+            <marker date="1503430120401" expanded="true" signature="8941:9003" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="9012:9062" ph=" Get may ..." />
+            <marker date="1503430120401" expanded="true" signature="9093:9132" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="9141:9224" ph=" Set epa ..." />
+            <marker date="1503430120401" expanded="true" signature="9259:9321" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="9330:9380" ph=" Get epa ..." />
+            <marker date="1503430120401" expanded="true" signature="9411:9450" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="9459:9542" ph=" Set reu ..." />
+            <marker date="1503430120401" expanded="true" signature="9577:9639" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="9648:9698" ph=" Get reu ..." />
+            <marker date="1503430120401" expanded="true" signature="9729:9768" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="9777:9858" ph=" Set sa ..." />
+            <marker date="1503430120401" expanded="true" signature="9891:9951" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="9960:10009" ph=" Get sa ..." />
+            <marker date="1503430120401" expanded="true" signature="10039:10077" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="10086:10167" ph=" Set ta ..." />
+            <marker date="1503430120401" expanded="true" signature="10200:10260" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="10269:10318" ph=" Get ta ..." />
+            <marker date="1503430120401" expanded="true" signature="10348:10386" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="10395:10480" ph=" Set taaf ..." />
+            <marker date="1503430120401" expanded="true" signature="10517:10581" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="10590:10641" ph=" Get taaf ..." />
+            <marker date="1503430120401" expanded="true" signature="10673:10713" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="10722:10803" ph=" Set pf ..." />
+            <marker date="1503430120401" expanded="true" signature="10836:10896" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="10905:10954" ph=" Get pf ..." />
+            <marker date="1503430120401" expanded="true" signature="10984:11022" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="11031:11112" ph=" Set nc ..." />
+            <marker date="1503430120401" expanded="true" signature="11145:11205" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="11214:11263" ph=" Get nc ..." />
+            <marker date="1503430120401" expanded="true" signature="11293:11331" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="11340:11421" ph=" Set wf ..." />
+            <marker date="1503430120401" expanded="true" signature="11454:11514" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="11523:11572" ph=" Get wf ..." />
+            <marker date="1503430120401" expanded="true" signature="11602:11640" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="11649:11732" ph=" Set cli ..." />
+            <marker date="1503430120401" expanded="true" signature="11767:11829" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="11838:11888" ph=" Get cli ..." />
+            <marker date="1503430120401" expanded="true" signature="11919:11958" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="11967:12071" ph=" Add photo ..." />
+            <marker date="1503430120401" expanded="true" signature="12134:12203" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="12212:12290" ph=" Remove photo ..." />
+            <marker date="1503430120401" expanded="true" signature="12356:12414" ph="{...}" />
+            <marker date="1503430120401" expanded="true" signature="12423:12509" ph=" Get photos ..." />
+            <marker date="1503430120401" expanded="true" signature="12543:12585" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -626,7 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -682,7 +802,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -691,31 +810,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_SVG/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1887">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/_SVG/css/main.css" />
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/main.css" />
     <entry file="file://$PROJECT_DIR$/web/css/nao.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -723,7 +826,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -731,7 +833,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -739,7 +840,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="906">
           <caret line="174" column="19" lean-forward="false" selection-start-line="174" selection-start-column="19" selection-end-line="174" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -767,7 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-137">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -775,9 +874,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
           <caret line="65" column="29" lean-forward="false" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
-          <folding>
-            <element signature="e#2638#2662#0#Twig" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -785,9 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -795,7 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -807,20 +900,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/footer.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="84" lean-forward="false" selection-start-line="11" selection-start-column="84" selection-end-line="11" selection-end-column="84" />
-          <folding>
-            <element signature="e#547#561#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/searchEspece.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="66" lean-forward="false" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
+        <state relative-caret-position="119">
+          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -829,7 +912,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -837,7 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="50" lean-forward="true" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -845,7 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" column="84" lean-forward="false" selection-start-line="29" selection-start-column="84" selection-end-line="29" selection-end-column="84" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -853,7 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="134" column="70" lean-forward="false" selection-start-line="134" selection-start-column="70" selection-end-line="134" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -861,10 +940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="48" column="71" lean-forward="false" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="71" />
-          <folding>
-            <element signature="e#1243#1261#0#Twig" expanded="true" />
-            <element signature="e#2711#2744#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -872,7 +947,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="50" column="61" lean-forward="false" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -889,6 +963,16 @@
         <state relative-caret-position="548">
           <caret line="47" column="6" lean-forward="true" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/footer.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="99" lean-forward="false" selection-start-line="11" selection-start-column="99" selection-end-line="11" selection-end-column="99" />
+          <folding>
+            <element signature="e#528#542#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
