@@ -1,12 +1,113 @@
 {% extends 'base.html.twig' %}
 
+{% block title %} Observation{% endblock title %}
 {% block body %}
+    <h1>{{ title | trans }}</h1>
+    <div class="row">
+        <div class="col m3 s12">
+            <div class="card-panel">
+                {{ form(form) }}
+            </div>
+            <input type="text" class="live-search-input" placeholder="{{ 'search' | trans }}" />
+            <ul class="collection live-search-list">
+                {% for obs in observations %}
+                    <li class="collection-item obs" id="{{ obs.id }}"><a href="#!">{{ obs.bird.getLbNom() }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col m9 s12">
+            <div class="chip" id="red_chip">{{ 'Red: to be validated' | trans }}</div>
+            <div class="chip" id="blue_chip">{{ 'Blue: validated' | trans }}</div>
+            <div id="map-home"></div>
+            <div class="hidden">
+                <h1></h1>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+{% block script %}
+    {# GOOGLE MAPS #}
+    <script>
+        var map;
+        var active_infow = [];
+        var all_markers  = [];
+        //initMap is called by script.html.twig
+        function initMap() {
+            var france = {lat: 47.2754513, lng: 4.098098899999968};
+            map = new google.maps.Map(document.getElementById('map-home'), {
+                mapTypeId: 'terrain',
+                zoom: 6,
+                center: france,
+                maxZoom: {{ maxZoom }}
+            });
+            {% for obs in observations %}
+            var color;
+            {% if obs.confirmation == true %}
+            color = "blue";
+            {%  else %}
+            color = "red";
+            {% endif %}
+            //set a marker for each observation
+            var lat = {{ obs.gpsLat }};
+            var lng = {{ obs.gpsLong }};
+            var marker = new google.maps.Marker({
+                position: {lat: lat, lng: lng},
+                map: map,
+                icon: getCircle(5, color),
+                title: '{{ obs.bird.lbNom }}'
+            });
+            all_markers[{{ obs.id }}] = marker;
+            //open infowindow on marker.clic
+            marker.addListener('click', function() {
+                closeInfos();
+                var contentString =
+                    '<div id="content_' + {{ obs.id }} + '">'+
+                    '<h1 id="firstHeading" class="firstHeading">{{ obs.bird.lbNom }}</h1>'+
+                    '<div class="row" id="bodyContent">'+
+                    '<div class="col s8">' +
+                    '<p><b>{{ 'Kingdom' | trans }}: </b>{{ obs.bird.regne }}</p>'+
+                    '<p><b>{{ 'Class' | trans }}: </b>{{ obs.bird.classe }}</p>'+
+                    '<p><b>{{ 'Order' | trans }}: </b>{{ obs.bird.ordre }}</p>'+
+                    '<p><b>{{ 'Family' | trans }}: </b>{{ obs.bird.famille }}</p>'+
+                    '<p><b>{{ 'Vernacular' | trans }}: </b>{{ obs.bird.nomVern }}</p>'+
+                    '<p><b>INPN: </b> <a href="{{ obs.bird.url }}">{{ obs.bird.url }}'+
+                    '</div>' +
+                    '<img class="col s4" width="250" src="{{ asset(obs.image) }}">' +
+                    '</div>'+
+                    '</div>';
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+                active_infow[0]=infowindow;
+                infowindow.open(map, this);
+            });
+            {% endfor %}
+        }
+        //close infowindows (before opening another)
+        function closeInfos() {
+            if (active_infow.length > 0) {
+                active_infow[0].close();
+                active_infow.length = 0;
+            }
+        }
+    </script>
 
-<H1>Chercher une espèce</H1>
-<h2>app/Ressources/views/default/searchEspece.html.twig</h2>
+    {# Bounce observation in map #}
+    <script>
+        var active_marker;
+        $('.obs').mouseenter(function () {
+            var id = this.id;
+            active_marker = all_markers[id];
+            active_marker.setAnimation(google.maps.Animation.BOUNCE);
+        }).mouseleave(function () {
+            active_marker.setAnimation(null);
+        }).click(function () {
+            google.maps.event.trigger(active_marker, 'click')
+        });
+    </script>
 
-
-
-
-{% endblock %}
-
+    {# Navigation #}
+    <script>
+        makeNavActive('nav_observation');
+    </script>
+{% endblock script %}

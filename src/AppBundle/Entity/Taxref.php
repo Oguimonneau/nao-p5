@@ -70,7 +70,6 @@ class Taxref
     /**
      * @var string
      *
-     * @ORM\Column(name="nom_vern", type="string", length=255)
      */
     private $nomVern;
 
@@ -80,6 +79,13 @@ class Taxref
      * @ORM\Column(name="nom_vern_eng", type="string", length=255)
      */
     private $nomVernEng;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="famille", type="string", length=255)
+     */
+    private $famille;
 
 
     /**
@@ -286,7 +292,27 @@ class Taxref
     {
         return $this->rang;
     }
-
+    /**
+     * Set famille
+     *
+     * @param string $famille
+     *
+     * @return Bird
+     */
+    public function setFamille($famille)
+    {
+        $this->famille = $famille;
+        return $this;
+    }
+    /**
+     * Get famille
+     *
+     * @return string
+     */
+    public function getFamille()
+    {
+        return $this->famille;
+    }
     /**
      * Set lbNom
      *
