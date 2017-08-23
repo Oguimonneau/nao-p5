@@ -18,6 +18,12 @@ body{
     height: 592px;
 }
 
+#FOSUser-section .btn-send {
+    margin-top: 35px;
+    color: #fff;
+    outline: none;
+    background: #02bdd5;
+}
 
 @media all and (max-device-width: 1024px) {
     /* Vos règles CSS pour iPad V */
