@@ -4,7 +4,26 @@
     {% if error %}
         <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
     {% endif %}
-
+    <section class="global-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h2>Connectez-vous</h2>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="index.html">
+                                    <i class="ion-ios-home"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="active">Connectez-vous</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 <section id="FOSUser-section">
     <div class="container">
         <form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal col-lg-12" >

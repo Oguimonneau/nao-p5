@@ -1,22 +1,46 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
- 
-{% block fos_user_content %}
-    {% if error %}
-        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
-    {% endif %}
 
-<section id="FOSUser-section">
-    <div class="container">
-        <form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal col-lg-12" >
+{% block fos_user_content %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+
+    {#==================================================#}
+    {#Global Page Section Start#}
+    {#=================================================#}
+    <section class="global-page-header">
+        <div class="container">
             <div class="row">
-                <div class="form-group">
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                <div class="col-md-12">
+                    <div class="block">
+                        <h2>IInscription</h2>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="index.html">
+                                    <i class="ion-ios-home"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="active">Inscription</li>
+                        </ol>
+                    </div>
                 </div>
-                <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".6s"">
+            </div>
+        </div>
+    </section>
+
+    <section id="FOSUser-section">
+        <div class="container">
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register form-horizontal col-lg-12'}}) }}
+            <div class="form-group">
+                <input type="hidden" name="_csrf_token" value="" />
+            </div>
+            <div class="row">
+                <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".6s">
                     <div class="col-lg-3"></div>
-                    <label for="username" class="col-lg-3 control-label">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                    <label for="username" class="col-lg-3 control-label">Nom d'utilisateur</label>
                     <div class="col-lg-3">
-                        <input type="text" id="username" name="_username" placeholder="Nom d'utilisateur"   class="form-control"/>
+                        {{ form_widget(form.username, { 'atrr': {'class': 'form-control'}}) }}
                     </div>
                     <div class="col-lg-3"></div>
                 </div>
@@ -24,9 +48,9 @@
             <div class="row">
                 <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
                     <div class="col-lg-3"></div>
-                    <label for="password" class="col-lg-3 control-label">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                    <label for="email" class="col-lg-3 control-label">email</label>
                     <div class="col-lg-3">
-                        <input type="password" id="password" name="_password" class="form-control" placeholder="Mot de passe"/>
+                        {{ form_widget(form.email, { 'atrr': {'class': 'form-control'}}) }}
                     </div>
                     <div class="col-lg-3"></div>
                 </div>
@@ -34,21 +58,30 @@
             <div class="row">
                 <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1s">
                     <div class="col-lg-3"></div>
-                    <div class="col-lg-3"></div>
+                    <label for="pasword" class="col-lg-3 control-label">Mot de passe</label>
                     <div class="col-lg-3">
-                        <label for="remember_me" class="control-label">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                        {{ form_widget(form.plainPassword.first, { 'atrr': {'class': 'form-control'}}) }}
                     </div>
-                    {#<div class="col-lg-3"></div>#}
+                    <div class="col-lg-3"></div>
                 </div>
             </div>
-            <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.2s">
+            <div class="row">
+                <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.2s">
+                    <div class="col-lg-3"></div>
+                    <label for="pasword" class="col-lg-3 control-label">Repetez</label>
+                    <div class="col-lg-3">
+                        {{ form_widget(form.plainPassword.second, { 'atrr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-lg-3"></div>
+                </div>
+            </div>
+            <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.4s">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-3"></div>
-                <div class="col-lg-3"><input type="submit" class="pull-right btn btn-default btn-send" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" /></div>
+                <div class="col-lg-3"><input type="submit" class="pull-right btn btn-default btn-send" id="_submit" name="_submit" value="S'inscrire" /></div>
                 <div class="col-lg-3"></div>
             </div>
-        </form>
-    </div>
-</section>
+        {{ form_end(form) }}
+        </div>
+    </section>
 {% endblock fos_user_content %}
