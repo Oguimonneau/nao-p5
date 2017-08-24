@@ -1,3 +1,9 @@
-back_office_homepage:
-    path:     /
-    defaults: { _controller: BackOfficeBundle:Default:index }
+NAO_back_office_observations_list:
+    path:     /observations
+    defaults:
+        _controller: BackOfficeBundle:Back:observationsList
+
+NAO_back_office_validation_list:
+    path:     /validation-list
+    defaults:
+        _controller: BackOfficeBundle:Back:validationList

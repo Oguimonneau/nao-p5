@@ -1,0 +1,171 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <!--
+    ==================================================
+        Global Page Section Start
+    ================================================== -->
+    <section class="global-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h2>Espace administrateur</h2>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="{{ path('NAO_back') }}">
+                                    Accueil de l'administration
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('NAO_back_office_observations_list') }}">
+                                    Liste observations
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#page-header-->
+
+    <!--
+    ==================================================
+        Admin Review Section Start
+    ================================================== -->
+    <section id="review-section">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-12">
+                	<h2 class="subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">Observations en attente de validation</h2>
+                	<table class="wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
+                		<thead>
+                			<tr>
+                				<th class="col-xs-1">N°</th>
+                				<th class="col-xs-2">Date</th>
+                				<th class="col-xs-3">Utilisateur</th>
+                				<th class="col-xs-4">Espèce</th>
+                				<th class="col-xs-2">Action</th>
+                			</tr>
+                		</thead>
+                		<tbody>
+                			<tr>
+                				<td class="col-xs-1">1</td>
+                				<td class="col-xs-2">23/08/06</td>
+                				<td class="col-xs-3">OrniPassion73</td>
+                				<td class="col-xs-4">Canard</td>
+                				<td class="col-xs-2">
+                					<a href="#" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                					<a href="#" class="validation-link"><span class="glyphicon glyphicon glyphicon-ok-sign"></span></a>
+                					<a href="#" class="deletion-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+               					</td>
+                			</tr>
+                			<tr>
+                				<td class="col-xs-1">1</td>
+                				<td class="col-xs-2">23/08/06</td>
+                				<td class="col-xs-3">OrniPassion73</td>
+                				<td class="col-xs-4">Canard</td>
+                				<td class="col-xs-2">
+                					<a href="#" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                					<a href="#" class="validation-link"><span class="glyphicon glyphicon glyphicon-ok-sign"></span></a>
+                					<a href="#" class="deletion-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+               					</td>
+                			</tr>
+                			<tr>
+                				<td class="col-xs-1">1</td>
+                				<td class="col-xs-2">23/08/06</td>
+                				<td class="col-xs-3">OrniPassion73</td>
+                				<td class="col-xs-4">Canard</td>
+                				<td class="col-xs-2">
+                					<a href="#" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                					<a href="#" class="validation-link"><span class="glyphicon glyphicon glyphicon-ok-sign"></span></a>
+                					<a href="#" class="deletion-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+               					</td>
+                			</tr>
+                			<tr>
+                				<td class="col-xs-1">1</td>
+                				<td class="col-xs-2">23/08/06</td>
+                				<td class="col-xs-3">OrniPassion73</td>
+                				<td class="col-xs-4">Canard</td>
+                				<td class="col-xs-2">
+                					<a href="#" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                					<a href="#" class="validation-link"><span class="glyphicon glyphicon glyphicon-ok-sign"></span></a>
+                					<a href="#" class="deletion-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+               					</td>
+                			</tr>
+                			<tr>
+                				<td class="col-xs-1">1</td>
+                				<td class="col-xs-2">23/08/06</td>
+                				<td class="col-xs-3">OrniPassion73</td>
+                				<td class="col-xs-4">Canard</td>
+                				<td class="col-xs-2">
+                					<a href="#" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                					<a href="#" class="validation-link"><span class="glyphicon glyphicon glyphicon-ok-sign"></span></a>
+                					<a href="#" class="deletion-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+               					</td>
+                			</tr>
+                			<tr>
+                				<td class="col-xs-1">1</td>
+                				<td class="col-xs-2">23/08/06</td>
+                				<td class="col-xs-3">OrniPassion73</td>
+                				<td class="col-xs-4">Canard</td>
+                				<td class="col-xs-2">
+                					<a href="#" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                					<a href="#" class="validation-link"><span class="glyphicon glyphicon glyphicon-ok-sign"></span></a>
+                					<a href="#" class="deletion-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+               					</td>
+                			</tr>
+                			<tr>
+                				<td class="col-xs-1">1</td>
+                				<td class="col-xs-2">23/08/06</td>
+                				<td class="col-xs-3">OrniPassion73</td>
+                				<td class="col-xs-4">Canard</td>
+                				<td class="col-xs-2">
+                					<a href="#" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                					<a href="#" class="validation-link"><span class="glyphicon glyphicon glyphicon-ok-sign"></span></a>
+                					<a href="#" class="deletion-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+               					</td>
+                			</tr>
+                			<tr>
+                				<td class="col-xs-1">1</td>
+                				<td class="col-xs-2">23/08/06</td>
+                				<td class="col-xs-3">OrniPassion73</td>
+                				<td class="col-xs-4">Canard</td>
+                				<td class="col-xs-2">
+                					<a href="#" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                					<a href="#" class="validation-link"><span class="glyphicon glyphicon glyphicon-ok-sign"></span></a>
+                					<a href="#" class="deletion-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+               					</td>
+                			</tr>
+                			<tr>
+                				<td class="col-xs-1">1</td>
+                				<td class="col-xs-2">23/08/06</td>
+                				<td class="col-xs-3">OrniPassion73</td>
+                				<td class="col-xs-4">Canard</td>
+                				<td class="col-xs-2">
+                					<a href="#" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                					<a href="#" class="validation-link"><span class="glyphicon glyphicon glyphicon-ok-sign"></span></a>
+                					<a href="#" class="deletion-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+               					</td>
+                			</tr>
+                			<tr>
+                				<td class="col-xs-1">1</td>
+                				<td class="col-xs-2">23/08/06</td>
+                				<td class="col-xs-3">OrniPassion73</td>
+                				<td class="col-xs-4">Canard</td>
+                				<td class="col-xs-2">
+                					<a href="#" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                					<a href="#" class="validation-link"><span class="glyphicon glyphicon glyphicon-ok-sign"></span></a>
+                					<a href="#" class="deletion-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+               					</td>
+                			</tr>
+			       		</tbody>
+                	</table>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+
+{% endblock %}
+

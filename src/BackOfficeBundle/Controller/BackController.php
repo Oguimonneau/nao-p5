@@ -10,4 +10,14 @@ class BackController extends Controller
     {
         return $this->render('BackOfficeBundle:Default:index.html.twig');
     }
+
+    public function observationsListAction()
+    {
+    	return $this->render('BackOfficeBundle:Default:observationsList.html.twig');
+    }
+
+    public function validationListAction()
+    {
+    	return $this->render('BackOfficeBundle:Default:validationList.html.twig');
+    }
 }
