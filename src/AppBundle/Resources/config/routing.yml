@@ -54,7 +54,5 @@ NAO_searchEspece:
 NAO_back:
     path:      /back
     defaults:
-        _controller: AppBundle:Default:back
+        _controller: BackOfficeBundle:Back:index
     methods:  [GET, POST]
-
-

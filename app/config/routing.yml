@@ -2,6 +2,10 @@ app:
     resource: "@AppBundle/Resources/config/routing.yml"
     prefix: /
 
+back_office:
+    resource: "@BackOfficeBundle/Resources/config/routing.yml"
+    prefix:   /back
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
