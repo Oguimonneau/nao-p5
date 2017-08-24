@@ -38,3 +38,58 @@ body{
 
 }
 
+/*
+================================================================
+
+    Règles CSS des tableaux de l'espace d'administration
+
+================================================================
+*/
+
+table
+{
+    width: 100%;
+}
+
+table tr:nth-child(even)
+{
+    background-color: #dff8df;
+}
+
+table td:first-child
+{
+    width: 6%;
+}
+
+table td:nth-child(2)
+{
+    width: 16%;
+}
+
+table td:nth-child(3)
+{
+    width: 40%;
+}
+
+table td:nth-child(4)
+{
+    line-height: 26px;
+
+}
+
+.admin-class navbar-nav
+{
+    width: 100%;
+    text-align: center;
+}
+
+.admin-class navbar-nav>ul>li
+{
+    float: none !important;
+    display: inline-block;
+}
+
+#review-section
+{
+    padding: 90px 0;
+}
