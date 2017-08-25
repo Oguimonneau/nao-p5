@@ -14,7 +14,7 @@ class BackController extends Controller
     public function observationsListAction()
     {
     	/**
-    	 * Get all observation to send them in view as a list
+    	 * Get all validated observations to send them in view as a list
     	 *
     	 *	@var $repository AppBundle\Repository\ObservationRepository
     	 */
@@ -30,6 +30,18 @@ class BackController extends Controller
 
     public function validationListAction()
     {
-    	return $this->render('BackOfficeBundle:Default:validationList.html.twig');
+    	/**
+    	 * Get all waiting for validation observations to send them in view as a list
+    	 *
+    	 *	@var $repository AppBundle\Repository\ObservationRepository
+    	 */
+    	$em = $this->getDoctrine()->getManager();
+    	$repository = $em->getRepository('AppBundle:Observation');
+
+    	$observationsList = $repository->findByValide(false);
+
+    	return $this->render('BackOfficeBundle:Default:validationList.html.twig', array(
+    		'observationsList' => $observationsList
+    	));
     }
 }
