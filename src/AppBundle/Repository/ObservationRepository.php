@@ -10,4 +10,49 @@ namespace AppBundle\Repository;
  */
 class ObservationRepository extends \Doctrine\ORM\EntityRepository
 {
+	/**
+	 * Find last 10 validated observations
+	 * @criteria @entry "valide" = 1 DESC
+	 * LIMIT 10
+	 * 
+	 * Return array of Observation objects
+	 */
+	public function findValidatedLast10()
+	{
+		$qb = $this->createQueryBuilder('observation');
+
+		$qb->where('observation.valide = :valide')
+		   		->setParameter('valide', 1)
+		   ->orderBy('observation.id', 'DESC')
+		   ->setMaxResults(10)
+		;
+
+		return $qb
+			->getQuery()
+			->getResult()
+		;
+	}
+
+	/**
+	 * Find last 10 waiting for validation observations
+	 * @criteria @entry "valide" = 0 DESC
+	 * LIMIT 10
+	 * 
+	 * Return array of Observation objects
+	 */
+	public function findInvalidatedLast10()
+	{
+		$qb = $this->createQueryBuilder('observation');
+
+		$qb->where('observation.valide = :valide')
+		   		->setParameter('valide', 0)
+		   ->orderBy('observation.id', 'DESC')
+		   ->setMaxResults(10)
+		;
+
+		return $qb
+			->getQuery()
+			->getResult()
+		;
+	}
 }

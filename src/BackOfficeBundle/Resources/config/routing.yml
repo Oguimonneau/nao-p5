@@ -7,3 +7,8 @@ NAO_back_office_validation_list:
     path:     /validation-list
     defaults:
         _controller: BackOfficeBundle:Back:validationList
+
+NAO_back_office_validation:
+    path:     /validation/{id}
+    defaults:
+        _controller: BackOfficeBundle:Moderation:validate

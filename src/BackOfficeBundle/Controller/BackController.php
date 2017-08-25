@@ -8,7 +8,16 @@ class BackController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BackOfficeBundle:Default:index.html.twig');
+    	$em = $this->getDoctrine()->getManager();
+    	$repository = $em->getRepository('AppBundle:Observation');
+
+    	$validatedList = $repository->findValidatedLast10();
+    	$invalidatedList = $repository->findInvalidatedLast10();
+
+        return $this->render('BackOfficeBundle:Default:index.html.twig', array(
+        	'validatedList' => $validatedList,
+        	'invalidatedList' => $invalidatedList
+        ));
     }
 
     public function observationsListAction()
