@@ -12,3 +12,8 @@ NAO_back_office_validation:
     path:     /validation/{id}
     defaults:
         _controller: BackOfficeBundle:Moderation:validate
+
+NAO_back_office_deletion:
+    path:     /deletion/{page}/{id}
+    defaults:
+        _controller: BackOfficeBundle:Moderation:delete

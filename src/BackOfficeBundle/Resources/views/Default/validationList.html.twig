@@ -59,7 +59,9 @@
                                     <td class="col-xs-2">
                                         <a href="#" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
                                         <a href="{{ path('NAO_back_office_validation', { 'id': observation.id }) }}" class="validation-link"><span class="glyphicon glyphicon glyphicon-ok-sign"></span></a>
-                                        <a href="#" class="deletion-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+                                        <a href="{{ path('NAO_back_office_deletion', { 'page': 'validation', 'id': observation.id }) }}" class="deletion-link">
+                                        	<span class="glyphicon glyphicon-remove-sign"></span>
+                                        </a>
                                     </td>
                                 </tr>
                             {% endfor %}

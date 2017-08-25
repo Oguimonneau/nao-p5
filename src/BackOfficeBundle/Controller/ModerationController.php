@@ -26,4 +26,24 @@ class ModerationController extends Controller
 
         return $this->redirectToRoute('NAO_back_office_validation_list');
 	}
+
+	/**
+	 * Validate observation
+	 *
+	 * @param $id The observation id
+	 * @param $page The current page link is used
+	 * Redirect to route BackOfficeBundle/Resources/views/Default:validationList.html.twig 
+	 */
+	public function deleteAction($id, $page)
+	{
+		$em = $this->getDoctrine()->getManager();
+    	$repository = $em->getRepository('AppBundle:Observation');
+
+    	$observation = $repository->findOneBy(array('id' => $id));
+
+    	$em->remove($observation);
+    	$em->flush();
+
+    	return ($page == 'observations') ? $this->redirectToRoute('NAO_back_office_observations_list') : $this->redirectToRoute('NAO_back_office_validation_list');
+    }
 }

@@ -41,7 +41,6 @@ class ObservationController extends Controller
 
     public function listAction(Request $request)
     {
-
         return $this->render('default/listObservation.html.twig');
     }
 
