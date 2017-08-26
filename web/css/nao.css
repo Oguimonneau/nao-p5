@@ -51,21 +51,6 @@ table
     width: 100%;
 }
 
-/*.col-md-6 table td:first-child
-{
-    width: 6%;
-}
-
-.col-md-6 table td:nth-child(2)
-{
-    width: 16%;
-}
-
-.col-md-6 table td:nth-child(3)
-{
-    width: 40%;
-}*/
-
 thead
 {
     background-color: #009966;
@@ -82,39 +67,15 @@ table tr
     line-height: 26px;
 }
 
-/*table td:first-child
-{
-    width: 6%;
-}
-
-table td:nth-child(2)
-{
-    width: 10%;
-}
-
-table td:nth-child(3)
-{
-    width: 20%;
-}
-
-table td:nth-child(4)
-{
-    width: 55%;
-}
-
-table td:nth-child(5)
-{
-    width: 20%;
-}
-
-table td
-{
-    line-height: 26px;
-}*/
-
 #review-section
 {
     padding: 90px 0;
+}
+
+.alert
+{
+    border-radius: 0;
+    text-align: center;
 }
 
 .deletion-link
