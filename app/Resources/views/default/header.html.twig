@@ -38,13 +38,13 @@ Header Section Start
                             <div class="dropdown-menu">
                                 <ul>
                                     <li><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
+                                    {#Tester si Admin ou User#}
+                                    {% if app.user.roles[0] == "ROLE_NATURALISTE" %}
+                                        <li><a href="{{ path('NAO_back') }}">Espace Naturaliste</a></li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </li>
-                        {#Tester si Admin ou User#}
-                        {% if app.user.roles[0] == "ROLE_NATURALISTE" %}
-                            <li><a href="{{ path('NAO_back') }}">Back-Office</a></li>
-                        {% endif %}
                     {% else %}
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
