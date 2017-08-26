@@ -3,11 +3,14 @@
 namespace BackOfficeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class ModerationController extends Controller
 {
 	/**
 	 * Validate observation
+	 *
+	 * @Security("has_role('ROLE_NATURALISTE')")
 	 *
 	 * @param $id The observation id
 	 * Redirect to route BackOfficeBundle/Resources/views/Default:validationList.html.twig 
@@ -29,6 +32,8 @@ class ModerationController extends Controller
 
 	/**
 	 * Validate observation
+	 *
+	 * @Security("has_role('ROLE_NATURALISTE')")
 	 *
 	 * @param $id The observation id
 	 * @param $page The current page link is used

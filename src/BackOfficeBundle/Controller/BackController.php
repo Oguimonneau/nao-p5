@@ -3,9 +3,13 @@
 namespace BackOfficeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class BackController extends Controller
 {
+    /**
+     * @Security("has_role('ROLE_NATURALISTE')")
+     */
     public function indexAction()
     {
     	$em = $this->getDoctrine()->getManager();
@@ -20,6 +24,9 @@ class BackController extends Controller
         ));
     }
 
+    /**
+     * @Security("has_role('ROLE_NATURALISTE')")
+     */
     public function observationsListAction()
     {
     	/**
@@ -37,6 +44,9 @@ class BackController extends Controller
     	));
     }
 
+    /**
+     * @Security("has_role('ROLE_NATURALISTE')")
+     */
     public function validationListAction()
     {
     	/**
