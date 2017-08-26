@@ -68,11 +68,28 @@
                                     <td class="col-xs-6">{{ observation.taxref.nomVern }}</td>
                                     <td class="col-xs-2">
                                         <a href="#" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
-                                        <a href="{{ path('NAO_back_office_deletion', { 'page': 'observations', 'id': observation.id }) }}" class="deletion-link">
+                                        <a href="#delete{{ observation.id }}" class="deletion-link" data-toggle="modal">
                                             <span class="glyphicon glyphicon-remove-sign"></span>
                                         </a>
                                     </td>
                                 </tr>
+                                <!-- MODAL WINDOW FOR DELETION -->
+                                <div class="modal fade" id="delete{{ observation.id }}" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                                <h4 id="modalTitle" class="modal-title">Etes-vous certain de vouloir supprimer cette observation ?</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Une fois supprimée, il ne sera pas possible de la récupérer.</p>
+                                                <p class="modal-button-margin text-right">
+                                                    <a href="{{ path('NAO_back_office_deletion', { 'page': 'observations', 'id': observation.id }) }}" class="delete-button">Supprimer</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             {% else %}
                                 <tr>
                                     <td colspan="5">

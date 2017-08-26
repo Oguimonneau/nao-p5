@@ -85,6 +85,36 @@ td[colspan="5"]
     text-align: center;
 }
 
+.delete-button
+{
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+}
+
+.delete-button:hover
+{
+    background-color: #c0392b;
+    color: white;
+    text-decoration: none;
+}
+
+
+.validate-button
+{
+    background-color: #33cc66;
+    color: white;
+    padding: 10px;
+}
+
+.validate-button:hover
+{
+    background-color: #009966;
+    color: white;
+    text-decoration: none;   
+}
+
+
 .deletion-link
 {
     color: #e74c3c;
@@ -93,6 +123,16 @@ td[colspan="5"]
 .deletion-link:hover
 {
     color: #c0392b;
+}
+
+.modal-button-margin
+{
+    margin-top: 40px;
+}
+
+.modal-content
+{
+    border-radius: 0;
 }
 
 .glyphicon
