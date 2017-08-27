@@ -15,10 +15,10 @@ body{
 }
 
 #map {
-    height: 490px;
+    height: 475px;
 }
 
-#legend {
+#blocPosition {
     background: #99cc99;
     padding: 10px;
     margin: 10px;
@@ -27,6 +27,11 @@ body{
     margin-top: 0;
 }
 
+.btn-send {
+    color: #fff;
+    outline: none;
+    background: #66cc99;
+}
 @media all and (max-device-width: 1024px) {
     /* Vos règles CSS pour iPad V */
 
