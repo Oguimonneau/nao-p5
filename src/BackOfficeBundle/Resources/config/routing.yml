@@ -2,6 +2,7 @@ NAO_back_office_observations_list:
     path:     /observations/{page}
     defaults:
         _controller: BackOfficeBundle:Back:observationsList
+        page: 1
     requirements:
         page: \d+
 
@@ -9,6 +10,7 @@ NAO_back_office_validation_list:
     path:     /validation-list/{page}
     defaults:
         _controller: BackOfficeBundle:Back:validationList
+        page: 1
     requirements:
         page: \d+
 

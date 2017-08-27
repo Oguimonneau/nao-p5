@@ -45,7 +45,7 @@ class BackController extends Controller
     {
         if ($page < 1)
         {
-            throw $this->createNotFoundException('La page n° ' . $page . 'n\'existe pas.');
+            throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
         }
 
         // Fix number of observations per page
@@ -66,10 +66,14 @@ class BackController extends Controller
         // Count($observationsList) returns total number of observations
         $nbPages = ceil(count($observationsList) / $nbPerPage);
 
-        // If page doesn't exist, returns 404 error
-        if ($page > $nbPages)
+        // If at least 1 entry exists in array,
+        // Check if page doesn't exist, returns 404 error
+        if ($nbPages > 0)
         {
-            throw $this->createNotFoundException('La page n° ' . $page . 'n\'existe pas.');
+          if ($page > $nbPages)
+            {
+                throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
+            }
         }
 
     	return $this->render('BackOfficeBundle:Default:observationsList.html.twig', array(
@@ -86,7 +90,7 @@ class BackController extends Controller
     {
         if ($page < 1)
         {
-            throw $this->createNotFoundException('La page n° ' . $page . 'n\'existe pas.');
+            throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
         }
 
         // Fix number of observations per page
@@ -107,10 +111,14 @@ class BackController extends Controller
         // Count($observationsList) returns total number of observations
         $nbPages = ceil(count($observationsList) / $nbPerPage);
 
-        // If page doesn't exist, returns 404 error
-        if ($page > $nbPages)
+        // If at least 1 entry exists in array,
+        // Check if page doesn't exist, returns 404 error
+        if ($nbPages > 0)
         {
-            throw $this->createNotFoundException('La page n° ' . $page . 'n\'existe pas.');
+          if ($page > $nbPages)
+            {
+                throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
+            }
         }
 
         return $this->render('BackOfficeBundle:Default:validationList.html.twig', array(
