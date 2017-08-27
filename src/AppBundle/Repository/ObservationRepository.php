@@ -11,28 +11,32 @@ namespace AppBundle\Repository;
 class ObservationRepository extends \Doctrine\ORM\EntityRepository
 {
 	/**
-	 * Find last 10 validated observations
+	 * Find last validated observations with paging system when needed
 	 *
-	 * @param int $firstResult The first result returned (important for paging)
-	 * @param int $maxResults The maximum results returned
+	 * @param int $page The page number
+	 * @param int $nbPerPage The number of results returned on page
 	 * @param bool $validation The validation status
 	 * 
 	 * Return array of Observation objects
 	 */
-	public function findObservations($firsResult, $maxResults, $validation)
+	public function findObservations($page, $nbPerPage, $validation)
 	{
 		$qb = $this->createQueryBuilder('observation');
 
-		$qb->where('observation.valide = :valide')
-		   		->setParameter('valide', $validation)
-		   ->orderBy('observation.id', 'DESC')
-		   ->setFirstResult($firsResult)
-		   ->setMaxResults($maxResults)
+		$query = $qb->where('observation.valide = :valide')
+		   			->setParameter('valide', $validation)
+		   			->orderBy('observation.id', 'DESC')
+		 		    ->getQuery()
 		;
 
-		return $qb
-			->getQuery()
-			->getResult()
+		$query
+			// Set default paging observation start
+			->setFirstResult(($page - 1) * $nbPerPage)
+			// Set number of observations per page
+			->setMaxResults($nbPerPage)
 		;
+
+		// Paginator replaces QueryBuilder method getResults(), with pagination setup
+		return new \Doctrine\ORM\Tools\Pagination\Paginator($query, true);
 	}
 }

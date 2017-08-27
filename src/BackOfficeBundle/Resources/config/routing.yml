@@ -1,12 +1,16 @@
 NAO_back_office_observations_list:
-    path:     /observations
+    path:     /observations/{page}
     defaults:
         _controller: BackOfficeBundle:Back:observationsList
+    requirements:
+        page: \d+
 
 NAO_back_office_validation_list:
-    path:     /validation-list
+    path:     /validation-list/{page}
     defaults:
         _controller: BackOfficeBundle:Back:validationList
+    requirements:
+        page: \d+
 
 NAO_back_office_validation:
     path:     /validation/{id}
