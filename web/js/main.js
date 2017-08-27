@@ -46,9 +46,9 @@ jQuery(document).ready(function(){
 	new WOW().init();
 
 
-(function(){
- jQuery('.smooth-scroll').scrollingTo();
-}());
+// (function(){
+//  jQuery('.smooth-scroll').scrollingTo();
+// }());
 
 });
 

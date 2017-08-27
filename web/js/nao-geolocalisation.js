@@ -1,6 +1,5 @@
 $('#address').keypress(function(e) {
     if(e.which == 13){
-        console.log(e.which)
         searchByVille();
     }
 });
@@ -11,13 +10,11 @@ $('#encode').click(function() {
 });
 
 function searchByVille(){
-    var map = new google.maps.Map(document.getElementById('map'), {
-        // center: {lat: -34.397, lng: 150.644},
-        // zoom: 11
-    });
+    var map = new google.maps.Map(document.getElementById('map'), {});
     var geocoder = new google.maps.Geocoder;
     var address = document.getElementById('address').value;
     var infoWindow = new google.maps.InfoWindow({map: map});
+
     geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == 'OK') {
             $(appbundle_observation_latitude).val(results[0].geometry.location.lat) ;
@@ -34,7 +31,8 @@ function searchByVille(){
             infoWindow.setContent(results[0].formatted_address);
             infoWindow.open(map, marker);
             $(address).val(results[0].formatted_address);
-
+            var legend = document.getElementById('legend');
+            legend.innerHTML = '<strong>Votre position</strong> </br>Latitude : ' + appbundle_observation_latitude.value + ' - Longitude : ' + appbundle_observation_longitude.value;
         } else {
             alert('Echec de Géolocalisation : ' + status);
         }
@@ -58,6 +56,8 @@ function initMap() {
             infoWindow.setPosition(pos);
             map.setCenter(pos);
             geocodeLatLng(geocoder, map, infoWindow);
+            var legend = document.getElementById('legend');
+            legend.innerHTML = '<strong>Votre position</strong> </br>Latitude : ' + pos.lat + ' - Longitude : ' + pos.lng;
         },
         function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -94,6 +94,7 @@ function geocodeLatLng(geocoder, map, infowindow) {
             } else {
                 window.alert('Aucun résultat');
             }
+
         } else {
             window.alert('Erreur de Géolocalisation : ' + status);
         }
