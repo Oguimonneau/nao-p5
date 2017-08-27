@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -35,10 +36,12 @@ class ObservationType extends AbstractType
                 'format'=>'dd-MM-yyyy',
                 'attr'      => ['class' => 'js-datepicker']
             ))
-            ->add('latitude',   NumberType::class)
-            ->add('longitude',  NumberType::class)
+            ->add('latitude',   HiddenType::class)
+            ->add('longitude',  HiddenType::class)
             ->add('commune',    TextType::class)
-            ->add('note',       TextareaType::class)
+            ->add('note',       TextareaType::class, array(
+                'attr'   => ['rows'  =>  '6']
+            ))
             ->add('photo',      PhotoType::class)
 
             ->add('Poster',     submitType::class);

@@ -15,14 +15,16 @@ body{
 }
 
 #map {
-    height: 592px;
+    height: 490px;
 }
 
-#FOSUser-section .btn-send {
-    margin-top: 35px;
-    color: #fff;
-    outline: none;
-    background: #02bdd5;
+#legend {
+    background: #99cc99;
+    padding: 10px;
+    margin: 10px;
+}
+#legend strong {
+    margin-top: 0;
 }
 
 @media all and (max-device-width: 1024px) {
