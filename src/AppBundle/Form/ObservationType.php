@@ -38,7 +38,7 @@ class ObservationType extends AbstractType
             ))
             ->add('latitude',   HiddenType::class)
             ->add('longitude',  HiddenType::class)
-            ->add('commune',    TextType::class)
+            ->add('commune',    HiddenType::class)
             ->add('note',       TextareaType::class, array(
                 'attr'   => ['rows'  =>  '6']
             ))
