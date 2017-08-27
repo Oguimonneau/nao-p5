@@ -15,8 +15,8 @@ class BackController extends Controller
     	$em = $this->getDoctrine()->getManager();
     	$repository = $em->getRepository('AppBundle:Observation');
 
-    	$validatedList = $repository->findValidatedLast10();
-    	$invalidatedList = $repository->findInvalidatedLast10();
+    	$validatedList = $repository->findObservations(0, 10, 1);
+    	$invalidatedList = $repository->findObservations(0, 10, 0);
 
         return $this->render('BackOfficeBundle:Default:index.html.twig', array(
         	'validatedList' => $validatedList,
@@ -37,7 +37,7 @@ class BackController extends Controller
     	$em = $this->getDoctrine()->getManager();
     	$repository = $em->getRepository('AppBundle:Observation');
 
-    	$observationsList = $repository->findByValide(true);
+    	$observationsList = $repository->findObservations(0, 10, 1);
 
     	return $this->render('BackOfficeBundle:Default:observationsList.html.twig', array(
     		'observationsList' => $observationsList
@@ -57,7 +57,7 @@ class BackController extends Controller
     	$em = $this->getDoctrine()->getManager();
     	$repository = $em->getRepository('AppBundle:Observation');
 
-    	$observationsList = $repository->findByValide(false);
+    	$observationsList = $repository->findObservations(0, 10, 0);
 
     	return $this->render('BackOfficeBundle:Default:validationList.html.twig', array(
     		'observationsList' => $observationsList
