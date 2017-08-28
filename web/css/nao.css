@@ -53,28 +53,28 @@ body{
 ================================================================
 */
 
-table
+.admin-table
 {
     width: 100%;
 }
 
-thead
+.admin-thead
 {
     background-color: #009966;
     color: #FFFFFF;
 }
 
-table tr:nth-child(even)
+.admin-table tr:nth-child(even)
 {
     background-color: #99cc99 /*#dff8df*/;
 }
 
-table tr
+.admin-table tr
 {
     line-height: 26px;
 }
 
-td[colspan="5"]
+.admin-table td[colspan="5"]
 {
     font-weight: bold;
     padding-top: 20px;
