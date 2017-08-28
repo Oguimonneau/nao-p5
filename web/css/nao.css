@@ -74,7 +74,7 @@ body{
     line-height: 26px;
 }
 
-.admin-table td[colspan="5"]
+.admin-table td[colspan="4"], .admin-table td[colspan="5"]
 {
     font-weight: bold;
     padding-top: 20px;

@@ -2,8 +2,16 @@
 
 namespace BackOfficeBundle\Controller;
 
+use AppBundle\Form\ObservationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpFoundation\Request;
+
+
+use Symfony\Component\HttpFoundation\Response;
+use AppBundle\Entity\Observation;
+use AppBundle\Entity\Taxref;
+use UserBundle\Entity\User;
 
 class BackController extends Controller
 {
@@ -125,6 +133,44 @@ class BackController extends Controller
             'observationsList' => $observationsList,
             'nbPages' => $nbPages,
             'page' => $page
+        ));
+    }
+
+    /**
+     * @Security("has_role('ROLE_NATURALISTE')")
+     */
+    public function modificationAction($id, Request $request)
+    {
+        // if ($id < 1 || !is_int($id))
+        // {
+        //     throw $this->createNotFoundException('Cette page n\'existe pas');
+        // }
+
+        /**
+         * Get observation's content
+         */
+        $observation = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Observation')
+            ->findOneBy(array('id' => $id))
+        ;
+
+        $form = $this->get('form.factory')->create(ObservationType::class, $observation);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($observation);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'L\'observation n°' . $observation->getId() . ' a bien été modifiée.');
+
+            return $this->redirectToRoute('NAO_back_office_observations_list', array('page' => 1));
+        }
+
+        return $this->render('BackOfficeBundle:Default:modification.html.twig', array(
+            'observation' => $observation,
+            'form' => $form->createView()
         ));
     }
 }

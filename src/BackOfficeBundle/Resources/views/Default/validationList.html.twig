@@ -67,7 +67,7 @@
                                     <td class="col-xs-2">{{ observation.user }}</td>
                                     <td class="col-xs-6">{{ observation.taxref.nomVern }}</td>
                                     <td class="col-xs-2">
-                                        <a href="#" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                                        <a href="{{ path('NAO_back_office_modification', { 'id': observation.id }) }}" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
                                         <a href="#validate{{ observation.id }}" class="validation-link" data-toggle="modal">
                                             <span class="glyphicon glyphicon glyphicon-ok-sign"></span>
                                         </a>

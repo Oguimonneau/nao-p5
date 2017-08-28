@@ -14,6 +14,13 @@ NAO_back_office_validation_list:
     requirements:
         page: \d+
 
+NAO_back_office_modification:
+    path:     /modification/{id}
+    defaults:
+        _controller: BackOfficeBundle:Back:modification
+    requirements:
+        page: \d+
+
 NAO_back_office_validation:
     path:     /validation/{id}
     defaults:
