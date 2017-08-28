@@ -33,7 +33,31 @@ class ObservationRepository extends \Doctrine\ORM\EntityRepository
 		;
 	}
 
-	/**
+    /**
+     * Find last 3 validated observations
+     * @criteria @entry "valide" = 1 DESC
+     * LIMIT 3
+     *
+     * Return array of Observation objects
+     */
+    public function findValidatedLast3()
+    {
+        $qb = $this->createQueryBuilder('observation');
+
+        $qb->where('observation.valide = :valide')
+            ->setParameter('valide', 1)
+            ->orderBy('observation.id', 'DESC')
+            ->setMaxResults(3)
+        ;
+
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
+    /**
 	 * Find last 10 waiting for validation observations
 	 * @criteria @entry "valide" = 0 DESC
 	 * LIMIT 10

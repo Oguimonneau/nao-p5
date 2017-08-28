@@ -15,8 +15,14 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('AppBundle:Observation');
 
-        return $this->render('default/index.html.twig');
+        $validatedList = $repository->findValidatedLast10();
+
+        return $this->render('default/index.html.twig', array(
+            'validatedList' => $validatedList
+        ));
     }
 
     public function contactAction(Request $request)

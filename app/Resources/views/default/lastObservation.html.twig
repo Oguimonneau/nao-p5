@@ -7,63 +7,28 @@
             <h1 class="title wow fadeInDown" data-wow-delay=".3s">Les dernières observations</h1>
         </div>
         <div class="row">
-            <div class="col-sm-4 col-xs-12">
-                <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
-                    <div class="img-wrapper">
-                        <img src="{{ asset('images/portfolio/oiseau1.jpg') }}" class="img-responsive" alt="this is a title" >
-                        <div class="overlay">
-                            <div class="buttons">
-                                <a target="_blank" href="#">Details</a>
+            {% for observation in validatedList %}
+                <div class="col-sm-4 col-xs-12">
+                    <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <div class="img-wrapper">
+                            <img src="{{ asset('uploads/img/' ~ observation.photo.id ~ '.' ~ observation.photo.extention) }}" class="img-responsive" alt="this is a title" >
+                            <div class="overlay">
+                                <div class="buttons">
+                                    <a target="_blank" href="#">Details</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <figcaption>
-                        <h4>
-                            <a href="#">
-                                Nom Espèce
-                            </a>
-                        </h4>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
-                    <div class="img-wrapper">
-                        <img src="{{ asset('images/portfolio/oiseau2.jpg') }}" class="img-responsive" alt="this is a title" >
-                        <div class="overlay">
-                            <div class="buttons">
-                                <a target="_blank" href="#">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <figcaption>
-                        <h4>
-                            <a href="#">
-                                Nom Espèce
-                            </a>
-                        </h4>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
-                    <div class="img-wrapper">
-                        <img src="{{ asset('images/portfolio/oiseau3.jpg') }}" class="img-responsive" alt="this is a title" >
-                        <div class="overlay">
-                            <div class="buttons">
-                                <a target="_blank" href="#">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <figcaption>
-                        <h4>
-                            <a href="#">
-                                Nom Espèce
-                            </a>
-                        </h4>
-                    </figcaption>
-                </figure>
-            </div>
+                        <figcaption>
+                            <h4>
+                                <a href="#">
+                                    {{ observation.taxref.nomVern }}
+                                </a>
+                            </h4>
+                        </figcaption>
+                    </figure>
+                </div>
+            {% endfor %}
+
         </div>
     </div>
 </section> <!-- #works -->

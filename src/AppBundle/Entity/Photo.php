@@ -40,7 +40,7 @@ class Photo
 
     /**
      * @var File;
-     * @Assert\Image(maxSize="2M")
+     * @Assert\Image(maxSize="5M")
      */
     private $file;
 
