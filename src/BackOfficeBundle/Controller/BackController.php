@@ -15,14 +15,13 @@ use UserBundle\Entity\User;
 
 class BackController extends Controller
 {
+    const NB_PER_PAGE = 10;
+
     /**
      * @Security("has_role('ROLE_NATURALISTE')")
      */
     public function indexAction()
     {
-        // Fix number of observations per page
-        $nbPerPage = 10;
-
         /**
          * Get all validated and invalidated observations to send them in view as a list
          *
@@ -31,13 +30,13 @@ class BackController extends Controller
         $validatedList = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Observation')
-            ->findObservations(1, $nbPerPage, 1)
+            ->findObservations(1, self::NB_PER_PAGE, 1)
         ;
 
         $invalidatedList = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Observation')
-            ->findObservations(1, $nbPerPage, 0)
+            ->findObservations(1, self::NB_PER_PAGE, 0)
         ;
 
         return $this->render('BackOfficeBundle:Default:index.html.twig', array(
@@ -49,15 +48,12 @@ class BackController extends Controller
     /**
      * @Security("has_role('ROLE_NATURALISTE')")
      */
-    public function observationsListAction($page)
+    public function observationsListAction(int $page)
     {
         if ($page < 1)
         {
             throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
         }
-
-        // Fix number of observations per page
-        $nbPerPage = 10;
 
     	/**
     	 * Get all validated observations to send them in view as a list
@@ -67,12 +63,12 @@ class BackController extends Controller
     	$observationsList = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Observation')
-            ->findObservations($page, $nbPerPage, 1)
+            ->findObservations($page, self::NB_PER_PAGE, 1)
         ;
 
         // Calculate total number of pages
         // Count($observationsList) returns total number of observations
-        $nbPages = ceil(count($observationsList) / $nbPerPage);
+        $nbPages = ceil(count($observationsList) / self::NB_PER_PAGE);
 
         // If at least 1 entry exists in array,
         // Check if page doesn't exist, returns 404 error
@@ -94,15 +90,12 @@ class BackController extends Controller
     /**
      * @Security("has_role('ROLE_NATURALISTE')")
      */
-    public function validationListAction($page)
+    public function validationListAction(int $page)
     {
         if ($page < 1)
         {
             throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
         }
-
-        // Fix number of observations per page
-        $nbPerPage = 10;
 
         /**
          * Get all invalidated observations to send them in view as a list
@@ -112,12 +105,12 @@ class BackController extends Controller
         $observationsList = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Observation')
-            ->findObservations($page, $nbPerPage, 0)
+            ->findObservations($page, self::NB_PER_PAGE, 0)
         ;
 
         // Calculate total number of pages
         // Count($observationsList) returns total number of observations
-        $nbPages = ceil(count($observationsList) / $nbPerPage);
+        $nbPages = ceil(count($observationsList) / self::NB_PER_PAGE);
 
         // If at least 1 entry exists in array,
         // Check if page doesn't exist, returns 404 error
@@ -139,7 +132,7 @@ class BackController extends Controller
     /**
      * @Security("has_role('ROLE_NATURALISTE')")
      */
-    public function modificationAction($id, Request $request)
+    public function modificationAction(int $id, Request $request)
     {
         // if ($id < 1 || !is_int($id))
         // {

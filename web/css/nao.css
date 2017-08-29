@@ -60,13 +60,8 @@ body{
 
 .admin-thead
 {
-    background-color: #009966;
+    background-color: #66cc99;
     color: #FFFFFF;
-}
-
-.admin-table tr:nth-child(even)
-{
-    background-color: #99cc99 /*#dff8df*/;
 }
 
 .admin-table tr
@@ -74,11 +69,27 @@ body{
     line-height: 26px;
 }
 
+.admin-table tbody tr:hover
+{
+    background-color: #ecf0f1;
+}
+
 .admin-table td[colspan="4"], .admin-table td[colspan="5"]
 {
     font-weight: bold;
     padding-top: 20px;
     text-align: center;
+}
+
+.img-container
+{
+    padding: 10px 0 15px 0;
+    text-align: center;
+}
+
+.admin-table img
+{
+    max-width: 70%;
 }
 
 #review-section
@@ -188,4 +199,16 @@ body{
 .modification-link
 {
     color: #2980b9;
+}
+
+.popover
+{
+    border: none;
+    border-radius: 0;
+    text-align: justify;
+}
+
+.popover p
+{
+    font-size: 1em;
 }

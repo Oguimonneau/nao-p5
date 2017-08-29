@@ -61,7 +61,23 @@
                         </thead>
                         <tbody>
                             {% for observation in observationsList %}
-                                <tr>
+                                <tr tabindex="0"
+                                    role="button" 
+                                    data-html="true"
+                                    data-toggle="popover"
+                                    popover-class="test"
+                                    data-placement="top" 
+                                    data-trigger="hover" 
+                                    title="<strong>{{ observation.taxref.nomVern }}</strong>" 
+                                    data-content="
+                                        <div class='img-container'>
+                                            <img src='{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}'>
+                                        </div>
+                                        <p><strong>Utilisateur :</strong></p>
+                                        <p>{{ observation.user }}</p>
+                                        <p><strong>Notes :</strong></p>
+                                        <p>{{ observation.note }}</p>
+                                    ">
                                     <td class="col-xs-1">{{ observation.id }}</td>
                                     <td class="col-xs-1">{{ observation.date|date('d/m/Y') }}</td>
                                     <td class="col-xs-2">{{ observation.user }}</td>
@@ -101,7 +117,6 @@
                 	</table>
                     {% if nbPages > 1 %}
                         <ul class="paging">
-
                                 {% for p in range(1, nbPages) %}
                                     <li {% if p == page %} class="active" {% endif %}>
                                         <a href="{{ path('NAO_back_office_observations_list', { 'page': p }) }}"> {{ p }}</a>
@@ -115,4 +130,3 @@
     </section>
 
 {% endblock %}
-
