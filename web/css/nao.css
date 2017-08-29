@@ -53,76 +53,85 @@ body{
 ================================================================
 */
 
-table
+.admin-table
 {
     width: 100%;
 }
 
-/*.col-md-6 table td:first-child
+.admin-thead
 {
-    width: 6%;
-}
-
-.col-md-6 table td:nth-child(2)
-{
-    width: 16%;
-}
-
-.col-md-6 table td:nth-child(3)
-{
-    width: 40%;
-}*/
-
-thead
-{
-    background-color: #009966;
+    background-color: #66cc99;
     color: #FFFFFF;
 }
 
-table tr:nth-child(even)
-{
-    background-color: #99cc99 /*#dff8df*/;
-}
-
-table tr
+.admin-table tr
 {
     line-height: 26px;
 }
 
-/*table td:first-child
+.admin-table tbody tr:hover
 {
-    width: 6%;
+    background-color: #ecf0f1;
 }
 
-table td:nth-child(2)
+.admin-table td[colspan="4"], .admin-table td[colspan="5"]
 {
-    width: 10%;
+    font-weight: bold;
+    padding-top: 20px;
+    text-align: center;
 }
 
-table td:nth-child(3)
+.img-container
 {
-    width: 20%;
+    padding: 10px 0 15px 0;
+    text-align: center;
 }
 
-table td:nth-child(4)
+.admin-table img
 {
-    width: 55%;
+    max-width: 70%;
 }
-
-table td:nth-child(5)
-{
-    width: 20%;
-}
-
-table td
-{
-    line-height: 26px;
-}*/
 
 #review-section
 {
     padding: 90px 0;
 }
+
+.alert
+{
+    border-radius: 0;
+    text-align: center;
+}
+
+.delete-button
+{
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+}
+
+.delete-button:hover
+{
+    background-color: #c0392b;
+    color: white;
+    text-decoration: none;
+}
+
+
+.validate-button
+{
+    background-color: #33cc66;
+    color: white;
+    padding: 10px;
+}
+
+.validate-button:hover
+{
+    background-color: #009966;
+    color: white;
+    text-decoration: none;   
+}
+
 
 .deletion-link
 {
@@ -132,6 +141,37 @@ table td
 .deletion-link:hover
 {
     color: #c0392b;
+}
+
+.modal-button-margin
+{
+    margin-top: 40px;
+}
+
+.modal-content
+{
+    border-radius: 0;
+}
+
+.paging
+{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.paging li a
+{
+    background-color: #ecf0f1;
+    color: #000000;
+    padding: 5px;
+    margin: 0px 2px;
+}
+
+.paging li a:hover, .paging li a:focus
+{
+    background-color: #bdc3c7;
+    text-decoration: none;
 }
 
 .glyphicon
@@ -159,4 +199,16 @@ table td
 .modification-link
 {
     color: #2980b9;
+}
+
+.popover
+{
+    border: none;
+    border-radius: 0;
+    text-align: justify;
+}
+
+.popover p
+{
+    font-size: 1em;
 }

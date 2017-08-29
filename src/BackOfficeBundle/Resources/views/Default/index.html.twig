@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="block">
-                        <h2>Espace administrateur</h2>
+                        <h2>Espace naturaliste</h2>
                         <ol class="breadcrumb">
                             <li>
                                 <a href="{{ path('NAO_back_office_observations_list') }}">
@@ -39,8 +39,8 @@
     		<div class="row">
     			<div class="col-md-6">
                 	<h2 class="subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">Observations les plus récentes</h2>
-                	<table class="wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
-                		<thead>
+                	<table class="admin-table wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
+                		<thead class="admin-thead">
                 			<tr>
                 				<th class="col-xs-1">N°</th>
                 				<th class="col-xs-1">Date</th>
@@ -55,6 +55,12 @@
                                     <td class="col-xs-1">{{ observation.date|date('d/m/Y') }}</td>
                                     <td class="col-xs-5">{{ observation.taxref.nomVern }}</td>
                                     <td class="col-xs-4">{{ observation.user }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="4">
+                                        Aucune observation n'est disponible pour le moment.
+                                    </td>
                                 </tr>               
                             {% endfor %}
                         </tbody>
@@ -62,8 +68,8 @@
     			</div>
     			<div class="col-md-6">
                 	<h2 class="subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".5s">Observations à valider</h2>
-                	<table class="wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.1s">
-                        <thead>
+                	<table class="admin-table wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.1s">
+                        <thead class="admin-thead">
                             <tr>
                                 <th class="col-xs-1">N°</th>
                                 <th class="col-xs-2">Date</th>
@@ -78,6 +84,12 @@
                                     <td class="col-xs-1">{{ observation.date|date('d/m/Y') }}</td>
                                     <td class="col-xs-5">{{ observation.taxref.nomVern }}</td>
                                     <td class="col-xs-4">{{ observation.user }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="4">
+                                        Aucune observation en attente de validation.
+                                    </td>
                                 </tr>               
                             {% endfor %}
                         </tbody>

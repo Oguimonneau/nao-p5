@@ -9,6 +9,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class DefaultController extends Controller
 {
+    const NB_PER_PAGE = 3;
+
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
@@ -18,7 +20,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('AppBundle:Observation');
 
-        $validatedList = $repository->findValidatedLast10();
+        $validatedList = $repository->findObservations(1, self::NB_PER_PAGE, 1);
 
         return $this->render('default/index.html.twig', array(
             'validatedList' => $validatedList

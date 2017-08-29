@@ -11,27 +11,33 @@ namespace AppBundle\Repository;
 class ObservationRepository extends \Doctrine\ORM\EntityRepository
 {
 	/**
-	 * Find last 10 validated observations
-	 * @criteria @entry "valide" = 1 DESC
-	 * LIMIT 10
+	 * Find last validated observations with paging system when needed
+	 *
+	 * @param int $page The page number
+	 * @param int $nbPerPage The number of results returned on page
+	 * @param bool $validation The validation status
 	 * 
 	 * Return array of Observation objects
 	 */
-	public function findValidatedLast10()
+	public function findObservations(int $page, int $nbPerPage, bool $validation = null)
 	{
-		$qb = $this->createQueryBuilder('observation');
-
-		$qb->where('observation.valide = :valide')
-		   		->setParameter('valide', 1)
-		   ->orderBy('observation.id', 'DESC')
-		   ->setMaxResults(10)
+		$qb = $this->createQueryBuilder('observation')
+					->where('observation.valide = :valide')
+		   			->setParameter('valide', $validation)
+		   			->orderBy('observation.id', 'DESC')
+		 		    ->getQuery()
+					// Set default paging observation start
+					->setFirstResult(($page - 1) * $nbPerPage)
+					// Set number of observations per page
+					->setMaxResults($nbPerPage)
 		;
 
-		return $qb
-			->getQuery()
-			->getResult()
-		;
+		// Paginator replaces QueryBuilder method getResults(), with pagination setup
+		return new \Doctrine\ORM\Tools\Pagination\Paginator($qb, true);
 	}
+
+// OLIVIER REPO !
+// A MODIFIER !
 
     /**
      * Find last 3 validated observations
