@@ -49,10 +49,3 @@ NAO_searchEspece:
     defaults:
         _controller: AppBundle:Taxref:index
     methods:  [GET, POST]
-
-#Pages Back-Office
-NAO_back:
-    path:      /back
-    defaults:
-        _controller: BackOfficeBundle:Back:index
-    methods:  [GET, POST]

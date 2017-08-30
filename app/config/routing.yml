@@ -3,8 +3,9 @@ app:
     prefix: /
 
 back_office:
-    resource: "@BackOfficeBundle/Resources/config/routing.yml"
-    prefix:   /back
+    resource: "@AppBundle/Controller/AdminController"
+    prefix:   /admin
+    type: annotation
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

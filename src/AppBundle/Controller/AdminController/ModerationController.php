@@ -1,9 +1,10 @@
 <?php
 
-namespace BackOfficeBundle\Controller;
+namespace AppBundle\Controller\AdminController;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class ModerationController extends Controller
@@ -12,6 +13,8 @@ class ModerationController extends Controller
 	 * Validate observation
 	 *
 	 * @Security("has_role('ROLE_NATURALISTE')")
+     *
+     * @Route("/validation/{id}", name="NAO_back_office_validation", requirements={"id" = "\d+"})
 	 *
 	 * @param $id The observation id
 	 * Redirect to route BackOfficeBundle/Resources/views/Default:validationList.html.twig 
@@ -34,9 +37,11 @@ class ModerationController extends Controller
 	}
 
 	/**
-	 * Validate observation
+	 * Delete observation
 	 *
 	 * @Security("has_role('ROLE_NATURALISTE')")
+     *
+     * @Route("/deletion/{page}/{id}", name="NAO_back_office_deletion", requirements={"id" = "\d+"})
 	 *
 	 * @param $id The observation id
 	 * @param $page The current page link is used

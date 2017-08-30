@@ -1,24 +1,21 @@
 <?php
 
-namespace BackOfficeBundle\Controller;
+namespace AppBundle\Controller\AdminController;
 
 use AppBundle\Form\ObservationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
-
-use Symfony\Component\HttpFoundation\Response;
-use AppBundle\Entity\Observation;
-use AppBundle\Entity\Taxref;
-use UserBundle\Entity\User;
-
-class BackController extends Controller
+class AdminController extends Controller
 {
     const NB_PER_PAGE = 10;
 
     /**
      * @Security("has_role('ROLE_NATURALISTE')")
+     *
+     * @Route("/", name="NAO_back")
      */
     public function indexAction()
     {
@@ -39,7 +36,7 @@ class BackController extends Controller
             ->findObservations(1, self::NB_PER_PAGE, 0)
         ;
 
-        return $this->render('BackOfficeBundle:Default:index.html.twig', array(
+        return $this->render('admin/index.html.twig', array(
         	'validatedList' => $validatedList,
         	'invalidatedList' => $invalidatedList
         ));
@@ -47,6 +44,8 @@ class BackController extends Controller
 
     /**
      * @Security("has_role('ROLE_NATURALISTE')")
+     *
+     * @Route("/observations-list/{page}", name="NAO_back_office_observations_list", requirements={"page" = "\d+"}, defaults={"page" = 1})
      */
     public function observationsListAction(int $page)
     {
@@ -80,7 +79,7 @@ class BackController extends Controller
             }
         }
 
-    	return $this->render('BackOfficeBundle:Default:observationsList.html.twig', array(
+    	return $this->render('admin/observationsList.html.twig', array(
     		'observationsList' => $observationsList,
             'nbPages' => $nbPages,
             'page' => $page
@@ -89,6 +88,8 @@ class BackController extends Controller
 
     /**
      * @Security("has_role('ROLE_NATURALISTE')")
+     *
+     * @Route("/validation-list/{page}", name="NAO_back_office_validation_list", requirements={"page" = "\d+"}, defaults={"page" = 1})
      */
     public function validationListAction(int $page)
     {
@@ -122,7 +123,7 @@ class BackController extends Controller
             }
         }
 
-        return $this->render('BackOfficeBundle:Default:validationList.html.twig', array(
+        return $this->render('admin/validationList.html.twig', array(
             'observationsList' => $observationsList,
             'nbPages' => $nbPages,
             'page' => $page
@@ -131,6 +132,8 @@ class BackController extends Controller
 
     /**
      * @Security("has_role('ROLE_NATURALISTE')")
+     *
+     * @Route("/observation/{id}/edit", name="NAO_back_office_modification", requirements={"id" = "\d+"})
      */
     public function modificationAction(int $id, Request $request)
     {
@@ -161,7 +164,7 @@ class BackController extends Controller
             return $this->redirectToRoute('NAO_back_office_observations_list', array('page' => 1));
         }
 
-        return $this->render('BackOfficeBundle:Default:modification.html.twig', array(
+        return $this->render('admin/modification.html.twig', array(
             'observation' => $observation,
             'form' => $form->createView()
         ));
