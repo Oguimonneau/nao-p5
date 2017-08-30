@@ -28,6 +28,12 @@ NAO_conditions:
     defaults:
         _controller: AppBundle:Default:conditions
     methods:  [GET, POST]
+    
+NAO_detail:
+    path:     /detail
+    defaults:
+        _controller: AppBundle:Default:detail
+    methods:  [GET, POST]
 
 #Pages Observation
 
