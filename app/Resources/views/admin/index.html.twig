@@ -95,6 +95,41 @@
                         </tbody>
                     </table>
     			</div>
+                <div class="col-md-6">
+                    <h2 class="subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".5s">Derniers utilisateurs inscrits</h2>
+                    <table class="admin-table wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.1s">
+                        <thead class="admin-thead">
+                            <tr>
+                                <th class="col-xs-1">N°</th>
+                                <th class="col-xs-1">Nom</th>
+                                <th class="col-xs-2">E-mail</th>
+                                <th class="col-xs-5">Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in userList %}
+                                <tr>
+                                    <td class="col-xs-1">{{ user.id }}</td>
+                                    <td class="col-xs-1">{{ user.username }}</td>
+                                    <td class="col-xs-2">{{ user.email }}</td>
+                                    <td class="col-xs-5">
+                                        {% if user.roles.0 == 'ROLE_NATURALISTE' %}
+                                            Naturaliste
+                                        {% else %}
+                                            Particulier
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="4">
+                                        Aucun utilisateur inscrit.
+                                    </td>
+                                </tr>               
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
     		</div>
     	</div>
     </section>

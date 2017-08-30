@@ -20,7 +20,7 @@ class AdminController extends Controller
     public function indexAction()
     {
         /**
-         * Get all validated and invalidated observations to send them in view as a list
+         * Get last 10 validated and invalidated observations to send them in view as a list
          *
          * @repository AppBundle\Repository\ObservationRepository
          */
@@ -36,9 +36,22 @@ class AdminController extends Controller
             ->findObservations(1, self::NB_PER_PAGE, 0)
         ;
 
+        /**
+         * Get last 10 users
+         *
+         * @repository UserBundle\Repository\UserRepository
+         */
+        $userList = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UserBundle:User')
+            ->findBy(array(), array(), self::NB_PER_PAGE)
+        ;
+
+
         return $this->render('admin/index.html.twig', array(
         	'validatedList' => $validatedList,
-        	'invalidatedList' => $invalidatedList
+        	'invalidatedList' => $invalidatedList,
+            'userList' => $userList
         ));
     }
 
