@@ -43,6 +43,7 @@
                     <label for="username" class="col-lg-3 control-label">Nom d'utilisateur</label>
                     <div class="col-lg-3">
                         {{ form_widget(form.username, { 'atrr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.username) }}
                     </div>
                     <div class="col-lg-3"></div>
                 </div>

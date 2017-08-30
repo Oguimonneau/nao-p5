@@ -34,7 +34,7 @@ framework:
     assets: ~
     php_errors:
         log: true
-    translator: ~
+#    translator: ~
 
 # Twig Configuration
 twig:

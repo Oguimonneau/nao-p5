@@ -42,9 +42,8 @@ class ObservationType extends AbstractType
             ->add('note',       TextareaType::class, array(
                 'attr'   => ['rows'  =>  '6']
             ))
-            ->add('photo',      PhotoType::class)
+            ->add('photo',      PhotoType::class);
 
-            ->add('Poster',     submitType::class);
     }
     
     /**
