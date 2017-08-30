@@ -182,4 +182,27 @@ class AdminController extends Controller
             'form' => $form->createView()
         ));
     }
+
+    /**
+     * @Security("has_role('ROLE_NATURALISTE')")
+     *
+     * @Route("/user", name="NAO_back_office_user_list")
+     */
+    public function userListAction()
+    {
+        /**
+         * Get list of all users
+         *
+         * @repository UserBundle\Repository\UserRepository
+         */
+        $userList = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UserBundle:User')
+            ->findAll()
+        ;
+
+        return $this->render('admin/userList.html.twig', array(
+            'userList' => $userList
+        ));
+    }
 }

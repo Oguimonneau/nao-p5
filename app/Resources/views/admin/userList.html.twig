@@ -1,0 +1,123 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <!--
+    ==================================================
+        Global Page Section Start
+    ================================================== -->
+    <section class="global-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h2>Espace naturaliste</h2>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="{{ path('NAO_back') }}">
+                                    Accueil de l'administration
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('NAO_back_office_observations_list') }}">
+                                    Liste observations
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#page-header-->
+
+    <!--
+    ==================================================
+        Flashbag Section Start
+    ================================================== -->
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    <!--
+    ==================================================
+        Admin Review Section Start
+    ================================================== -->
+    <section id="review-section">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-12">
+                	<h2 class="subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">Utilisateurs</h2>
+                	<table class="admin-table wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
+                		<thead class="admin-thead">
+                            <tr>
+                                <th class="col-xs-1">N°</th>
+                                <th class="col-xs-1">Nom</th>
+                                <th class="col-xs-2">E-mail</th>
+                                <th class="col-xs-5">Statut</th>
+                                <th class="col-xs-2">Action</th>
+                            </tr>
+                		</thead>
+                		<tbody>
+                            {% for user in userList %}
+                                <tr>
+                                    <td class="col-xs-1">{{ user.id }}</td>
+                                    <td class="col-xs-1">{{ user.username }}</td>
+                                    <td class="col-xs-2">{{ user.email }}</td>
+                                    <td class="col-xs-5">
+                                        {% if user.roles.0 == 'ROLE_NATURALISTE' %}
+                                            Naturaliste
+                                        {% else %}
+                                            Particulier
+                                        {% endif %}
+                                    </td>
+                                    <td class="col-xs-2">
+                                        <a href="{{ path('NAO_back_office_modification', { 'id': user.id }) }}" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                                        <a href="#delete{{ user.id }}" class="deletion-link" data-toggle="modal">
+                                        	<span class="glyphicon glyphicon-remove-sign"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!-- MODAL WINDOW FOR DELETION -->
+                                <div class="modal fade" id="delete{{ user.id }}" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                                <h4 id="modalTitle" class="modal-title">Etes-vous certain de vouloir supprimer cette observation ?</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Une fois supprimé, ce compte ne pourra pas être récupéré.</p>
+                                                <p class="modal-button-margin text-right">
+                                                    <a href="{{ path('NAO_back_office_deletion', { 'page': 'validation', 'id': user.id }) }}" class="delete-button">Supprimer</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <tr>
+                                    <td colspan="5">
+                                        Aucun utilisateur inscrit.
+                                    </td>
+                                </tr>
+                            {% endfor %}
+			       		</tbody>
+                	</table>
+{#                     {% if nbPages > 1 %}
+                        <ul class="paging">
+                            {% for p in range(1, nbPages) %}
+                                <li {% if p == page %} class="active" {% endif %}>
+                                    <a href="{{ path('NAO_back_office_validation_list', { 'page': p }) }}"> {{ p }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %} #}
+    			</div>
+    		</div>
+    	</div>
+    </section>
+
+{% endblock %}
+
