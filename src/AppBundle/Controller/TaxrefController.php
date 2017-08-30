@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-
+use AppBundle\Form\RechercheFilterFormType;
 class TaxrefController extends Controller
 {
     /**
@@ -15,6 +15,20 @@ class TaxrefController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return $this->render('default/searchEspece.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $usr= $this->get('security.token_storage')->getToken()->getUser();
+
+
+        $form = $this->createForm(RechercheFilterFormType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $nomVern = $form->getData()['Taxref']->getNomVern();
+
+        }
+        return $this->render('default/searchEspece.html.twig', [
+
+
+            'form'         => $form->createView()
+        ]);
     }
 }

@@ -16,13 +16,13 @@ class RechercheFilterFormType extends AbstractType
                 'class'         => 'AppBundle:Taxref',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('b')
-                        ->groupBy('b.nom_vern')
-                        ->orderBy('b.nom_vern', 'ASC');
+
+                        ->orderBy('b.nomVern', 'ASC');
                 },
-                'choice_label'  => 'nom_vern',
-                'label'         => 'Filter by Nom'
+                'choice_label'  => 'nomVern',
+                'label'         => 'Filter par Espece'
             ])
-            ->add('recover', SubmitType::class, [
+            ->add('Chercher', SubmitType::class, [
                 'attr'          => [
                     'class'         => 'btn right'
                 ]
