@@ -10,8 +10,8 @@ namespace UserBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
-		/**
-	 * Find last validated observations with paging system when needed
+	/**
+	 * Find users with paging system when needed
 	 *
 	 * @param int $page The page number
 	 * @param int $nbPerPage The number of results returned on page
