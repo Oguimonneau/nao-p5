@@ -67,21 +67,21 @@ class ModerationController extends Controller
 	 *
 	 * @Security("has_role('ROLE_NATURALISTE')")
      *
-     * @Route("/user-deletion/{page}/{id}", name="NAO_back_office_deletion", requirements={"id" = "\d+"})
+     * @Route("/user-deletion/{id}", name="NAO_back_office_deletion", requirements={"id" = "\d+"})
 	 *
 	 * @param $id The user id
-	 * @param $page The current page link is used
-	 * Redirect to route BackOfficeBundle/Resources/views/Default:validationList.html.twig 
+	 * Redirect to route BackOfficeBundle/Resources/views/Default:userList.html.twig 
 	 */
-	public function useDeleteAction($id, Request $request)
+	public function userDeleteAction($id, Request $request)
 	{
-		$em = $this->getDoctrine()->getManager();
-    	$repository = $em->getRepository('UserBundle:User');
+		// Get FOSUserBundle UserManager
+		$userManager = $this->get('fos_user.user_manager');
 
-    	$user = $repository->findOneBy(array('id' => $id));
+		// Get user to be deleted
+		$user = $userManager->findUserBy(array('id' => $id));
 
-    	$em->remove($user);
-    	$em->flush();
+		// Delete user
+		$userManager->deleteUser($user);
 
     	$request->getSession()->getFlashbag()->add('notice', 'L\'utilisateur n°' . $id . ' a bien été supprimé.');
 
