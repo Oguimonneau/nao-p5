@@ -1,44 +1,12 @@
-{% extends '::base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
-{% block body %}
+{% block title %}
 
-    <!--
-    ==================================================
-        Global Page Section Start
-    ================================================== -->
-    <section class="global-page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="block">
-                        <h2>Espace naturaliste</h2>
-                        <ol class="breadcrumb">
-                            <li>
-                                <a href="{{ path('NAO_back') }}">
-                                    Accueil de l'administration
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('NAO_back_office_validation_list') }}">
-                                    Valider observations
-                                </a>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!--/#page-header-->
+    Modification d'une observation
 
-    <!--
-    ==================================================
-        Flashbag Section Start
-    ================================================== -->
-    {% for flashMessage in app.session.flashbag.get('notice') %}
-        <div class="alert alert-success">
-            {{ flashMessage }}
-        </div>
-    {% endfor %}
+{% endblock %}
+
+{% block section %}
 
     <!--
     ==================================================
@@ -121,7 +89,6 @@
                 </div>
                 <div class="col-md-6">
                     <div id="map"></div>
-
                 </div>
             </div>
         </div>

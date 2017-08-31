@@ -41,7 +41,7 @@ class ModerationController extends Controller
 	 *
 	 * @Security("has_role('ROLE_NATURALISTE')")
      *
-     * @Route("/deletion/{page}/{id}", name="NAO_back_office_deletion", requirements={"id" = "\d+"})
+     * @Route("/deletion/{page}/{id}", name="NAO_back_office_observation_deletion", requirements={"id" = "\d+"})
 	 *
 	 * @param $id The observation id
 	 * @param $page The current page link is used
@@ -67,7 +67,7 @@ class ModerationController extends Controller
 	 *
 	 * @Security("has_role('ROLE_NATURALISTE')")
      *
-     * @Route("/user-deletion/{id}", name="NAO_back_office_deletion", requirements={"id" = "\d+"})
+     * @Route("/user-deletion/{id}", name="NAO_back_office_user_deletion", requirements={"id" = "\d+"})
 	 *
 	 * @param $id The user id
 	 * Redirect to route BackOfficeBundle/Resources/views/Default:userList.html.twig 

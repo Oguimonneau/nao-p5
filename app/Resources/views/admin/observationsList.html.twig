@@ -1,34 +1,12 @@
-{% extends '::base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
-{% block body %}
+{% block title %}
 
-    <!--
-    ==================================================
-        Global Page Section Start
-    ================================================== -->
-    <section class="global-page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="block">
-                        <h2>Espace naturaliste</h2>
-                        <ol class="breadcrumb">
-                            <li>
-                                <a href="{{ path('NAO_back') }}">
-                                    Accueil de l'administration
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('NAO_back_office_validation_list') }}">
-                                    Valider observations
-                                </a>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!--/#page-header-->
+    Liste des observations
+
+{% endblock %}
+
+{% block section %}
 
     <!--
     ==================================================
@@ -100,7 +78,7 @@
                                             <div class="modal-body">
                                                 <p>Une fois supprimée, il ne sera pas possible de la récupérer.</p>
                                                 <p class="modal-button-margin text-right">
-                                                    <a href="{{ path('NAO_back_office_deletion', { 'page': 'observations', 'id': observation.id }) }}" class="delete-button">Supprimer</a>
+                                                    <a href="{{ path('NAO_back_office_observation_deletion', { 'page': 'observations', 'id': observation.id }) }}" class="delete-button">Supprimer</a>
                                                 </p>
                                             </div>
                                         </div>
