@@ -61,4 +61,30 @@ class ModerationController extends Controller
 
     	return ($page == 'observations') ? $this->redirectToRoute('NAO_back_office_observations_list') : $this->redirectToRoute('NAO_back_office_validation_list');
     }
+
+	/**
+	 * Delete user
+	 *
+	 * @Security("has_role('ROLE_NATURALISTE')")
+     *
+     * @Route("/user-deletion/{page}/{id}", name="NAO_back_office_deletion", requirements={"id" = "\d+"})
+	 *
+	 * @param $id The user id
+	 * @param $page The current page link is used
+	 * Redirect to route BackOfficeBundle/Resources/views/Default:validationList.html.twig 
+	 */
+	public function useDeleteAction($id, Request $request)
+	{
+		$em = $this->getDoctrine()->getManager();
+    	$repository = $em->getRepository('UserBundle:User');
+
+    	$user = $repository->findOneBy(array('id' => $id));
+
+    	$em->remove($user);
+    	$em->flush();
+
+    	$request->getSession()->getFlashbag()->add('notice', 'L\'utilisateur n°' . $id . ' a bien été supprimé.');
+
+    	return $this->redirectToRoute('NAO_back_office_user_list');
+    }
 }

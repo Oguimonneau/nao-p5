@@ -90,12 +90,12 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                                                <h4 id="modalTitle" class="modal-title">Etes-vous certain de vouloir supprimer cette observation ?</h4>
+                                                <h4 id="modalTitle" class="modal-title">Etes-vous certain de vouloir supprimer cet utilisateur ?</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <p>Une fois supprimé, ce compte ne pourra pas être récupéré.</p>
                                                 <p class="modal-button-margin text-right">
-                                                    <a href="{{ path('NAO_back_office_deletion', { 'page': 'validation', 'id': user.id }) }}" class="delete-button">Supprimer</a>
+                                                    <a href="{{ path('NAO_back_office_deletion', { 'page': 'user', 'id': user.id }) }}" class="delete-button">Supprimer</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -125,4 +125,3 @@
     </section>
 
 {% endblock %}
-
