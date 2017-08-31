@@ -46,6 +46,17 @@
     ================================================== -->
     <section id="review-section">
         <div class="container">
+            <h2 class="subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">Modification de l'annonce n°{{ observation.id }}</h2>
+            <div class="col-md-12 observation-edit-padding wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".4s">
+                <p class="col-md-6 text-center">
+                    <label>Utilisateur : </label>
+                    {{ observation.user }}
+                </p>
+                <p class="col-md-6 text-center">
+                    <label>Date de soumission : </label>
+                    {{ observation.date|date('d/m/Y') }}
+                </p>
+            </div>
             <div class="row">
                 <div class="col-md-6">
                     <div id="blocPosition" class="text-center">
@@ -62,66 +73,48 @@
                         </div>
                     </div>
                     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-                    {{ form_errors(form) }}
+                        {{ form_errors(form) }}
 
-                    <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".6s">
-                        {# Génération du label. #}
-                        {{ form_label(form.taxref, "Espèce", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                        <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".6s">
+                            {# Génération du label. #}
+                            {{ form_label(form.taxref, "Espèce", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
 
-                        {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.taxref) }}
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.taxref) }}
 
-                        <div class="col-sm-10">
-                            {# Génération de l'input. #}
-                            {{ form_widget(form.taxref, {'attr': {'class': 'form-control'}}) }}
+                            <div class="col-sm-10">
+                                {# Génération de l'input. #}
+                                {{ form_widget(form.taxref, {'attr': {'class': 'form-control'}}) }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
-                        {# Génération du label. #}
-                        {{ form_label(form.date, "Date", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                        <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
+                            {# Génération du label. #}
+                            {{ form_label(form.note, "Note", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
 
-                        {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.date) }}
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.note) }}
 
-                        <div class="col-sm-10">
-                            {# Génération de l'input. #}
-                            {{ form_widget(form.date, {'attr': {'class': 'js-datepicker form-control'}}) }}
+                            <div class="col-sm-10">
+                                {# Génération de l'input. #}
+                                {{ form_widget(form.note, {'attr': {'class': 'form-control'}}) }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.2s">
-                        {# Génération du label. #}
-                        {{ form_label(form.note, "Note", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-
-                        {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.note) }}
-
-                        <div class="col-sm-10">
-                            {# Génération de l'input. #}
-                            {{ form_widget(form.note, {'attr': {'class': 'form-control'}}) }}
+                        <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1s">
+                            {# Image view #}
+                            <div class="col-sm-12">
+                                <img class="img-responsive" src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.4s">
-                        {# Génération du label. #}
-                        {{ form_label(form.photo, "Fichier", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-
-                        {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.photo) }}
-
-                        <div class="col-sm-10">
-                            {# Génération de l'input. #}
-                            {{ form_widget(form.photo) }}
+                        <div class="form-group wow fadeInDown " data-wow-duration="500ms" data-wow-delay="1.2s">
+                            <div class = "col-sm-2 control-label"></div>
+                            <div class = "col-sm-10">
+                                {{ form_widget(form.edit, {'label': 'Modifier', 'attr': {'class': 'btn pull-right btn-send'}}) }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group wow fadeInDown " data-wow-duration="500ms" data-wow-delay="1.6s">
-                        <div class = "col-sm-2 control-label"></div>
-                        <div class = "col-sm-10">
-                            {{ form_widget(form.Poster, {'attr': {'class': 'btn pull-right btn-send'}}) }}
-                        </div>
-                    </div>
-                    {# Génération automatique des champs pas encore écrits.
-                       Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
-                       et tous les champs cachés (type « hidden »). #}
-                    {{ form_rest(form) }}
+                        {# Génération automatique des champs pas encore écrits.
+                           Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+                           et tous les champs cachés (type « hidden »). #}
+                        {{ form_rest(form) }}
 
                     {# Fermeture de la balise <form> du formulaire HTML #}
                     {{ form_end(form) }}
@@ -138,9 +131,6 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <!-- Datepicker -->
-    <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
-    <script src="{{ asset('js/bootstrap-datepicker.fr.min.js') }}"></script>
     <!-- Geolocalisation-->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFLTldKU5XQdx7B_ldPv__ZHbTTISL9PU&callback=initMap"></script>
     <script src="{{ asset('js/nao-geolocalisation.js') }}"></script>

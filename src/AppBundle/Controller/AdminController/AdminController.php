@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller\AdminController;
 
-use AppBundle\Form\ObservationType;
+use AppBundle\Form\AdminType\ObservationEditType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -164,7 +164,7 @@ class AdminController extends Controller
             ->findOneBy(array('id' => $id))
         ;
 
-        $form = $this->get('form.factory')->create(ObservationType::class, $observation);
+        $form = $this->get('form.factory')->create(ObservationEditType::class, $observation);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
         {

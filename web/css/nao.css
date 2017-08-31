@@ -212,3 +212,13 @@ body{
 {
     font-size: 1em;
 }
+
+.edit-img-container
+{
+    width: 50%;
+}
+
+.observation-edit-padding
+{
+    padding: 50px 0;
+}
