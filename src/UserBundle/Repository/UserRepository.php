@@ -10,4 +10,26 @@ namespace UserBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+		/**
+	 * Find last validated observations with paging system when needed
+	 *
+	 * @param int $page The page number
+	 * @param int $nbPerPage The number of results returned on page
+	 * 
+	 * Return array of Observation objects
+	 */
+	public function findUsers(int $page, int $nbPerPage)
+	{
+		$qb = $this->createQueryBuilder('user')
+		   			->orderBy('user.id', 'DESC')
+		 		    ->getQuery()
+					// Set default paging user start
+					->setFirstResult(($page - 1) * $nbPerPage)
+					// Set number of observations per page
+					->setMaxResults($nbPerPage)
+		;
+
+		// Paginator replaces QueryBuilder method getResults(), with pagination setup
+		return new \Doctrine\ORM\Tools\Pagination\Paginator($qb, true);
+	}
 }

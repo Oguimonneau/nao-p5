@@ -186,9 +186,9 @@ class AdminController extends Controller
     /**
      * @Security("has_role('ROLE_NATURALISTE')")
      *
-     * @Route("/user", name="NAO_back_office_user_list")
+     * @Route("/user/{page}", name="NAO_back_office_user_list", requirements={"page" = "\d+"}, defaults={"page" = 1})
      */
-    public function userListAction()
+    public function userListAction(int $page)
     {
         /**
          * Get list of all users
@@ -198,11 +198,27 @@ class AdminController extends Controller
         $userList = $this->getDoctrine()
             ->getManager()
             ->getRepository('UserBundle:User')
-            ->findAll()
+            ->findUsers($page, self::NB_PER_PAGE)
         ;
 
+        // Calculate total number of pages
+        // Count($userList) returns total number of observations
+        $nbPages = ceil(count($userList) / self::NB_PER_PAGE);
+
+        // If at least 1 entry exists in array,
+        // Check if page doesn't exist, returns 404 error
+        if ($nbPages > 0)
+        {
+          if ($page > $nbPages)
+            {
+                throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
+            }
+        }
+
         return $this->render('admin/userList.html.twig', array(
-            'userList' => $userList
+            'userList' => $userList,
+            'nbPages' => $nbPages,
+            'page' => $page
         ));
     }
 }
