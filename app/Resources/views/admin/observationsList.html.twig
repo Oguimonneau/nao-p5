@@ -26,7 +26,12 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-md-12">
-                	<h2 class="subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">Liste des observations</h2>
+                	<h2 class="col-md-6 subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">Liste des observations</h2>
+                    <div class="col-md-2 pull-right">
+                        {{ form_start(sorting) }}
+                            {{ form_widget(sorting) }}
+                        {{ form_end(sorting) }}
+                    </div>
                 	<table class="admin-table wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
                         <thead class="admin-thead">
                             <tr>

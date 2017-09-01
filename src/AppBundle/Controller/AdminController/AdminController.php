@@ -3,6 +3,7 @@
 namespace AppBundle\Controller\AdminController;
 
 use AppBundle\Form\AdminType\ObservationEditType;
+use AppBundle\Form\AdminType\SortingType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -60,27 +61,46 @@ class AdminController extends Controller
      *
      * @Route("/observations-list/{page}", name="NAO_back_office_observations_list", requirements={"page" = "\d+"}, defaults={"page" = 1})
      */
-    public function observationsListAction(int $page)
+    public function observationsListAction(int $page, Request $request)
     {
         if ($page < 1)
         {
             throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
         }
 
-    	/**
-    	 * Get all validated observations to send them in view as a list
-    	 *
-    	 * @repository AppBundle\Repository\ObservationRepository
-    	 */
-    	$observationsList = $this->getDoctrine()
+        /**
+         * Sorting Form
+         *
+         * Change number of items shown per page when submitted
+         *
+         * @FormType AppBundle\Form\AdminType\SortingType
+         */
+        $sortingForm = $this->get('form.factory')->create(SortingType::class);
+
+        if ($request->isMethod('POST') && $sortingForm->handleRequest($request)->isValid())
+        {
+            $nbPerPage = $sortingForm['nbPerPageSelect']->getData();
+        }
+
+        /**
+         * Get all validated observations to send them in view as a list
+         *
+         * @repository AppBundle\Repository\ObservationRepository
+         */
+        $observationsList = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Observation')
-            ->findObservations($page, self::NB_PER_PAGE, 1)
+            ->findObservations(
+                $page,
+                // If Sorting Form is submitted, its POST data replaces const NB_PER_PAGE
+                ($nbPerPage !== null) ? $nbPerPage : self::NB_PER_PAGE, 
+                1
+            )
         ;
 
         // Calculate total number of pages
         // Count($observationsList) returns total number of observations
-        $nbPages = ceil(count($observationsList) / self::NB_PER_PAGE);
+        $nbPages = ceil(count($observationsList) / (($nbPerPage !== null) ? $nbPerPage : self::NB_PER_PAGE));
 
         // If at least 1 entry exists in array,
         // Check if page doesn't exist, returns 404 error
@@ -95,7 +115,8 @@ class AdminController extends Controller
     	return $this->render('admin/observationsList.html.twig', array(
     		'observationsList' => $observationsList,
             'nbPages' => $nbPages,
-            'page' => $page
+            'page' => $page,
+            'sorting' => $sortingForm->createView()
     	));
     }
 
