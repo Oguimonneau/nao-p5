@@ -28,9 +28,6 @@ class SortingType extends AbstractType
                     '100' => 100
                 )
             ))
-            ->add('sortingSubmit', SubmitType::class, array(
-                'label' => 'Trier'
-            ))
         ;
     }
     

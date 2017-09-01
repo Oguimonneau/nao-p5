@@ -93,14 +93,14 @@ class AdminController extends Controller
             ->findObservations(
                 $page,
                 // If Sorting Form is submitted, its POST data replaces const NB_PER_PAGE
-                ($nbPerPage !== null) ? $nbPerPage : self::NB_PER_PAGE, 
+                isset($nbPerPage) ? $nbPerPage : self::NB_PER_PAGE, 
                 1
             )
         ;
 
         // Calculate total number of pages
         // Count($observationsList) returns total number of observations
-        $nbPages = ceil(count($observationsList) / (($nbPerPage !== null) ? $nbPerPage : self::NB_PER_PAGE));
+        $nbPages = ceil(count($observationsList) / (isset($nbPerPage) ? $nbPerPage : self::NB_PER_PAGE));
 
         // If at least 1 entry exists in array,
         // Check if page doesn't exist, returns 404 error
