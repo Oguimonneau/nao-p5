@@ -222,3 +222,18 @@ body{
 {
     padding: 50px 0;
 }
+
+.img-responsive
+{
+   margin: 0 auto;
+}
+
+.img-view
+{
+    height: 300px;
+}
+
+.test
+{
+    margin-top : 100px;
+}
