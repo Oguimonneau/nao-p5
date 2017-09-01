@@ -97,6 +97,9 @@
                         <ul class="paging">
                             {% if page > 1 %}
                                 <li>
+                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': 1 }) }}">Début</a>
+                                </li>
+                                <li>
                                     <a href="{{ path('NAO_back_office_observations_list', { 'page': page - 1 }) }}">Précédent</a>
                                 </li>
                             {% endif %}
@@ -108,6 +111,9 @@
                             {% if page < nbPages %}
                                 <li>
                                     <a href="{{ path('NAO_back_office_observations_list', { 'page': page + 1 }) }}">Suivant</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': nbPages }) }}">Fin</a>
                                 </li>
                             {% endif %}
                         </ul>
