@@ -18,7 +18,7 @@ class TaxrefRepository extends \Doctrine\ORM\EntityRepository
      *
      * Return array of Taxref objects
      */
-    public function findTaxrefs(int $page, int $nbPerPage)
+    public function findTaxrefsAll(int $page, int $nbPerPage)
     {
         $qb = $this->createQueryBuilder('taxre')
             ->orderBy('taxref.nom_vern', 'ASC')
