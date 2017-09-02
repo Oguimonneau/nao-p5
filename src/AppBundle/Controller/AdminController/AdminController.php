@@ -103,12 +103,11 @@ class AdminController extends Controller
         $nbPages = ceil(count($observationsList) / (($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE));
 
         // If at least 1 entry exists in array,
-        // Check if page doesn't exist, returns 404 error
+        // Check if page doesn't exist, returns to page 1
         if ($nbPages > 0)
         {
           if ($page > $nbPages)
             {
-                // throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
                 return $this->redirectToRoute('NAO_back_office_observations_list');
             }
         }

@@ -115,27 +115,51 @@
                 	</table>
                     {% if nbPages > 1 %}
                         <ul class="paging">
+                            <li>
+                                <a href="{{ path('NAO_back_office_observations_list', { 'page': 1 }) }}" class="{{ (page <= 1) ? 'not-active' }} : ''">Début</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('NAO_back_office_observations_list', { 'page': page - 1 }) }}" class="{{ (page <= 1) ? 'not-active' }} : ''">Précédent</a>
+                            </li>
+                            {% if page > 3 %}
+                                <li>
+                                    <a href="#" class='not-active'>...</a>
+                                </li>
+                            {% endif %}
+                            {% if page > 2 %}
+                                <li>
+                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': (page - 2) }) }}">{{ page - 2 }}</a>
+                                </li>
+                            {% endif %}
                             {% if page > 1 %}
                                 <li>
-                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': 1 }) }}">Début</a>
+                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': (page - 1) }) }}">{{ page - 1 }}</a>
                                 </li>
+                            {% endif %}   
+                            <li>
+                                <a href="{{ path('NAO_back_office_observations_list', { 'page': page }) }}" class="current-page">{{ page }}</a>
+                            </li>                            
+                            {% if (page + 1) <= nbPages %}
                                 <li>
-                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': page - 1 }) }}">Précédent</a>
+                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': (page + 1) }) }}">{{ page + 1 }}</a>
                                 </li>
                             {% endif %}
-                            {% for p in range(1, nbPages) %}
-                                <li {% if p == page %} class="active" {% endif %}>
-                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': p }) }}">{{ p }}</a>
-                                </li>
-                            {% endfor %}
-                            {% if page < nbPages %}
+                            {% if (page + 2) <= nbPages %}
                                 <li>
-                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': page + 1 }) }}">Suivant</a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': nbPages }) }}">Fin</a>
+                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': (page + 2) }) }}">{{ page + 2 }}</a>
                                 </li>
                             {% endif %}
+                            {% if (page + 3) <= nbPages %}
+                                <li>
+                                    <a href="#" class='not-active'>...</a>
+                                </li>
+                            {% endif %}
+                            <li>
+                                <a href="{{ path('NAO_back_office_observations_list', { 'page': page + 1 }) }}" class="{{ (page >= nbPages) ? 'not-active' }} : ''">Suivant</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('NAO_back_office_observations_list', { 'page': nbPages }) }}" class="{{ (page >= nbPages) ? 'not-active' }} : ''">Fin</a>
+                            </li>
                         </ul>
                     {% endif %}
     			</div>

@@ -107,7 +107,6 @@
                             <li>
                                 <a href="{{ path('NAO_back_office_observations_list', { 'page': page - 1 }) }}" class="{{ (page <= 1) ? 'not-active' }} : ''">Précédent</a>
                             </li>
-
                             {% if page > 3 %}
                                 <li>
                                     <a href="#" class='not-active'>...</a>
@@ -141,8 +140,6 @@
                                     <a href="#" class='not-active'>...</a>
                                 </li>
                             {% endif %}
-
-
                             <li>
                                 <a href="{{ path('NAO_back_office_observations_list', { 'page': page + 1 }) }}" class="{{ (page >= nbPages) ? 'not-active' }} : ''">Suivant</a>
                             </li>
