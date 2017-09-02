@@ -250,3 +250,13 @@ body{
     color: #ffffff !important;
     background-color: #bdc3c7 !important;
 }
+
+.sorting-form-padding
+{
+    padding: 15px 0 0 0;
+}
+
+.no-padding
+{
+    padding: 0;
+}
