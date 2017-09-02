@@ -20,6 +20,18 @@ class TaxrefController extends Controller
      */
     public function indexAction(Request $request)
     {
+
+        /**
+         * Get all validated and invalidated observations to send them in view as a list
+         *
+         * @repository AppBundle\Repository\TaxrefRepository
+         */
+        $taxrefList = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Taxref')
+            ->findTaxrefs(1, 20)
+        ;
+
         return $this->render(':taxref:searchEspece.html.twig');
     }
 }
