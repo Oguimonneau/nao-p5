@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 
 class DefaultController extends Controller
@@ -32,6 +33,7 @@ class DefaultController extends Controller
 
     /**
      * @Route("/contact", name ="NAO_contact")
+     * @Method({"GET","POST"})
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
@@ -52,18 +54,4 @@ class DefaultController extends Controller
         return $this->render('default/about.html.twig');
     }
 
-    public function backAction(Request $request)
-    {
-        return $this->render('default/back.html.twig');
-    }
-
-    public function mentionsAction(Request $request)
-    {
-        return $this->render('default/mentions.html.twig');
-    }
-
-    public function conditionsAction(Request $request)
-    {
-        return $this->render('default/conditions.html.twig');
-    }
 }

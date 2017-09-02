@@ -11,11 +11,13 @@ use AppBundle\Entity\Taxref;
 use UserBundle\Entity\User;
 use AppBundle\Form\ObservationType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class ObservationController extends Controller
 {
     /**
      * @Route("/observation/add", name ="NAO_addObservation")
+     * @Method({"GET","POST"})
      * @Security("has_role('ROLE_PARTICULIER') or has_role('ROLE_NATURALISTE')")
      */
     public function addAction(Request $request)
