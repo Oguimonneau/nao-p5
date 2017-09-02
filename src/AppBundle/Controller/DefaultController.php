@@ -6,12 +6,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
 
 class DefaultController extends Controller
 {
     const NB_PER_PAGE = 3;
 
     /**
+     * @Route("/", name ="NAO_home")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
@@ -27,11 +30,22 @@ class DefaultController extends Controller
         ));
     }
 
+    /**
+     * @Route("/contact", name ="NAO_contact")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
     public function contactAction(Request $request)
     {
 
         return $this->render('default/contact.html.twig');
     }
+
+    /**
+     * @Route("/about", name ="NAO_about")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
     public function aboutAction(Request $request)
     {
 
