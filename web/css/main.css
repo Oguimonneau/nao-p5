@@ -310,10 +310,12 @@ figure img {
   transform: scale3d(1, 1, 1);
   -webkit-transition: -webkit-transform 400ms;
   transition: transform 400ms;
+   
 }
 figure:hover img {
-  -webkit-transform: scale3d(1.2, 1.2, 1);
-  transform: scale3d(1.2, 1.2, 1);
+ 
+      max-width: 100%;
+	height: auto; 
 }
 figure:hover .overlay {
   opacity: 1;
@@ -333,7 +335,7 @@ figure .overlay {
   background: rgba(0, 0, 0, 0.7);
   opacity: 0;
   -webkit-transition: opacity 400ms;
-  transition: opacity 400ms;
+  transition: opacity 400ms; 
 }
 figure .overlay a {
   display: inline-block;
