@@ -237,3 +237,16 @@ body{
 {
     font-size: 1em;
 }
+
+.not-active
+{
+    cursor: none;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.current-page
+{
+    color: #ffffff !important;
+    background-color: #bdc3c7 !important;
+}
