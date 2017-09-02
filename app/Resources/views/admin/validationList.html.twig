@@ -1,34 +1,12 @@
-{% extends '::base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
-{% block body %}
+{% block title %}
 
-    <!--
-    ==================================================
-        Global Page Section Start
-    ================================================== -->
-    <section class="global-page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="block">
-                        <h2>Espace naturaliste</h2>
-                        <ol class="breadcrumb">
-                            <li>
-                                <a href="{{ path('NAO_back') }}">
-                                    Accueil de l'administration
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('NAO_back_office_observations_list') }}">
-                                    Liste observations
-                                </a>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!--/#page-header-->
+    Observations à valider
+
+{% endblock %}
+
+{% block section %}
 
     <!--
     ==================================================
@@ -120,7 +98,7 @@
                                             <div class="modal-body">
                                                 <p>Une fois supprimée, il ne sera pas possible de la récupérer.</p>
                                                 <p class="modal-button-margin text-right">
-                                                    <a href="{{ path('NAO_back_office_deletion', { 'page': 'validation', 'id': observation.id }) }}" class="delete-button">Supprimer</a>
+                                                    <a href="{{ path('NAO_back_office_observation_deletion', { 'page': 'validation', 'id': observation.id }) }}" class="delete-button">Supprimer</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -137,11 +115,27 @@
                 	</table>
                     {% if nbPages > 1 %}
                         <ul class="paging">
+                            {% if page > 1 %}
+                                <li>
+                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': 1 }) }}">Début</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': page - 1 }) }}">Précédent</a>
+                                </li>
+                            {% endif %}
                             {% for p in range(1, nbPages) %}
                                 <li {% if p == page %} class="active" {% endif %}>
-                                    <a href="{{ path('NAO_back_office_validation_list', { 'page': p }) }}"> {{ p }}</a>
+                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': p }) }}">{{ p }}</a>
                                 </li>
                             {% endfor %}
+                            {% if page < nbPages %}
+                                <li>
+                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': page + 1 }) }}">Suivant</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('NAO_back_office_observations_list', { 'page': nbPages }) }}">Fin</a>
+                                </li>
+                            {% endif %}
                         </ul>
                     {% endif %}
     			</div>
