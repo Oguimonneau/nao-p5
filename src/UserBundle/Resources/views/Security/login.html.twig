@@ -1,9 +1,6 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
  
 {% block fos_user_content %}
-    {% if error %}
-        <div>{{ error.message|trans({}, 'messages') }}</div>
-    {% endif %}
     <section class="global-page-header">
         <div class="container">
             <div class="row">
@@ -25,6 +22,9 @@
         </div>
     </section>
 <section id="FOSUser-section">
+    {% if error %}
+        <div class = "alert alert-danger">{{ error.message|trans({}, 'messages') }}</div>
+    {% endif %}
     <div class="container">
         <form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal col-lg-12" >
             <div class="row">

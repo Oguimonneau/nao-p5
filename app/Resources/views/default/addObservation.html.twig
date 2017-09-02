@@ -25,95 +25,94 @@
             </div>
         </div>
     </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="blocPosition" class="text-center">
+                        <div id="legend"></div>
+                        <div class="input-group">
+                            <input type="textbox" id="address" class="form-control" style="text-align:right" >
+                            <span class="input-group-btn">
+                              <button class="btn btn-send" id="encode" type="button">Recherche</button>
+                            </span>
+                        </div>
+                        <div>
+                            {#<input id="address" type="textbox">#}
+                            {#<input type="button" value="Recherche" id="encode" class="btn btn-send">#}
+                        </div>
+                    </div>
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                    {{ form_errors(form) }}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div id="blocPosition" class="text-center">
-                <div id="legend"></div>
-                <div class="input-group">
-                    <input type="textbox" id="address" class="form-control" style="text-align:right" >
-                    <span class="input-group-btn">
-                      <button class="btn btn-send" id="encode" type="button">Recherche</button>
-                    </span>
+                    <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".6s">
+                        {# Génération du label. #}
+                        {{ form_label(form.taxref, "Espèce", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.taxref) }}
+
+                        <div class="col-sm-10">
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.taxref, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
+                        {# Génération du label. #}
+                        {{ form_label(form.date, "Date", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.date) }}
+
+                        <div class="col-sm-10">
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.date, {'attr': {'class': 'js-datepicker form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.2s">
+                        {# Génération du label. #}
+                        {{ form_label(form.note, "Note", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.note) }}
+
+                        <div class="col-sm-10">
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.note, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.4s">
+                        {# Génération du label. #}
+                        {{ form_label(form.photo, "Fichier", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.photo) }}
+
+                        <div class="col-sm-10">
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.photo.file) }}
+                        </div>
+                    </div>
+                    <div class="form-group wow fadeInDown " data-wow-duration="500ms" data-wow-delay="1.6s">
+                        <div class = "col-sm-2 control-label"></div>
+                        <div class = "col-sm-10">
+                            <input type="submit" class = "btn pull-right btn-send" value="Poster" />
+                        </div>
+                    </div>
+                    {# Génération automatique des champs pas encore écrits.
+                       Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+                       et tous les champs cachés (type « hidden »). #}
+                    {{ form_rest(form) }}
+
+                    {# Fermeture de la balise <form> du formulaire HTML #}
+                    {{ form_end(form) }}
                 </div>
-                <div>
-                    {#<input id="address" type="textbox">#}
-                    {#<input type="button" value="Recherche" id="encode" class="btn btn-send">#}
+                <div class="col-md-6">
+                    <div id="map"></div>
                 </div>
             </div>
-            {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-            {{ form_errors(form) }}
-
-            <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".6s">
-                {# Génération du label. #}
-                {{ form_label(form.taxref, "Espèce", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.taxref) }}
-
-                <div class="col-sm-10">
-                    {# Génération de l'input. #}
-                    {{ form_widget(form.taxref, {'attr': {'class': 'form-control'}}) }}
-                </div>
-            </div>
-            <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
-                {# Génération du label. #}
-                {{ form_label(form.date, "Date", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.date) }}
-
-                <div class="col-sm-10">
-                    {# Génération de l'input. #}
-                    {{ form_widget(form.date, {'attr': {'class': 'js-datepicker form-control'}}) }}
-                </div>
-            </div>
-            <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.2s">
-                {# Génération du label. #}
-                {{ form_label(form.note, "Note", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.note) }}
-
-                <div class="col-sm-10">
-                    {# Génération de l'input. #}
-                    {{ form_widget(form.note, {'attr': {'class': 'form-control'}}) }}
-                </div>
-            </div>
-            <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.4s">
-                {# Génération du label. #}
-                {{ form_label(form.photo, "Fichier", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.photo) }}
-
-                <div class="col-sm-10">
-                    {# Génération de l'input. #}
-                    {{ form_widget(form.photo.file) }}
-                </div>
-            </div>
-            <div class="form-group wow fadeInDown " data-wow-duration="500ms" data-wow-delay="1.6s">
-                <div class = "col-sm-2 control-label"></div>
-                <div class = "col-sm-10">
-                    <input type="submit" class = "btn pull-right btn-send" value="Poster" />
-                </div>
-            </div>
-            {# Génération automatique des champs pas encore écrits.
-               Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
-               et tous les champs cachés (type « hidden »). #}
-            {{ form_rest(form) }}
-
-            {# Fermeture de la balise <form> du formulaire HTML #}
-            {{ form_end(form) }}
         </div>
-    <div class="col-md-6">
-            <div id="map"></div>
-
-        </div>
-    </div>
-</div>
-
+    </section>
 
 {% endblock %}
 {% block javascripts %}
