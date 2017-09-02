@@ -21,22 +21,21 @@ class TaxrefController extends Controller
         $taxref = new Taxref();
         $taxref->getNomVern();
 
-        $latutude = new Geographie();
-        $latutude ->$repository->find($id);
-
+        $latitude = new Geographie();
         $longitude = new Geographie();
-        $longitude ->getLongitude();
+
+
+
         $repository = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Geographie');
 
+        $latitude = $repository->findAll();
 
-
-        $latutude = $repository->findAll();
 
         foreach ($latitude as $geographie) {
 
-            echo $geographie->getLatitude();
+            echo $geographie->getCle();
         }
 
 
@@ -52,8 +51,8 @@ class TaxrefController extends Controller
 
             'form'         => $form->createView(),
 
-            'latitude'     =>$latutude ->getLatitude(),
-            'longitude'    =>$longitude ->getLongitude()
+            'latitude'     =>$latitude ,
+            'longitude'    =>$longitude
         ]);
     }
 }
