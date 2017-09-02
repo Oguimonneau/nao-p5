@@ -212,3 +212,28 @@ body{
 {
     font-size: 1em;
 }
+
+.edit-img-container
+{
+    width: 50%;
+}
+
+.observation-edit-padding
+{
+    padding: 50px 0;
+}
+
+.img-responsive
+{
+   margin: 0 auto;
+}
+
+.img-view
+{
+    height: 300px;
+}
+
+.paging .glyphicon
+{
+    font-size: 1em;
+}

@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <!--
+    ==================================================
+        Global Page Section Start
+    ================================================== -->
+    <section class="global-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h2>
+                            {% block title %}
+                            {% endblock %}
+                        </h2>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="{{ path('NAO_back') }}">
+                                    Accueil de l'administration
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('NAO_back_office_observations_list') }}">
+                                    Liste observations
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('NAO_back_office_validation_list') }}">
+                                    Valider observations
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('NAO_back_office_user_list') }}">
+                                    Liste utilisateurs
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#page-header-->
+
+
+    <!--
+    ==================================================
+        Admin Review Section Start
+    ================================================== -->
+    {% block section %}
+    {% endblock %}
+
+
+{% endblock %}

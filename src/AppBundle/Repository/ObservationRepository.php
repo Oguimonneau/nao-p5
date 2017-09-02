@@ -21,15 +21,21 @@ class ObservationRepository extends \Doctrine\ORM\EntityRepository
 	 */
 	public function findObservations(int $page, int $nbPerPage, bool $validation = null)
 	{
-		$qb = $this->createQueryBuilder('observation')
-					->where('observation.valide = :valide')
-		   			->setParameter('valide', $validation)
-		   			->orderBy('observation.id', 'DESC')
-		 		    ->getQuery()
-					// Set default paging observation start
-					->setFirstResult(($page - 1) * $nbPerPage)
-					// Set number of observations per page
-					->setMaxResults($nbPerPage)
+		$qb = $this->createQueryBuilder('observation');
+
+		if ($validation !== null)
+		{
+			$qb = $qb->where('observation.valide = :valide')
+   				->setParameter('valide', $validation)
+   			;
+		}
+
+   		$qb = $qb->orderBy('observation.id', 'DESC')
+ 		    ->getQuery()
+			// Set default paging observation start
+			->setFirstResult(($page - 1) * $nbPerPage)
+			// Set number of observations per page
+			->setMaxResults($nbPerPage)
 		;
 
 		// Paginator replaces QueryBuilder method getResults(), with pagination setup
