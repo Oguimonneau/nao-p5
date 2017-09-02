@@ -79,7 +79,7 @@ class AdminController extends Controller
 
         if ($request->isMethod('POST') && $sortingForm->handleRequest($request)->isValid())
         {
-            $nbPerPage = $sortingForm['nbPerPageSelect']->getData();
+            $request->getSession()->set('nbPerPage', $sortingForm['nbPerPageSelect']->getData());
         }
 
         /**
@@ -93,14 +93,14 @@ class AdminController extends Controller
             ->findObservations(
                 $page,
                 // If Sorting Form is submitted, its POST data replaces const NB_PER_PAGE
-                isset($nbPerPage) ? $nbPerPage : self::NB_PER_PAGE, 
+                ($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE, 
                 1
             )
         ;
 
         // Calculate total number of pages
         // Count($observationsList) returns total number of observations
-        $nbPages = ceil(count($observationsList) / (isset($nbPerPage) ? $nbPerPage : self::NB_PER_PAGE));
+        $nbPages = ceil(count($observationsList) / (($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE));
 
         // If at least 1 entry exists in array,
         // Check if page doesn't exist, returns 404 error
@@ -108,7 +108,8 @@ class AdminController extends Controller
         {
           if ($page > $nbPages)
             {
-                throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
+                // throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
+                return $this->redirectToRoute('NAO_back_office_observations_list');
             }
         }
 
