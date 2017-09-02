@@ -7,6 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AppBundle\Form\RechercheFilterFormType;
+use AppBundle\Entity\Taxref;
+use AppBundle\Entity\Geographie;
+
 class TaxrefController extends Controller
 {
     /**
@@ -15,8 +18,27 @@ class TaxrefController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $usr= $this->get('security.token_storage')->getToken()->getUser();
+        $taxref = new Taxref();
+        $taxref->getNomVern();
+
+        $latutude = new Geographie();
+        $latutude ->$repository->find($id);
+
+        $longitude = new Geographie();
+        $longitude ->getLongitude();
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Geographie');
+
+
+
+        $latutude = $repository->findAll();
+
+        foreach ($latitude as $geographie) {
+
+            echo $geographie->getLatitude();
+        }
+
 
 
         $form = $this->createForm(RechercheFilterFormType::class);
@@ -28,7 +50,10 @@ class TaxrefController extends Controller
         return $this->render('default/searchEspece.html.twig', [
 
 
-            'form'         => $form->createView()
+            'form'         => $form->createView(),
+
+            'latitude'     =>$latutude ->getLatitude(),
+            'longitude'    =>$longitude ->getLongitude()
         ]);
     }
 }

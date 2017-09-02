@@ -1,7 +1,16 @@
 function initMap() {
-    // Create a map object and specify the DOM element for display.
+
+        var lat = document.getElementById('lat').value;
+        var long = document.getElementById('long').value;
+
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 8
+        zoom: 4,
+        center: uluru
+    });
+    var marker = new google.maps.Marker({
+        position: lat,long,
+        map: map
     });
 }
+
+</script>
