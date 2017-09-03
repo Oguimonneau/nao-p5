@@ -98,19 +98,15 @@ body{
     text-align: center;
 }
 
-.delete-button
+.deletion-link
 {
-    background-color: #e74c3c;
-    color: white;
-    padding: 10px;
+    color: #e74c3c;
 }
 
-.delete-button:hover, .delete-button:focus
+.deletion-link:hover, .deletion-link:focus
 {
-    background-color: #c0392b;
-    color: white;
+    color: #c0392b;
     outline: 0;
-    text-decoration: none;
 }
 
 .glyphicon
@@ -136,26 +132,15 @@ body{
     color: #2980b9;
 }
 
-.validate-button
+.validation-link
 {
-    background-color: #33cc66;
-    color: white;
-    padding: 10px;
+    color: #33cc66;
 }
 
-.paging
+.validation-link:hover, .validation-link:focus
 {
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
-}
-
-.validate-button:hover, .validate-button:focus
-{
-    background-color: #009966;
-    color: white;
+    color: #009966;
     outline: 0;
-    text-decoration: none;   
 }
 
 /*
@@ -189,16 +174,21 @@ body{
 ================================================================
 */
 
-.deletion-link
+.delete-button
 {
-    color: #e74c3c;
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
 }
 
-.deletion-link:hover, .deletion-link:focus
+.delete-button:hover, .delete-button:focus
 {
-    color: #c0392b;
+    background-color: #c0392b;
+    color: white;
     outline: 0;
+    text-decoration: none;
 }
+
 .modal-button-margin
 {
     margin-top: 40px;
@@ -214,15 +204,19 @@ body{
     padding: 0;
 }
 
-.validation-link
+.validate-button
 {
-    color: #33cc66;
+    background-color: #33cc66;
+    color: white;
+    padding: 10px;
 }
 
-.validation-link:hover, .validation-link:focus
+.validate-button:hover, .validate-button:focus
 {
-    color: #009966;
+    background-color: #009966;
+    color: white;
     outline: 0;
+    text-decoration: none;   
 }
 
 /*
@@ -264,6 +258,13 @@ body{
     cursor: none;
     opacity: 0.5;
     pointer-events: none;
+}
+
+.paging
+{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
 }
 
 .paging li a
