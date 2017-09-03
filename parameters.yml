@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: nao
+    database_user: root
+    database_password: root
+    mailer_transport: gmail
+    mailer_host: smtp.gmail.com
+    mailer_user: olivier.openc@gmail.com
+    mailer_password: openclassroom
+    secret: 836254eb40e703f64f707da96948138d01abcd7f

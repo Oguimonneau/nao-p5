@@ -32,6 +32,7 @@ body{
     outline: none;
     background: #66cc99;
 }
+
 @media all and (max-device-width: 1024px) {
     /* Vos règles CSS pour iPad V */
 
@@ -225,7 +226,10 @@ body{
 
 .img-responsive
 {
-   margin: 0 auto;
+    margin: 0 auto;
+    height: 300px;
+    width:auto;
+    max-width:200%;
 }
 
 .img-view

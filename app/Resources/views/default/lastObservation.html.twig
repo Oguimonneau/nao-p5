@@ -11,7 +11,7 @@
                 <div class="col-sm-4 col-xs-12">
                     <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
                         <div class="img-wrapper">
-                            <img src="{{ asset('uploads/img/' ~ observation.photo.id ~ '.' ~ observation.photo.extention) }}" class="img-responsive" alt="this is a title" >
+                            <img src="{{ asset('uploads/img/' ~ observation.photo.id ~ '.' ~ observation.photo.extention) }}" class="img-responsive" alt="{{ observation.taxref.nomVern }}" >
                             <div class="overlay">
                                 <div class="buttons">
                                     <a target="_blank" href="#">Details</a>
