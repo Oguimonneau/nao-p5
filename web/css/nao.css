@@ -156,9 +156,16 @@ body{
     padding: 50px 0;
 }
 
-.img-responsive
+.edit-img-padding
 {
-   margin: 0 auto;
+    padding-top: 9px;
+}
+
+.edit-img-responsive
+{
+    display: block;
+    margin: auto;
+    height: 100%;
 }
 
 .img-view
