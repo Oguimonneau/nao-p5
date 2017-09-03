@@ -33,7 +33,7 @@ class TaxrefController extends Controller
         ;
         return $this->render(':taxref:searchEspece.html.twig', array(
             'taxrefsList' => $taxrefsList,
-            'nbPages' => 20,
+            'nbPages' => 88,
             'page' => $page
         ));
     }
