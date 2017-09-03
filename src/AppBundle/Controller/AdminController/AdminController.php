@@ -125,7 +125,7 @@ class AdminController extends Controller
      *
      * @Route("/validation-list/{page}", name="NAO_back_office_validation_list", requirements={"page" = "\d+"}, defaults={"page" = 1})
      */
-    public function validationListAction(int $page)
+    public function validationListAction(int $page, Request $request)
     {
         if ($page < 1)
         {
@@ -133,34 +133,54 @@ class AdminController extends Controller
         }
 
         /**
-         * Get all invalidated observations to send them in view as a list
+         * Sorting Form
+         *
+         * Change number of items shown per page when submitted
+         *
+         * @FormType AppBundle\Form\AdminType\SortingType
+         */
+        $sortingForm = $this->get('form.factory')->create(SortingType::class);
+
+        if ($request->isMethod('POST') && $sortingForm->handleRequest($request)->isValid())
+        {
+            $request->getSession()->set('nbPerPage', $sortingForm['nbPerPageSelect']->getData());
+        }
+
+        /**
+         * Get all validated observations to send them in view as a list
          *
          * @repository AppBundle\Repository\ObservationRepository
          */
         $observationsList = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Observation')
-            ->findObservations($page, self::NB_PER_PAGE, 0)
+            ->findObservations(
+                $page,
+                // If Sorting Form is submitted, its POST data replaces const NB_PER_PAGE
+                ($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE, 
+                0
+            )
         ;
 
         // Calculate total number of pages
         // Count($observationsList) returns total number of observations
-        $nbPages = ceil(count($observationsList) / self::NB_PER_PAGE);
+        $nbPages = ceil(count($observationsList) / (($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE));
 
         // If at least 1 entry exists in array,
-        // Check if page doesn't exist, returns 404 error
+        // Check if page doesn't exist, returns to page 1
         if ($nbPages > 0)
         {
           if ($page > $nbPages)
             {
-                throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
+                return $this->redirectToRoute('NAO_back_office_observations_list');
             }
         }
 
         return $this->render('admin/validationList.html.twig', array(
             'observationsList' => $observationsList,
             'nbPages' => $nbPages,
-            'page' => $page
+            'page' => $page,
+            'sorting' => $sortingForm->createView()
         ));
     }
 
@@ -209,8 +229,22 @@ class AdminController extends Controller
      *
      * @Route("/user/{page}", name="NAO_back_office_user_list", requirements={"page" = "\d+"}, defaults={"page" = 1})
      */
-    public function userListAction(int $page)
+    public function userListAction(int $page, Request $request)
     {
+        /**
+         * Sorting Form
+         *
+         * Change number of items shown per page when submitted
+         *
+         * @FormType AppBundle\Form\AdminType\SortingType
+         */
+        $sortingForm = $this->get('form.factory')->create(SortingType::class);
+
+        if ($request->isMethod('POST') && $sortingForm->handleRequest($request)->isValid())
+        {
+            $request->getSession()->set('nbPerPage', $sortingForm['nbPerPageSelect']->getData());
+        }
+
         /**
          * Get list of all users
          *
@@ -219,12 +253,15 @@ class AdminController extends Controller
         $userList = $this->getDoctrine()
             ->getManager()
             ->getRepository('UserBundle:User')
-            ->findUsers($page, self::NB_PER_PAGE)
+            ->findUsers(
+                $page, 
+                ($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE
+            )
         ;
 
         // Calculate total number of pages
         // Count($userList) returns total number of observations
-        $nbPages = ceil(count($userList) / self::NB_PER_PAGE);
+        $nbPages = ceil(count($userList) / (($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE));
 
         // If at least 1 entry exists in array,
         // Check if page doesn't exist, returns 404 error
@@ -232,14 +269,15 @@ class AdminController extends Controller
         {
           if ($page > $nbPages)
             {
-                throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
+                return $this->redirectToRoute('NAO_back_office_user_list');
             }
         }
 
         return $this->render('admin/userList.html.twig', array(
             'userList' => $userList,
             'nbPages' => $nbPages,
-            'page' => $page
+            'page' => $page,
+            'sorting' => $sortingForm->createView()
         ));
     }
 }
