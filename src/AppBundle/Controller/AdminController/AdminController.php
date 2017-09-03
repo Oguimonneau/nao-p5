@@ -63,11 +63,6 @@ class AdminController extends Controller
      */
     public function observationsListAction(int $page, Request $request)
     {
-        if ($page < 1)
-        {
-            throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
-        }
-
         /**
          * Sorting Form
          *
@@ -127,11 +122,6 @@ class AdminController extends Controller
      */
     public function validationListAction(int $page, Request $request)
     {
-        if ($page < 1)
-        {
-            throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
-        }
-
         /**
          * Sorting Form
          *
@@ -191,11 +181,6 @@ class AdminController extends Controller
      */
     public function modificationAction(int $id, Request $request)
     {
-        // if ($id < 1 || !is_int($id))
-        // {
-        //     throw $this->createNotFoundException('Cette page n\'existe pas');
-        // }
-
         /**
          * Get observation's content
          */

@@ -74,9 +74,10 @@ body{
     line-height: 26px;
 }
 
-.admin-table .admin-table-body tr:hover
+.admin-table .admin-table-body tr:hover, .admin-table .admin-table-body tr:focus
 {
     background-color: #ecf0f1;
+    outline: 0;
 }
 
 .admin-table td[colspan="4"], .admin-table td[colspan="5"]
@@ -104,10 +105,11 @@ body{
     padding: 10px;
 }
 
-.delete-button:hover
+.delete-button:hover, .delete-button:focus
 {
     background-color: #c0392b;
     color: white;
+    outline: 0;
     text-decoration: none;
 }
 
@@ -148,10 +150,11 @@ body{
     padding-top: 50px;
 }
 
-.validate-button:hover
+.validate-button:hover, .validate-button:focus
 {
     background-color: #009966;
     color: white;
+    outline: 0;
     text-decoration: none;   
 }
 
@@ -191,9 +194,10 @@ body{
     color: #e74c3c;
 }
 
-.deletion-link:hover
+.deletion-link:hover, .deletion-link:focus
 {
     color: #c0392b;
+    outline: 0;
 }
 .modal-button-margin
 {
@@ -215,9 +219,10 @@ body{
     color: #33cc66;
 }
 
-.validation-link:hover
+.validation-link:hover, .validation-link:focus
 {
     color: #009966;
+    outline: 0;
 }
 
 /*
