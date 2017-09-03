@@ -20,16 +20,19 @@ class TaxrefRepository extends \Doctrine\ORM\EntityRepository
      */
     public function findTaxrefs(int $page, int $nbPerPage)
     {
-        $qb = $this->createQueryBuilder('taxref');
-//        $qb = $qb->orderBy('taxref.nomVern')
+        $qb = $this->createQueryBuilder('t');
+        $qb->orderBy('t.nomVern')
 //            ->getQuery()
 //            // Set default paging observation start
 //            ->setFirstResult(($page - 1) * $nbPerPage)
 //            // Set number of observations per page
 //            ->setMaxResults($nbPerPage)
-//        ;
-
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+        ;
         // Paginator replaces QueryBuilder method getResults(), with pagination setup
-        return new \Doctrine\ORM\Tools\Pagination\Paginator($qb, true);
+//        return new \Doctrine\ORM\Tools\Pagination\Paginator($qb, true);
     }
 }

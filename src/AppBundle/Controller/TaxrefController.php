@@ -28,7 +28,8 @@ class TaxrefController extends Controller
         $taxrefsList = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Taxref')
-            ->findTaxrefs(1, 20)
+            ->findTaxrefs($page, 20)
+
         ;
         return $this->render(':taxref:searchEspece.html.twig', array(
             'taxrefsList' => $taxrefsList,

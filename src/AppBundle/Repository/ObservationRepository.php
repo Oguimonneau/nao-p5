@@ -15,8 +15,7 @@ class ObservationRepository extends \Doctrine\ORM\EntityRepository
 	 *
 	 * @param int $page The page number
 	 * @param int $nbPerPage The number of results returned on page
-	 * @param bool $validation The validation status
-	 * 
+	 *
 	 * Return array of Observation objects
 	 */
 	public function findObservations(int $page, int $nbPerPage, bool $validation = null)
