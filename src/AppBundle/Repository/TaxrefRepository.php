@@ -30,7 +30,7 @@ class TaxrefRepository extends \Doctrine\ORM\EntityRepository
         ;
         return $qb
             ->getQuery()
-            ->getResult()
+            ->getArrayResult()
         ;
         // Paginator replaces QueryBuilder method getResults(), with pagination setup
 //        return new \Doctrine\ORM\Tools\Pagination\Paginator($qb, true);
