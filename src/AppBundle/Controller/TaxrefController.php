@@ -13,12 +13,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class TaxrefController extends Controller
 {
     /**
-     * @Route("/searchEspece", name ="NAO_searchEspece")
+     * @Route("/searchEspece/{page}", name ="NAO_searchEspece",requirements={"page" = "\d+"}, defaults={"page" = 1})
      * @Method({"GET","POST"})
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function indexAction(Request $request)
+    public function indexAction(int $page, Request $request)
     {
 
         /**
@@ -29,11 +28,11 @@ class TaxrefController extends Controller
         $taxrefsList = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Taxref')
-            ->findTaxrefsAll(1, 20)
+            ->findTaxrefs(1, 20)
         ;
         return $this->render(':taxref:searchEspece.html.twig', array(
-            'observationsList' => $taxrefsList,
-            'nbPages' => $nbPages,
+            'taxrefsList' => $taxrefsList,
+            'nbPages' => 20,
             'page' => $page
         ));
     }
