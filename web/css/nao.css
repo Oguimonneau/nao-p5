@@ -48,10 +48,15 @@ body{
 /*
 ================================================================
 
-    Règles CSS des tableaux de l'espace d'administration
+    Admin CSS definitions
 
 ================================================================
 */
+
+#review-section
+{
+    padding: 90px 0;
+}
 
 .admin-table
 {
@@ -81,20 +86,9 @@ body{
     text-align: center;
 }
 
-.img-container
-{
-    padding: 10px 0 15px 0;
-    text-align: center;
-}
-
 .admin-table img
 {
     max-width: 70%;
-}
-
-#review-section
-{
-    padding: 90px 0;
 }
 
 .alert
@@ -117,63 +111,6 @@ body{
     text-decoration: none;
 }
 
-
-.validate-button
-{
-    background-color: #33cc66;
-    color: white;
-    padding: 10px;
-}
-
-.validate-button:hover
-{
-    background-color: #009966;
-    color: white;
-    text-decoration: none;   
-}
-
-
-.deletion-link
-{
-    color: #e74c3c;
-}
-
-.deletion-link:hover
-{
-    color: #c0392b;
-}
-
-.modal-button-margin
-{
-    margin-top: 40px;
-}
-
-.modal-content
-{
-    border-radius: 0;
-}
-
-.paging
-{
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
-}
-
-.paging li a
-{
-    background-color: #ecf0f1;
-    color: #000000;
-    padding: 5px;
-    margin: 0px 2px;
-}
-
-.paging li a:hover, .paging li a:focus
-{
-    background-color: #bdc3c7;
-    text-decoration: none;
-}
-
 .glyphicon
 {
     font-size: 1.2em;
@@ -181,14 +118,10 @@ body{
     vertical-align: middle;
 }
 
-.validation-link
+.img-container
 {
-    color: #33cc66;
-}
-
-.validation-link:hover
-{
-    color: #009966;
+    padding: 10px 0 15px 0;
+    text-align: center;
 }
 
 .modification-link
@@ -201,22 +134,34 @@ body{
     color: #2980b9;
 }
 
-.popover
+.validate-button
 {
-    border: none;
-    border-radius: 0;
-    text-align: justify;
+    background-color: #33cc66;
+    color: white;
+    padding: 10px;
 }
 
-.popover p
+.paging
 {
-    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
 }
 
-.edit-img-container
+.validate-button:hover
 {
-    width: 50%;
+    background-color: #009966;
+    color: white;
+    text-decoration: none;   
 }
+
+/*
+================================================================
+
+    Admin edit observation page CSS Definitions
+
+================================================================
+*/
 
 .observation-edit-padding
 {
@@ -233,9 +178,80 @@ body{
     height: 300px;
 }
 
-.paging .glyphicon
+/*
+================================================================
+
+    Admin modal windows CSS definitions
+
+================================================================
+*/
+
+.deletion-link
+{
+    color: #e74c3c;
+}
+
+.deletion-link:hover
+{
+    color: #c0392b;
+}
+.modal-button-margin
+{
+    margin-top: 40px;
+}
+
+.modal-content
+{
+    border-radius: 0;
+}
+
+.no-padding
+{
+    padding: 0;
+}
+
+.validation-link
+{
+    color: #33cc66;
+}
+
+.validation-link:hover
+{
+    color: #009966;
+}
+
+/*
+================================================================
+
+    Admin popover CSS Definitions
+
+================================================================
+*/
+
+.popover
+{
+    border: none;
+    border-radius: 0;
+    text-align: justify;
+}
+
+.popover p
 {
     font-size: 1em;
+}
+
+/*
+================================================================
+
+    Admin paging and sorting CSS Definitions
+
+================================================================
+*/
+
+.current-page
+{
+    color: #ffffff !important;
+    background-color: #bdc3c7 !important;
 }
 
 .not-active
@@ -245,18 +261,21 @@ body{
     pointer-events: none;
 }
 
-.current-page
+.paging li a
 {
-    color: #ffffff !important;
-    background-color: #bdc3c7 !important;
+    background-color: #ecf0f1;
+    color: #000000;
+    padding: 5px;
+    margin: 0px 2px;
+}
+
+.paging li a:hover, .paging li a:focus
+{
+    background-color: #bdc3c7;
+    text-decoration: none;
 }
 
 .sorting-form-padding
 {
     padding: 15px 0 0 0;
-}
-
-.no-padding
-{
-    padding: 0;
 }
