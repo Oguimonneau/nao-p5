@@ -231,7 +231,12 @@ body{
     width:auto;
     max-width:200%;
 }
-
+.img-vignette {
+    margin: 0 auto;
+    height: 50px;
+    width: auto;
+    max-width: 200%;
+}
 .img-view
 {
     height: 300px;

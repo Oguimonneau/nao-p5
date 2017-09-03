@@ -34,16 +34,18 @@
                     <table class="admin-table wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
                         <thead class="admin-thead">
                         <tr>
+                            <th class="col-xs-1">Image</th>
                             <th class="col-xs-1">Id</th>
                             <th class="col-xs-2">cdNom</th>
-                            <th class="col-xs-9">Espèce</th>
+                            <th class="col-xs-8">Espèce</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for taxref in taxrefsList %}
                             <TR>
+                                <TD><img src="{{ asset('images/taxref/' ~ taxref.cdNom ~ '.jpg') }}" class="img-vignette" alt="images/taxref/{{ taxref.cdNom }}.jpg" ></TD>
                                 <TD><a href="{{ path('NAO_detailEspece', { 'id': taxref.id }) }}"> {{taxref.id }}</a></TD>
-                                <TD>{{ taxref.cdNom }}</TD>
+                                <TD><a href="https://inpn.mnhn.fr/espece/cd_nom/{{ taxref.cdNom }}">{{ taxref.cdNom }}</a></TD>
                                 <TD>{{ taxref.nomVern }}</TD>
                             </TR>
                         {% endfor %}
