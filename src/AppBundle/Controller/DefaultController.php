@@ -160,13 +160,6 @@ class DefaultController extends Controller
         return $this->render('default/conditions.html.twig');
     }
     
-    public function detailAction(Request $request)
-    {
-        return $this->render('default/detail.html.twig');
-    }
-
-
-
 
 }
 

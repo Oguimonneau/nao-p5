@@ -37,4 +37,15 @@ class TaxrefController extends Controller
             'page' => $page
         ));
     }
+
+    /**
+     * @Route("/espece/{id}", name ="NAO_detailEspece",requirements={"id" = "\d+"}, defaults={"id" = 1})
+     * @Method({"GET"})
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function detailAction(Request $request)
+    {
+        return $this->render('taxref/detail.html.twig');
+    }
 }
+
