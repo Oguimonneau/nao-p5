@@ -24,8 +24,7 @@ class TaxrefRepository extends \Doctrine\ORM\EntityRepository
         if ($chain != ""){
             dump($chain);
             $qb
-                ->where('t.nomVern = :chain')
-                ->setParameter('chain', $chain);
+                ->where($qb->expr()->like('t.nomVern', $qb->expr()->literal('%' . $chain . '%')));
         }
         $qb->orderBy('t.nomVern')
 //            ->getQuery()
