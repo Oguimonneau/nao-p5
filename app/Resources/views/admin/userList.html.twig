@@ -62,7 +62,7 @@
                                         {% endif %}
                                     </td>
                                     <td class="col-xs-2">
-                                        <a href="{# {{ path('NAO_back_office_user_modification', { 'id': user.id }) }} #}" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                                        <a href="{{ path('NAO_back_office_user_edit', { 'id': user.id }) }}" class="modification-link"><span class="glyphicon glyphicon-pencil"></span></a>
                                         <a href="#delete{{ user.id }}" class="deletion-link" data-toggle="modal">
                                         	<span class="glyphicon glyphicon-remove-sign"></span>
                                         </a>

@@ -3,6 +3,7 @@
 namespace AppBundle\Controller\AdminController;
 
 use AppBundle\Form\AdminType\ObservationEditType;
+use AppBundle\Form\AdminType\UserEditType;
 use AppBundle\Form\AdminType\SortingType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -263,6 +264,46 @@ class AdminController extends Controller
             'nbPages' => $nbPages,
             'page' => $page,
             'sorting' => $sortingForm->createView()
+        ));
+    }
+
+    /**
+     * @Security("has_role('ROLE_NATURALISTE')")
+     *
+     * @Route("/user/{id}/edit", name="NAO_back_office_user_edit", requirements={"id" = "\d+"})
+     */
+    public function userEditAction(int $id, Request $request)
+    {
+        /**
+         * Get user
+         *
+         * @repository UserBundle\Repository\UserRepository
+         */
+        $user = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UserBundle:User')
+            ->findOneById($id)
+        ;
+
+        $form = $this->get('form.factory')->create(UserEditType::class, $user, array('roles' => $this->container->getParameter('security.role_hierarchy.roles')));
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+        {
+            /**
+             * @var $userManager \FOS\UserBundle\Model\UserManagerInterface
+             */
+            $userManager = $this->get('fos_user.user_manager');
+
+            $userManager->updateUser($user);
+
+            $request->getSession()->getFlashBag()->add('notice', 'L\'utilisateur n°' . $user->getId() . ' a bien été mis à jour.');
+
+            return $this->redirectToRoute('NAO_back_office_user_list', array('page' => 1));
+        }
+
+        return $this->render('admin/userEdit.html.twig', array(
+            'user' => $user,
+            'form' => $form->createView()
         ));
     }
 }
