@@ -18,10 +18,15 @@ class TaxrefRepository extends \Doctrine\ORM\EntityRepository
      *
      * Return array of Taxref objects
      */
-    public function findTaxrefs(int $page, int $nbPerPage)
+    public function findTaxrefs(int $page, int $nbPerPage, $chain)
     {
-        dump($page);
         $qb = $this->createQueryBuilder('t');
+        if ($chain != ""){
+            dump($chain);
+            $qb
+                ->where('t.nomVern = :chain')
+                ->setParameter('chain', $chain);
+        }
         $qb->orderBy('t.nomVern')
 //            ->getQuery()
 //            // Set default paging observation start

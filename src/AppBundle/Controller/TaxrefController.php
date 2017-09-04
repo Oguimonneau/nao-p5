@@ -19,6 +19,10 @@ class TaxrefController extends Controller
      */
     public function indexAction(int $page, Request $request)
     {
+        $chain = "";
+        if ($request->isMethod('POST')) {
+            $chain = $_POST['search'];
+        }
 
         /**
          * Get all validated and invalidated observations to send them in view as a list
@@ -28,8 +32,7 @@ class TaxrefController extends Controller
         $taxrefsList = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Taxref')
-            ->findTaxrefs($page, 20)
-
+            ->findTaxrefs($page, 20, $chain)
         ;
         return $this->render(':taxref:searchEspece.html.twig', array(
             'taxrefsList' => $taxrefsList,
