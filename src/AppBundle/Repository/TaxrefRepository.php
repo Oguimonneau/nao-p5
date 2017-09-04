@@ -22,15 +22,12 @@ class TaxrefRepository extends \Doctrine\ORM\EntityRepository
     {
         $qb = $this->createQueryBuilder('t');
         if ($chain != ""){
-            dump($chain);
-            $qb
-                ->where($qb->expr()->like('t.nomVern', $qb->expr()->literal('%' . $chain . '%')));
+            $qb->where($qb->expr()->like('t.nomVern', $qb->expr()->literal('%' . $chain . '%')));
         }
         $qb->orderBy('t.nomVern')
-//            ->getQuery()
 //            // Set default paging observation start
             ->setFirstResult(($page - 1) * $nbPerPage)
-//            // Set number of observations per page
+//            // Set number of espece per page
             ->setMaxResults($nbPerPage)
         ;
         return $qb
@@ -40,5 +37,16 @@ class TaxrefRepository extends \Doctrine\ORM\EntityRepository
         // Paginator replaces QueryBuilder method getResults(), with pagination setup
         return new \Doctrine\ORM\Tools\Pagination\Paginator($qb, true);
     }
-
+    public function countTaxrefs($chain)
+    {
+        $qb = $this->createQueryBuilder('t');
+        $qb->select('count(t.id)');
+        if ($chain != ""){
+            $qb->where($qb->expr()->like('t.nomVern', $qb->expr()->literal('%' . $chain . '%')));
+        }
+        return $qb
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+    }
 }

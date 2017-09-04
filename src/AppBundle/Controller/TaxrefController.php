@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
+use AppBundle\Repository\TaxrefRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,24 +21,36 @@ class TaxrefController extends Controller
      */
     public function indexAction(int $page, Request $request)
     {
-        $chain = "";
         if ($request->isMethod('POST')) {
-            $chain = $_POST['search'];
+            // write search in session
+            $this->get('session')->set('search', $_POST['search']);
         }
-
+        $session = $this->get('session');
+        if ($session->get('search')) {
+            $search = $session->get('search');
+        }else{
+            $search ="";
+        }
         /**
-         * Get all validated and invalidated observations to send them in view as a list
+         * count number of lines
          *
          * @repository AppBundle\Repository\TaxrefRepository
          */
+        $nbLines = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Taxref')
+            ->countTaxrefs($search)
+        ;
+dump($nbLines);
         $taxrefsList = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Taxref')
-            ->findTaxrefs($page, 20, $chain)
+            ->findTaxrefs($page, 20, $search)
         ;
+
         return $this->render(':taxref:searchEspece.html.twig', array(
             'taxrefsList' => $taxrefsList,
-            'nbPages' => 88,
+            'nbPages' => ceil ($nbLines/20),
             'page' => $page
         ));
     }
