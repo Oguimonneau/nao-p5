@@ -30,13 +30,21 @@ class ObservationEditType extends AbstractType
                 'choice_label'  => 'nom_vern',
                 'multiple'      =>  false,
             ))
+            ->add('date', DateTimeType::class, array(
+                'widget'    => 'single_text',
+                'html5'      => false,
+                'format'=>'dd-MM-yyyy',
+                'attr'      => [
+                    'class' => 'js-datepicker',
+                    'read_only' => true
+                ]
+            ))
             ->add('latitude',   HiddenType::class)
             ->add('longitude',  HiddenType::class)
             ->add('commune',    HiddenType::class)
             ->add('note',       TextareaType::class, array(
                 'attr'   => ['rows'  =>  '6']
             ))
-            ->add('edit',     submitType::class)
         ;
     }
     
@@ -55,7 +63,7 @@ class ObservationEditType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_observation_edit';
+        return 'appbundle_observation';
     }
 
 }

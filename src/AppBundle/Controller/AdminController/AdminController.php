@@ -3,6 +3,7 @@
 namespace AppBundle\Controller\AdminController;
 
 use AppBundle\Form\AdminType\ObservationEditType;
+use AppBundle\Form\AdminType\UserEditType;
 use AppBundle\Form\AdminType\SortingType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -63,11 +64,6 @@ class AdminController extends Controller
      */
     public function observationsListAction(int $page, Request $request)
     {
-        if ($page < 1)
-        {
-            throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
-        }
-
         /**
          * Sorting Form
          *
@@ -103,12 +99,11 @@ class AdminController extends Controller
         $nbPages = ceil(count($observationsList) / (($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE));
 
         // If at least 1 entry exists in array,
-        // Check if page doesn't exist, returns 404 error
+        // Check if page doesn't exist, returns to page 1
         if ($nbPages > 0)
         {
           if ($page > $nbPages)
             {
-                // throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
                 return $this->redirectToRoute('NAO_back_office_observations_list');
             }
         }
@@ -126,42 +121,57 @@ class AdminController extends Controller
      *
      * @Route("/validation-list/{page}", name="NAO_back_office_validation_list", requirements={"page" = "\d+"}, defaults={"page" = 1})
      */
-    public function validationListAction(int $page)
+    public function validationListAction(int $page, Request $request)
     {
-        if ($page < 1)
+        /**
+         * Sorting Form
+         *
+         * Change number of items shown per page when submitted
+         *
+         * @FormType AppBundle\Form\AdminType\SortingType
+         */
+        $sortingForm = $this->get('form.factory')->create(SortingType::class);
+
+        if ($request->isMethod('POST') && $sortingForm->handleRequest($request)->isValid())
         {
-            throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
+            $request->getSession()->set('nbPerPage', $sortingForm['nbPerPageSelect']->getData());
         }
 
         /**
-         * Get all invalidated observations to send them in view as a list
+         * Get all validated observations to send them in view as a list
          *
          * @repository AppBundle\Repository\ObservationRepository
          */
         $observationsList = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Observation')
-            ->findObservations($page, self::NB_PER_PAGE, 0)
+            ->findObservations(
+                $page,
+                // If Sorting Form is submitted, its POST data replaces const NB_PER_PAGE
+                ($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE, 
+                0
+            )
         ;
 
         // Calculate total number of pages
         // Count($observationsList) returns total number of observations
-        $nbPages = ceil(count($observationsList) / self::NB_PER_PAGE);
+        $nbPages = ceil(count($observationsList) / (($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE));
 
         // If at least 1 entry exists in array,
-        // Check if page doesn't exist, returns 404 error
+        // Check if page doesn't exist, returns to page 1
         if ($nbPages > 0)
         {
           if ($page > $nbPages)
             {
-                throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
+                return $this->redirectToRoute('NAO_back_office_observations_list');
             }
         }
 
         return $this->render('admin/validationList.html.twig', array(
             'observationsList' => $observationsList,
             'nbPages' => $nbPages,
-            'page' => $page
+            'page' => $page,
+            'sorting' => $sortingForm->createView()
         ));
     }
 
@@ -172,11 +182,6 @@ class AdminController extends Controller
      */
     public function modificationAction(int $id, Request $request)
     {
-        // if ($id < 1 || !is_int($id))
-        // {
-        //     throw $this->createNotFoundException('Cette page n\'existe pas');
-        // }
-
         /**
          * Get observation's content
          */
@@ -210,8 +215,22 @@ class AdminController extends Controller
      *
      * @Route("/user/{page}", name="NAO_back_office_user_list", requirements={"page" = "\d+"}, defaults={"page" = 1})
      */
-    public function userListAction(int $page)
+    public function userListAction(int $page, Request $request)
     {
+        /**
+         * Sorting Form
+         *
+         * Change number of items shown per page when submitted
+         *
+         * @FormType AppBundle\Form\AdminType\SortingType
+         */
+        $sortingForm = $this->get('form.factory')->create(SortingType::class);
+
+        if ($request->isMethod('POST') && $sortingForm->handleRequest($request)->isValid())
+        {
+            $request->getSession()->set('nbPerPage', $sortingForm['nbPerPageSelect']->getData());
+        }
+
         /**
          * Get list of all users
          *
@@ -220,12 +239,15 @@ class AdminController extends Controller
         $userList = $this->getDoctrine()
             ->getManager()
             ->getRepository('UserBundle:User')
-            ->findUsers($page, self::NB_PER_PAGE)
+            ->findUsers(
+                $page, 
+                ($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE
+            )
         ;
 
         // Calculate total number of pages
         // Count($userList) returns total number of observations
-        $nbPages = ceil(count($userList) / self::NB_PER_PAGE);
+        $nbPages = ceil(count($userList) / (($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE));
 
         // If at least 1 entry exists in array,
         // Check if page doesn't exist, returns 404 error
@@ -233,14 +255,55 @@ class AdminController extends Controller
         {
           if ($page > $nbPages)
             {
-                throw $this->createNotFoundException('La page n°' . $page . ' n\'existe pas.');
+                return $this->redirectToRoute('NAO_back_office_user_list');
             }
         }
 
         return $this->render('admin/userList.html.twig', array(
             'userList' => $userList,
             'nbPages' => $nbPages,
-            'page' => $page
+            'page' => $page,
+            'sorting' => $sortingForm->createView()
+        ));
+    }
+
+    /**
+     * @Security("has_role('ROLE_NATURALISTE')")
+     *
+     * @Route("/user/{id}/edit", name="NAO_back_office_user_edit", requirements={"id" = "\d+"})
+     */
+    public function userEditAction(int $id, Request $request)
+    {
+        /**
+         * Get user
+         *
+         * @repository UserBundle\Repository\UserRepository
+         */
+        $user = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UserBundle:User')
+            ->findOneById($id)
+        ;
+
+        $form = $this->get('form.factory')->create(UserEditType::class, $user, array('roles' => $this->container->getParameter('security.role_hierarchy.roles')));
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+        {
+            /**
+             * @var $userManager \FOS\UserBundle\Model\UserManagerInterface
+             */
+            $userManager = $this->get('fos_user.user_manager');
+
+            $userManager->updateUser($user);
+
+            $request->getSession()->getFlashBag()->add('notice', 'L\'utilisateur n°' . $user->getId() . ' a bien été mis à jour.');
+
+            return $this->redirectToRoute('NAO_back_office_user_list', array('page' => 1));
+        }
+
+        return $this->render('admin/userEdit.html.twig', array(
+            'user' => $user,
+            'form' => $form->createView()
         ));
     }
 }

@@ -26,11 +26,16 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-md-12">
-                	<h2 class="col-md-6 subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">Liste des observations</h2>
-                    <div class="col-md-2 pull-right">
-                        {{ form_start(sorting) }}
-                            {{ form_widget(sorting) }}
-                            <input type="submit" value="Trier" />
+                	<h2 class="col-md-6 no-padding subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">Liste des observations</h2>
+                    <div class="col-md-4 pull-right text-right wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">
+                        {{ form_start(sorting, { 'attr': { 'class': 'form-horizontal sorting-form-padding' } }) }}
+                            <div class="form-group">
+                                {{ form_label(sorting.nbPerPageSelect, 'Afficher par page :', { 'label_attr': { 'class': 'col-md-6 control-label' } }) }}
+                                <div class="col-md-4">
+                                    {{ form_widget(sorting.nbPerPageSelect, { 'label_attr': { 'class': 'form-control' } }) }}
+                                </div>
+                                <input type="submit" class="btn btn-send" value="Trier" />
+                            </div>
                         {{ form_end(sorting) }}
                     </div>
                 	<table class="admin-table wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
@@ -43,7 +48,7 @@
                                 <th class="col-xs-2">Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="admin-table-body">
                             {% for observation in observationsList %}
                                 <tr tabindex="0"
                                     role="button" 
@@ -107,7 +112,6 @@
                             <li>
                                 <a href="{{ path('NAO_back_office_observations_list', { 'page': page - 1 }) }}" class="{{ (page <= 1) ? 'not-active' }} : ''">Précédent</a>
                             </li>
-
                             {% if page > 3 %}
                                 <li>
                                     <a href="#" class='not-active'>...</a>
@@ -141,8 +145,6 @@
                                     <a href="#" class='not-active'>...</a>
                                 </li>
                             {% endif %}
-
-
                             <li>
                                 <a href="{{ path('NAO_back_office_observations_list', { 'page': page + 1 }) }}" class="{{ (page >= nbPages) ? 'not-active' }} : ''">Suivant</a>
                             </li>
