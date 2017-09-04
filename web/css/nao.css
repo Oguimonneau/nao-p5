@@ -32,7 +32,6 @@ body{
     outline: none;
     background: #66cc99;
 }
-
 @media all and (max-device-width: 1024px) {
     /* Vos règles CSS pour iPad V */
 
@@ -49,10 +48,15 @@ body{
 /*
 ================================================================
 
-    Règles CSS des tableaux de l'espace d'administration
+    Admin CSS definitions
 
 ================================================================
 */
+
+#review-section
+{
+    padding: 90px 0;
+}
 
 .admin-table
 {
@@ -70,9 +74,10 @@ body{
     line-height: 26px;
 }
 
-.admin-table tbody tr:hover
+.admin-table .admin-table-body tr:hover, .admin-table .admin-table-body tr:focus
 {
     background-color: #ecf0f1;
+    outline: 0;
 }
 
 .admin-table td[colspan="4"], .admin-table td[colspan="5"]
@@ -82,20 +87,9 @@ body{
     text-align: center;
 }
 
-.img-container
-{
-    padding: 10px 0 15px 0;
-    text-align: center;
-}
-
 .admin-table img
 {
     max-width: 70%;
-}
-
-#review-section
-{
-    padding: 90px 0;
 }
 
 .alert
@@ -104,6 +98,89 @@ body{
     text-align: center;
 }
 
+.deletion-link
+{
+    color: #e74c3c;
+}
+
+.deletion-link:hover, .deletion-link:focus
+{
+    color: #c0392b;
+    outline: 0;
+}
+
+.glyphicon
+{
+    font-size: 1.2em;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.img-container
+{
+    padding: 10px 0 15px 0;
+    text-align: center;
+}
+
+.modification-link
+{
+    color: #3498db;
+}
+
+.modification-link
+{
+    color: #2980b9;
+}
+
+.validation-link
+{
+    color: #33cc66;
+}
+
+.validation-link:hover, .validation-link:focus
+{
+    color: #009966;
+    outline: 0;
+}
+
+/*
+================================================================
+
+    Admin edit observation page CSS Definitions
+
+================================================================
+*/
+
+.observation-edit-padding
+{
+    padding: 50px 0;
+}
+
+.edit-img-padding
+{
+    padding-top: 9px;
+}
+
+.edit-img-responsive
+{
+    display: block;
+    margin: auto;
+    height: 100%;
+}
+
+.img-view
+{
+    height: 300px;
+}
+
+/*
+================================================================
+
+    Admin modal windows CSS definitions
+
+================================================================
+*/
+
 .delete-button
 {
     background-color: #e74c3c;
@@ -111,37 +188,12 @@ body{
     padding: 10px;
 }
 
-.delete-button:hover
+.delete-button:hover, .delete-button:focus
 {
     background-color: #c0392b;
     color: white;
+    outline: 0;
     text-decoration: none;
-}
-
-
-.validate-button
-{
-    background-color: #33cc66;
-    color: white;
-    padding: 10px;
-}
-
-.validate-button:hover
-{
-    background-color: #009966;
-    color: white;
-    text-decoration: none;   
-}
-
-
-.deletion-link
-{
-    color: #e74c3c;
-}
-
-.deletion-link:hover
-{
-    color: #c0392b;
 }
 
 .modal-button-margin
@@ -152,6 +204,67 @@ body{
 .modal-content
 {
     border-radius: 0;
+}
+
+.no-padding
+{
+    padding: 0;
+}
+
+.validate-button
+{
+    background-color: #33cc66;
+    color: white;
+    padding: 10px;
+}
+
+.validate-button:hover, .validate-button:focus
+{
+    background-color: #009966;
+    color: white;
+    outline: 0;
+    text-decoration: none;   
+}
+
+/*
+================================================================
+
+    Admin popover CSS Definitions
+
+================================================================
+*/
+
+.popover
+{
+    border: none;
+    border-radius: 0;
+    text-align: justify;
+}
+
+.popover p
+{
+    font-size: 1em;
+}
+
+/*
+================================================================
+
+    Admin paging and sorting CSS Definitions
+
+================================================================
+*/
+
+.current-page
+{
+    color: #ffffff !important;
+    background-color: #bdc3c7 !important;
+}
+
+.not-active
+{
+    cursor: none;
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .paging
@@ -175,87 +288,7 @@ body{
     text-decoration: none;
 }
 
-.glyphicon
+.sorting-form-padding
 {
-    font-size: 1.2em;
-    margin-right: 5px;
-    vertical-align: middle;
-}
-
-.validation-link
-{
-    color: #33cc66;
-}
-
-.validation-link:hover
-{
-    color: #009966;
-}
-
-.modification-link
-{
-    color: #3498db;
-}
-
-.modification-link
-{
-    color: #2980b9;
-}
-
-.popover
-{
-    border: none;
-    border-radius: 0;
-    text-align: justify;
-}
-
-.popover p
-{
-    font-size: 1em;
-}
-
-.edit-img-container
-{
-    width: 50%;
-}
-
-.observation-edit-padding
-{
-    padding: 50px 0;
-}
-
-.img-responsive
-{
-    margin: 0 auto;
-    height: 300px;
-    width:auto;
-    max-width:200%;
-}
-.img-vignette {
-    margin: 0 auto;
-    height: 50px;
-    width: auto;
-    max-width: 200%;
-}
-.img-view
-{
-    height: 300px;
-}
-
-.paging .glyphicon
-{
-    font-size: 1em;
-}
-
-.not-active
-{
-    cursor: none;
-    opacity: 0.5;
-    pointer-events: none;
-}
-
-.current-page
-{
-    color: #ffffff !important;
-    background-color: #bdc3c7 !important;
+    padding: 15px 0 0 0;
 }
