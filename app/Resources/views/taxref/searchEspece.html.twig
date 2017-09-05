@@ -53,7 +53,13 @@
                         <tbody>
                         {% for taxref in taxrefsList %}
                             <TR>
-                                <TD><img src="{{ asset('images/taxref/' ~ taxref.cdNom ~ '.jpg') }}" class="img-vignette" alt="images/taxref/{{ taxref.cdNom }}.jpg" ></TD>
+                                <TD>
+                                    {%  if taxref.image == "" %}
+                                        <img src="{{ asset('images/logo.png') }}" class="img-vignette" alt="Logo NAO" >
+                                    {% else %}
+                                        <img src="{{ asset('images/taxref/' ~ taxref.image) }}" class="img-vignette" alt="{{ taxref.cdNom }}" >
+                                    {% endif %}
+                                </TD>
                                 <TD><a href="{{ path('NAO_detailEspece', { 'id': taxref.id }) }}"> {{taxref.id }}</a></TD>
                                 <TD><a href="https://inpn.mnhn.fr/espece/cd_nom/{{ taxref.cdNom }}">{{ taxref.cdNom }}</a></TD>
                                 <TD>{{ taxref.nomVern }}</TD>
