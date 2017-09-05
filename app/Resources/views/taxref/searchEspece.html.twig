@@ -54,7 +54,7 @@
                         {% for taxref in taxrefsList %}
                             <TR>
                                 <TD>
-                                    {%  if taxref.image == Null %}
+                                    {%  if taxref.image == "" %}
                                         <img src="{{ asset('images/logo.png') }}" class="img-vignette" alt="Logo NAO" >
                                     {% else %}
                                         <img src="{{ asset('images/taxref/' ~ taxref.image) }}" class="img-vignette" alt="{{ taxref.cdNom }}" >
