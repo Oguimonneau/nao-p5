@@ -30,9 +30,9 @@
         <div class="container">
             <div class = "row">
                 <div class="col-md-12">
-                    <form class="form-inline" id="contact-form" method="post" action="" role="form">
+                    <form class="form-inline" id="contact-form" method="get" action="{{ path('NAO_searchEspece') }}" role="form">
                         <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".6s">
-                            <input type="text" placeholder="Votre recherche" class="form-control" name="search" id="name">
+                            <input type="text" placeholder="Votre recherche" class="form-control" name="q" id="name">
                             <button type="submit" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span> Chercher</button>
                         </div>
                     </form>
@@ -65,7 +65,7 @@
                         <ul class="paging">
                             {% for p in range(1, nbPages) %}
                                 <li {% if p == page %} class="active" {% endif %}>
-                                    <a href="{{ path('NAO_searchEspece', { 'page': p }) }}"> {{ p }}</a>
+                                    <a href="{{ path('NAO_searchEspece', { 'page': p, 'q': app.request.get('q') }) }}"> {{ p }}</a>
                                 </li>
                             {% endfor %}
                         </ul>

@@ -13,11 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Taxref
 {
-    /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Photo", cascade={"persist"})
-     */
-    private $photos;
-
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Habitat", inversedBy="taxrefs")
@@ -201,10 +196,18 @@ class Taxref
      */
     private $cli;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=12)
+     */
+    private $image;
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
     }
+
     /**
      * Get id
      *
@@ -816,36 +819,26 @@ class Taxref
     }
 
     /**
-     * Add photo
+     * Set image
      *
-     * @param \AppBundle\Entity\Photo $photo
+     * @param string $image
      *
      * @return Taxref
      */
-    public function addPhoto(\AppBundle\Entity\Photo $photo)
+    public function setImage($image)
     {
-        $this->photos[] = $photo;
+        $this->image = $image;
 
         return $this;
     }
 
     /**
-     * Remove photo
+     * Get image
      *
-     * @param \AppBundle\Entity\Photo $photo
+     * @return string
      */
-    public function removePhoto(\AppBundle\Entity\Photo $photo)
+    public function getImage()
     {
-        $this->photos->removeElement($photo);
-    }
-
-    /**
-     * Get photos
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPhotos()
-    {
-        return $this->photos;
+        return $this->image;
     }
 }

@@ -21,26 +21,19 @@ class TaxrefController extends Controller
      */
     public function indexAction(int $page, Request $request)
     {
-        if ($request->isMethod('POST')) {
-            // write search in session
-            $this->get('session')->set('search', $_POST['search']);
-        }
-        $session = $this->get('session');
-        if ($session->get('search')) {
-            $search = $session->get('search');
-        }else{
-            $search ="";
-        }
         /**
          * count number of lines
          *
          * @repository AppBundle\Repository\TaxrefRepository
          */
+        $search = $request->query->get('q',"");
+
         $nbLines = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Taxref')
             ->countTaxrefs($search)
         ;
+dump($search);
 dump($nbLines);
         $taxrefsList = $this->getDoctrine()
             ->getManager()

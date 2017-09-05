@@ -2,6 +2,20 @@
 <project version="4">
   <component name="PublishConfigData" serverName="nao-p5" deleteMissingItems="true">
     <serverData>
+      <paths name="Karim">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Timer">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="nao-p5">
         <serverdata>
           <mappings>
@@ -11,7 +25,7 @@
             <excludedPath local="true" path="$PROJECT_DIR$/.idea" />
             <excludedPath local="true" path="$PROJECT_DIR$/var" />
             <excludedPath local="true" path="$PROJECT_DIR$/app/config/parameters.yml" />
-            <excludedPath local="true" path="$PROJECT_DIR$/_SVG" />
+            <excludedPath local="true" path="$PROJECT_DIR$/web/uploads" />
           </excludedPaths>
         </serverdata>
       </paths>
