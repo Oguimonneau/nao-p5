@@ -27,32 +27,9 @@
                     </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1s">
-                    {{ form_start(form) }}
-                    {{ form_errors(form) }}
-
-                    <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".6s">
-                        {# Génération du label. #}
-                        {{ form_label(form.role, "Modifier le rôle :", {'label_attr': {'class': 'control-label'}}) }}
-
-                        {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.role) }}
-
-                        {# Génération de l'input. #}
-                        {{ form_widget(form.role, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <br>
-                    <br>
-                    <div class="form-group wow fadeInDown " data-wow-duration="500ms" data-wow-delay="1.6s">
-                        <div class = "col-xs-12 text-center">
-                            <input type="submit" class = "btn btn-send" value="Modifier" />
-                        </div>
-                    </div>
-
-                    {# Fermeture de la balise <form> du formulaire HTML #}
-                    {{ form_end(form) }}
-                </div>
+            <div class="row text-center">
+                <a href="{{ path('NAO_back_office_user_promotion', { 'id': user.id }) }}" class="btn btn-send {{ (user.hasRole('ROLE_NATURALISTE')) ? 'not-active' : '' }}">Promouvoir Naturaliste</a>
+                <a href="{{ path('NAO_back_office_user_demotion', { 'id': user.id }) }}" class="btn btn-send {{ (user.hasRole('ROLE_NATURALISTE')) ? '' : 'not-active' }}">Rétrograder Particulier</a>
             </div>
         </div>
     </section>

@@ -20,7 +20,10 @@ class ObservationRepository extends \Doctrine\ORM\EntityRepository
 	 */
 	public function findObservations(int $page, int $nbPerPage, bool $validation = null)
 	{
-		$qb = $this->createQueryBuilder('observation');
+		$qb = $this->createQueryBuilder('observation')
+			->addSelect('taxref')
+			->join('observation.taxref', 'taxref')
+		;
 
 		if ($validation !== null)
 		{

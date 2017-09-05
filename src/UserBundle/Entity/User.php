@@ -28,9 +28,7 @@ class User extends BaseUser
      */
     public function __construct()
     {
-//        Par défaut, un user est créé dans le groupe "ROLE_PARTICULIER"
-        $this->roles[0] = "ROLE_PARTICULIER";
-
+        // Par défaut, un user est créé dans le groupe "ROLE_PARTICULIER"
+        $this->roles[] = "ROLE_PARTICULIER";
     }
 }
-

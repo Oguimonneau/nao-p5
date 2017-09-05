@@ -17,9 +17,12 @@ class UserEditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('role', ChoiceType::class, array(
+            ->add('roles', ChoiceType::class, array(
                 'label' => 'Modifier le rôle :',
-                'choices' => $this->getRolesForForm($options['roles']),
+                'choices' => array(
+                    'Naturaliste' => 'ROLE_NATURALISTE',
+                    'Particulier' => 'ROLE_PARTICULIER'
+                ),
                 'expanded' => true,
                 'multiple' => true
             ))
@@ -42,20 +45,5 @@ class UserEditType extends AbstractType
     public function getBlockPrefix()
     {
         return 'appbundle_user_edit';
-    }
-
-    public function getRolesForForm($originRoles)
-    {
-    $roles = array();
-    $rolesAdded = array();
-
-    // Add herited roles
-    foreach ($originRoles as $roleParent => $rolesHerit) {
-        $tmpRoles = array_values($rolesHerit);
-        $rolesAdded = array_merge($rolesAdded, $tmpRoles);
-        $roles[$roleParent] = array_combine($tmpRoles, $tmpRoles);
-    }
-
-    return $roles; 
     }
 }

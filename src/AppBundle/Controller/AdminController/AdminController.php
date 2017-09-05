@@ -285,25 +285,8 @@ class AdminController extends Controller
             ->findOneById($id)
         ;
 
-        $form = $this->get('form.factory')->create(UserEditType::class, $user, array('roles' => $this->container->getParameter('security.role_hierarchy.roles')));
-
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
-        {
-            /**
-             * @var $userManager \FOS\UserBundle\Model\UserManagerInterface
-             */
-            $userManager = $this->get('fos_user.user_manager');
-
-            $userManager->updateUser($user);
-
-            $request->getSession()->getFlashBag()->add('notice', 'L\'utilisateur n°' . $user->getId() . ' a bien été mis à jour.');
-
-            return $this->redirectToRoute('NAO_back_office_user_list', array('page' => 1));
-        }
-
         return $this->render('admin/userEdit.html.twig', array(
-            'user' => $user,
-            'form' => $form->createView()
+            'user' => $user
         ));
     }
 }

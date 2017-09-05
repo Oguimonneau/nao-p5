@@ -55,7 +55,7 @@
                                     <td class="col-xs-1">{{ user.username }}</td>
                                     <td class="col-xs-2">{{ user.email }}</td>
                                     <td class="col-xs-5">
-                                        {% if user.roles.0 == 'ROLE_NATURALISTE' %}
+                                        {% if user.role('ROLE_NATURALISTE') %}
                                             Naturaliste
                                         {% else %}
                                             Particulier

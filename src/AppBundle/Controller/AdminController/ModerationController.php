@@ -87,4 +87,56 @@ class ModerationController extends Controller
 
     	return $this->redirectToRoute('NAO_back_office_user_list');
     }
+
+    /**
+     * Promote User to Naturalist
+	 *
+	 * @Security("has_role('ROLE_NATURALISTE')")
+     *
+     * @Route("/user/{id}/edit/promote", name="NAO_back_office_user_promotion", requirements={"id" = "\d+"})
+	 *
+	 * @param $id The user id
+	 * Redirect to route BackOfficeBundle/Resources/views/Default:userList.html.twig 
+	 */
+    public function userPromoteAction(int $id, Request $request)
+    {
+    	$userManager = $this->get('fos_user.user_manager');
+
+    	// Get user to be promoted
+    	$user = $userManager->findUserBy(array('id' => $id));
+
+    	// Update user
+    	$user->addRole('ROLE_NATURALISTE');
+    	$userManager->updateUser($user);
+
+    	$request->getSession()->getFlashBag()->add('notice', 'L\'utilisateur n°' . $user->getId() . ' a bien été mis à jour.');
+
+        return $this->redirectToRoute('NAO_back_office_user_list', array('page' => 1));
+    }
+
+    /**
+     * Demote User to Naturalist
+	 *
+	 * @Security("has_role('ROLE_NATURALISTE')")
+     *
+     * @Route("/user/{id}/edit/demote", name="NAO_back_office_user_demotion", requirements={"id" = "\d+"})
+	 *
+	 * @param $id The user id
+	 * Redirect to route BackOfficeBundle/Resources/views/Default:userList.html.twig 
+	 */
+    public function userDemoteAction(int $id, Request $request)
+    {
+    	$userManager = $this->get('fos_user.user_manager');
+
+    	// Get user to be demoted
+    	$user = $userManager->findUserBy(array('id' => $id));
+
+    	// Update User
+    	$user->removeRole('ROLE_NATURALISTE');
+    	$userManager->updateUser($user);
+
+    	$request->getSession()->getFlashBag()->add('notice', 'L\'utilisateur n°' . $user->getId() . ' a bien été mis à jour.');
+
+        return $this->redirectToRoute('NAO_back_office_user_list', array('page' => 1));    	
+    }    
 }
