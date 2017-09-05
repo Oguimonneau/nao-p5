@@ -27,8 +27,12 @@ ul li {
 h2 {
   font-size: 26px;
 }
+a:link {
+	color: #727272;
+}
 a:hover {
   text-decoration: none;
+   color: #66cc99;
 }
 .section-heading {
   text-align: center;
@@ -544,7 +548,7 @@ ul.social-icons li {
 .global-page-header {
   background-attachment: fixed;
   background-size: cover;
-  padding: 120px 0 25px 0;
+  padding: 80px 0 25px 0;
   position: relative;
   background: #66cc99;
   color: #fff;
@@ -568,7 +572,7 @@ ul.social-icons li {
 }
 .global-page-header .block {
   position: relative;
-  z-index: 0;
+  z-index: 99;
   text-align: center;
 }
 #product-showcase-banner {
