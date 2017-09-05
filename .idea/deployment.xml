@@ -26,6 +26,7 @@
             <excludedPath local="true" path="$PROJECT_DIR$/var" />
             <excludedPath local="true" path="$PROJECT_DIR$/app/config/parameters.yml" />
             <excludedPath local="true" path="$PROJECT_DIR$/web/uploads" />
+            <excludedPath path="/app/config/parameters.yml" />
           </excludedPaths>
         </serverdata>
       </paths>
