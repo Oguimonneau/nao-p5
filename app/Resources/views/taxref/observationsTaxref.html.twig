@@ -1,0 +1,33 @@
+{# Taxref detail view #}
+{# Included in app/Resources/views/taxref/detail.html.twig #}
+<section class="works service-page">
+    <div class="container">
+        <h2 class="subtitle wow fadeInUp animated" data-wow-delay=".3s" data-wow-duration="500ms">Les différents relevés d'observations :</h2>
+            <p class="subtitle-des wow fadeInUp animated" data-wow-delay=".5s" data-wow-duration="500ms">
+                Retrouvez les différentes obseravations effectuées par les membres de notre association :
+            </p>
+        <div class="row">
+            {% for observation in observations %}
+                <div class="col-sm-3">
+                     <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
+                        <div class="img-wrapper">
+                            <img src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" class="img-responsive" alt="this is a title" >
+                        </div>
+                        <figcaption>
+                            <h4>
+                                <a href="{{ path('NAO_detail_observation', { 'id': taxref.id, 'observationId': observation.id }) }}">
+                                    Plus de détails        
+                                </a>
+                            </h4>
+                            <p>
+                                Effectué par : {{ observation.user }}
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>               
+            {% else %}
+                <p class="text-center">Aucune observation n'a été soumise pour cette espèce.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>

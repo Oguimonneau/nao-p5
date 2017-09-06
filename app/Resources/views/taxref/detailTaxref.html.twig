@@ -1,0 +1,60 @@
+{# Taxref detail view #}
+{# Included in app/Resources/views/taxref/detail.html.twig #}
+<section id="service-page" class="pages service-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="block">
+                    <h2 class="subtitle wow fadeInUp animated" data-wow-delay=".3s" data-wow-duration="500ms">Nom de l'oiseau : {{ taxref.nomVern }}</h2>
+                  
+                    <div class="row service-parts">
+                        <div class="col-md-6">
+                            <div class="block wow fadeInUp animated" data-wow-duration="400ms" data-wow-delay="600ms">
+                                <i class="ion-ios-paper-outline"></i>
+                                <h4>Nom scientifique</h4>
+                                <p>{{ taxref.lbNom }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="block wow fadeInUp animated" data-wow-duration="400ms" data-wow-delay="800ms">
+                                <i class="ion-ios-paper-outline"></i>
+                                <h4>Rang</h4>
+                                {% if taxref.rang == 'ES' %}
+                                    <p>Espèce</p>
+                                {% else %}
+                                    <p>Sous-espèce</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="block wow fadeInUp animated" data-wow-duration="400ms" data-wow-delay="1s">
+                                <i class="ion-ios-paper-outline"></i>
+                                <h4>Habitat</h4>
+                                <p>{{ taxref.habitat.description }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="block wow fadeInUp animated" data-wow-duration="400ms" data-wow-delay="1.1s">
+                                <i class="ion-ios-paper-outline"></i>
+                                <h4>Découvert par</h4>
+                                <p>{{ taxref.lbAuteur }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="block text-center">
+                    {%  if taxref.image == "" %}
+                        <img src="{{ asset('images/logo.png') }}" class="img-vignette" alt="Logo NAO">
+                        <br>
+                        <br>
+                        <p>Pas de photo correspondant à cette espèce.</p>
+                    {% else %}
+                        <img src="{{ asset('images/taxref/'~taxref.image|e) }}" class="img-vignette img-responsive" alt="{{ taxref.cdNom }}">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

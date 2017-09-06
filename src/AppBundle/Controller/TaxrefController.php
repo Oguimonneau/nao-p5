@@ -49,13 +49,40 @@ dump($nbLines);
     }
 
     /**
-     * @Route("/espece/{id}", name ="NAO_detailEspece",requirements={"id" = "\d+"}, defaults={"id" = 1})
+     * @Route("/espece/{id}", name ="NAO_detailEspece",requirements={"id" = "\d+"})
      * @Method({"GET"})
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function detailAction(Request $request)
+    public function detailAction(int $id, Request $request)
     {
-        return $this->render('taxref/detail.html.twig');
+        // Find taxref by id
+        $taxref = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Taxref')
+            ->findOneById($id)
+        ;
+
+        // Find taxref's related observations
+        $observations = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Observation')
+            ->findByTaxref($taxref->getId())
+        ;
+
+        return $this->render('taxref/detail.html.twig', array(
+           'taxref' => $taxref,
+           'observations' => $observations
+        ));
+    }
+
+    /**
+     * @Route("/espece/{id}/observation/{observationId}", name ="NAO_detail_observation",requirements={"id" = "\d+", "observationId" = "\d+"})
+     * @Method({"GET"})
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function observationAction(int $id, int $observationId)
+    {
+        return $this->render('taxref/detailObservation.html.twig');
     }
 }
 
