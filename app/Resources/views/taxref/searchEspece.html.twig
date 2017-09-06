@@ -69,13 +69,54 @@
                     </table>
                     {% if nbPages > 1 %}
                         <ul class="paging">
-                            {% for p in range(1, nbPages) %}
-                                <li {% if p == page %} class="active" {% endif %}>
-                                    <a href="{{ path('NAO_searchEspece', { 'page': p, 'q': app.request.get('q') }) }}"> {{ p }}</a>
+                            <li>
+                                <a href="{{ path('NAO_searchEspece', { 'page': 1, 'q': app.request.get('q') }) }}" class="{{ (page <= 1) ? 'not-active' }} : ''">Début</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('NAO_searchEspece', { 'page': page - 1, 'q': app.request.get('q') }) }}" class="{{ (page <= 1) ? 'not-active' }} : ''">Précédent</a>
+                            </li>
+                            {% if page > 3 %}
+                                <li>
+                                    <a href="#" class='not-active'>...</a>
                                 </li>
-                            {% endfor %}
+                            {% endif %}
+                            {% if page > 2 %}
+                                <li>
+                                    <a href="{{ path('NAO_searchEspece', { 'page': (page - 2), 'q': app.request.get('q') }) }}">{{ page - 2 }}</a>
+                                </li>
+                            {% endif %}
+                            {% if page > 1 %}
+                                <li>
+                                    <a href="{{ path('NAO_searchEspece', { 'page': (page - 1), 'q': app.request.get('q') }) }}">{{ page - 1 }}</a>
+                                </li>
+                            {% endif %}
+                            <li>
+                                <a href="{{ path('NAO_searchEspece', { 'page': page, 'q': app.request.get('q') }) }}" class="current-page">{{ page }}</a>
+                            </li>
+                            {% if (page + 1) <= nbPages %}
+                                <li>
+                                    <a href="{{ path('NAO_searchEspece', { 'page': (page + 1), 'q': app.request.get('q') }) }}">{{ page + 1 }}</a>
+                                </li>
+                            {% endif %}
+                            {% if (page + 2) <= nbPages %}
+                                <li>
+                                    <a href="{{ path('NAO_searchEspece', { 'page': (page + 2), 'q': app.request.get('q') }) }}">{{ page + 2 }}</a>
+                                </li>
+                            {% endif %}
+                            {% if (page + 3) <= nbPages %}
+                                <li>
+                                    <a href="#" class='not-active'>...</a>
+                                </li>
+                            {% endif %}
+                            <li>
+                                <a href="{{ path('NAO_searchEspece', { 'page': page + 1, 'q': app.request.get('q') }) }}" class="{{ (page >= nbPages) ? 'not-active' }} : ''">Suivant</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('NAO_searchEspece', { 'page': nbPages, 'q': app.request.get('q') }) }}" class="{{ (page >= nbPages) ? 'not-active' }} : ''">Fin</a>
+                            </li>
                         </ul>
                     {% endif %}
+
                 </div>
             </div>
         </div>
