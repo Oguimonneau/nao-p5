@@ -34,23 +34,22 @@ body{
 }
 
 
-    .img-vignette
-    {
-        background-size: cover;
-        width: 210px;
-        height: 110px;
-        /*border-radius: 6px;*/
-    }
-    .image img {
-        display: none;
-    }
+.img-vignette
+{
+    background-size: cover;
+    width: 210px;
+    height: 110px;
+    /*border-radius: 6px;*/
+}
+.image img {
+    display: none;
+}
 
-    .tab-center {
-        text-align: center;
-        padding-top: 45px;
-        font-size: 26px;
-    }
-
+.tab-center {
+    text-align: center;
+    padding-top: 45px;
+    font-size: 26px;
+}
 
 @media all and (max-device-width: 768px) {
     .img-vignette

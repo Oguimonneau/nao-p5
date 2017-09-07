@@ -60,10 +60,10 @@
                     {% if nbPages > 1 %}
                         <ul class="paging">
                             <li>
-                                <a href="{{ path('NAO_searchEspece', { 'page': 1, 'q': app.request.get('q') }) }}" class="{{ (page <= 1) ? 'not-active' }} : ''">Début</a>
+                                <a href="{{ path('NAO_searchEspece', { 'page': 1, 'q': app.request.get('q') }) }}" {{ (page <= 1) ? 'not-active' }} : ''">Début</a>
                             </li>
                             <li>
-                                <a href="{{ path('NAO_searchEspece', { 'page': page - 1, 'q': app.request.get('q') }) }}" class="{{ (page <= 1) ? 'not-active' }} : ''">Précédent</a>
+                                <a href="{{ path('NAO_searchEspece', { 'page': page - 1, 'q': app.request.get('q') }) }}"  {{ (page <= 1) ? 'not-active' }} : ''">Précédent</a>
                             </li>
                             {% if page > 3 %}
                                 <li>
@@ -72,12 +72,12 @@
                             {% endif %}
                             {% if page > 2 %}
                                 <li>
-                                    <a href="{{ path('NAO_searchEspece', { 'page': (page - 2), 'q': app.request.get('q') }) }}">{{ page - 2 }}</a>
+                                    <a href="{{ path('NAO_searchEspece', { 'page': (page - 2), 'q': app.request.get('q') }) }}" >{{ page - 2 }}</a>
                                 </li>
                             {% endif %}
                             {% if page > 1 %}
                                 <li>
-                                    <a href="{{ path('NAO_searchEspece', { 'page': (page - 1), 'q': app.request.get('q') }) }}">{{ page - 1 }}</a>
+                                    <a href="{{ path('NAO_searchEspece', { 'page': (page - 1), 'q': app.request.get('q') }) }}" >{{ page - 1 }}</a>
                                 </li>
                             {% endif %}
                             <li>
@@ -85,12 +85,12 @@
                             </li>
                             {% if (page + 1) <= nbPages %}
                                 <li>
-                                    <a href="{{ path('NAO_searchEspece', { 'page': (page + 1), 'q': app.request.get('q') }) }}">{{ page + 1 }}</a>
+                                    <a href="{{ path('NAO_searchEspece', { 'page': (page + 1), 'q': app.request.get('q') }) }}" >{{ page + 1 }}</a>
                                 </li>
                             {% endif %}
                             {% if (page + 2) <= nbPages %}
                                 <li>
-                                    <a href="{{ path('NAO_searchEspece', { 'page': (page + 2), 'q': app.request.get('q') }) }}">{{ page + 2 }}</a>
+                                    <a href="{{ path('NAO_searchEspece', { 'page': (page + 2), 'q': app.request.get('q') }) }}" >{{ page + 2 }}</a>
                                 </li>
                             {% endif %}
                             {% if (page + 3) <= nbPages %}
