@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section class="moduler wrapper_404">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s" >Erreur 404</h1>
+                        <h2 class="wow fadeInUp animated" data-wow-delay=".6s">Page introuvable</h2>
+                        <p class="wow fadeInUp animated" data-wow-delay=".9s">Nous sommes désolés, la page que vous avez demandé n'existe pas ou plus. Vérifier ce que vous avez saisi.</p>
+                        <a href="{{ path('NAO_home') }}" class="btn btn-dafault btn-home wow fadeInUp animated" data-wow-delay="1.1s">Page d'accueil</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
