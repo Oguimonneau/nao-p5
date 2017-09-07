@@ -213,6 +213,7 @@ h2 {
   font-weight: 300;
   font-family: 'Roboto', sans-serif;
   margin-top: 20px;
+  text-align: center; 
 }
 #call-to-action .block .btn-contact {
   background: #fff;
@@ -858,6 +859,7 @@ ul.social-icons li {
 }
 .about-feature .block {
   color: #fff;
+  text-align: justify;
   width: 33.33%;
   padding: 5%;
   float: left;
