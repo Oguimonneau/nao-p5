@@ -14,7 +14,7 @@ body{
     top:-15px;
 }
 
-#map {
+#map, #mapTaxref, #mapObservation {
     height: 475px;
 }
 

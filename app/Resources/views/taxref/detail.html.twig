@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="block">
-                            <h2>Détail oiseau</h2>
+                            <h2>{{ taxref.nomVern }}</h2>
                             <ol class="breadcrumb">
                                 <li>
                                     <a href="index.html">
@@ -26,6 +26,11 @@
             </div>   
         </section><!--/#Page header-->
 
+         <!-- 
+        ================================================== 
+            Taxref's Details Section  Start
+        ================================================== -->       
+        <div id ="mapTaxref"></div>
 
         <!-- 
         ================================================== 
@@ -33,10 +38,24 @@
         ================================================== -->
         {% include 'taxref/detailTaxref.html.twig' %}
 
+         <!-- 
+        ================================================== 
+            Taxref's Details Section  Start
+        ================================================== -->       
+        <div id ="mapObservation"></div>
+
         <!-- 
         ================================================== 
             Taxref's Observations Section Start
         ================================================== -->
         {% include 'taxref/observationsTaxref.html.twig' %}
 
-  {% endblock %}
+{% endblock %}
+
+
+{% block javascripts %}
+
+        <script src="{{ asset('js/nao-taxref-mapping.js') }}"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFLTldKU5XQdx7B_ldPv__ZHbTTISL9PU&callback=initMap"></script>
+
+{% endblock %}
