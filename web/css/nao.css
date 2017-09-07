@@ -14,6 +14,13 @@ body{
     top:-15px;
 }
 
+.admin-search img
+{
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+
 #map {
     height: 475px;
 }
@@ -60,7 +67,7 @@ body{
 
 .admin-table
 {
-    width: 100%;
+    width: 70%;
 }
 
 .admin-thead
