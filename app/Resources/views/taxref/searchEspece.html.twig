@@ -27,55 +27,86 @@
         </div>
     </section>
     <section id="review-section">
-        <div class="container">
-            <div class = "row">
-                <div class="col-md-12">
-                    <form class="form-inline" id="contact-form" method="get" action="{{ path('NAO_searchEspece') }}" role="form">
-                        <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".6s">
-                            <input type="text" placeholder="Votre recherche" class="form-control" name="q" id="name">
-                            <button type="submit" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span> Chercher</button>
-                        </div>
-                    </form>
+        <DIV class="container">
+            <form class="form-inline" id="contact-form" method="get" action="{{ path('NAO_searchEspece') }}" role="form">
+                <div class="input-group col-lg-5">
+                    <input type="text" class="form-control" name="q" id="name" style="text-align:left" placeholder="Votre recherche">
+                    <span class="input-group-btn"><button class="btn btn-send" type="submit">Rechercher</button></span>
                 </div>
-            </div>
-
+            </form>
+            </br>
             <div class="row">
                 <div class="col-md-12">
-                    <table class="admin-table wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
-                        <thead class="admin-thead">
-                        <tr>
-                            <th class="col-xs-1">Image</th>
-                            <th class="col-xs-1">Id</th>
-                            <th class="col-xs-2">cdNom</th>
-                            <th class="col-xs-8">Espèce</th>
-                        </tr>
-                        </thead>
+                    <table class="table table-bordered table-striped table-condensed" >
                         <tbody>
                         {% for taxref in taxrefsList %}
                             <TR>
-                                <TD>
+                                <TD class = "col-xs-2">
                                     {%  if taxref.image == "" %}
-                                        <img src="{{ asset('images/logo.png') }}" class="img-vignette" alt="Logo NAO" >
+                                        <a href="{{ path('NAO_detailEspece', { 'id': taxref.id }) }}"><div class="img-vignette img-responsive" style="background-image:url({{ asset('images/logo.png') }})"></div></a>
                                     {% else %}
-                                        <img src="{{ asset('images/taxref/' ~ taxref.image) }}" class="img-vignette" alt="{{ taxref.cdNom }}" >
+                                        <a href="{{ path('NAO_detailEspece', { 'id': taxref.id }) }}"><div class="img-vignette" style="background-image:url({{ asset('images/taxref/' ~ taxref.image) }})"></div></a>
                                     {% endif %}
                                 </TD>
-                                <TD><a href="{{ path('NAO_detailEspece', { 'id': taxref.id }) }}"> {{taxref.id }}</a></TD>
-                                <TD><a href="https://inpn.mnhn.fr/espece/cd_nom/{{ taxref.cdNom }}">{{ taxref.cdNom }}</a></TD>
-                                <TD>{{ taxref.nomVern }}</TD>
+                                <TD class = "col-xs-10">
+                                    <a href="{{ path('NAO_detailEspece', { 'id': taxref.id }) }}"><p class = "tab-center">{{ taxref.nomVern }}</p></a>
+                                    <a target="_blank" href="https://inpn.mnhn.fr/espece/cd_nom/{{ taxref.cdNom }}" >https://inpn.mnhn.fr/espece/cd_nom/ {{ taxref.cdNom }}</a>
+
+                                </TD>
                             </TR>
                         {% endfor %}
                         </tbody>
                     </table>
                     {% if nbPages > 1 %}
                         <ul class="paging">
-                            {% for p in range(1, nbPages) %}
-                                <li {% if p == page %} class="active" {% endif %}>
-                                    <a href="{{ path('NAO_searchEspece', { 'page': p, 'q': app.request.get('q') }) }}"> {{ p }}</a>
+                            <li>
+                                <a href="{{ path('NAO_searchEspece', { 'page': 1, 'q': app.request.get('q') }) }}" class="{{ (page <= 1) ? 'not-active' }} : ''">Début</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('NAO_searchEspece', { 'page': page - 1, 'q': app.request.get('q') }) }}" class="{{ (page <= 1) ? 'not-active' }} : ''">Précédent</a>
+                            </li>
+                            {% if page > 3 %}
+                                <li>
+                                    <a href="#" class='not-active'>...</a>
                                 </li>
-                            {% endfor %}
+                            {% endif %}
+                            {% if page > 2 %}
+                                <li>
+                                    <a href="{{ path('NAO_searchEspece', { 'page': (page - 2), 'q': app.request.get('q') }) }}">{{ page - 2 }}</a>
+                                </li>
+                            {% endif %}
+                            {% if page > 1 %}
+                                <li>
+                                    <a href="{{ path('NAO_searchEspece', { 'page': (page - 1), 'q': app.request.get('q') }) }}">{{ page - 1 }}</a>
+                                </li>
+                            {% endif %}
+                            <li>
+                                <a href="{{ path('NAO_searchEspece', { 'page': page, 'q': app.request.get('q') }) }}" class="current-page">{{ page }}</a>
+                            </li>
+                            {% if (page + 1) <= nbPages %}
+                                <li>
+                                    <a href="{{ path('NAO_searchEspece', { 'page': (page + 1), 'q': app.request.get('q') }) }}">{{ page + 1 }}</a>
+                                </li>
+                            {% endif %}
+                            {% if (page + 2) <= nbPages %}
+                                <li>
+                                    <a href="{{ path('NAO_searchEspece', { 'page': (page + 2), 'q': app.request.get('q') }) }}">{{ page + 2 }}</a>
+                                </li>
+                            {% endif %}
+                            {% if (page + 3) <= nbPages %}
+                                <li>
+                                    <a href="#" class='not-active'>...</a>
+                                </li>
+                            {% endif %}
+                            <li>
+                                <a href="{{ path('NAO_searchEspece', { 'page': page + 1, 'q': app.request.get('q') }) }}" class="{{ (page >= nbPages) ? 'not-active' }} : ''">Suivant</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('NAO_searchEspece', { 'page': nbPages, 'q': app.request.get('q') }) }}" class="{{ (page >= nbPages) ? 'not-active' }} : ''">Fin</a>
+                            </li>
                         </ul>
                     {% endif %}
+
                 </div>
             </div>
         </div>

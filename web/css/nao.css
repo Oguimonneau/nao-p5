@@ -32,18 +32,63 @@ body{
     outline: none;
     background: #66cc99;
 }
-@media all and (max-device-width: 1024px) {
-    /* Vos règles CSS pour iPad V */
 
-}
+
+    .img-vignette
+    {
+        background-size: cover;
+        width: 210px;
+        height: 110px;
+        /*border-radius: 6px;*/
+    }
+    .image img {
+        display: none;
+    }
+
+    .tab-center {
+        text-align: center;
+        padding-top: 45px;
+        font-size: 26px;
+    }
+
+
 @media all and (max-device-width: 768px) {
-    /* Vos règles CSS pour iPad H */
-
+    .img-vignette
+    {
+        background-size: cover;
+        width: 210px;
+        height: 110px;
+        border-radius: 6px;
+    }
+    .image img {
+        display: none;
+    }
+    .tab-center {
+        text-align: center;
+        padding-top: 45px;
+        font-size: 26px;
+    }
 }
+
 @media all and (max-device-width: 480px) {
-    /* Vos règles CSS pour les mobiles ici */
-
+    .img-vignette
+    {
+        background-size: cover;
+        width: 90px;
+        height: 48px;
+        border-radius: 6px;
+    }
+    .image img {
+        display: none;
+    }
+    .tab-center {
+        text-align: center;
+        padding-top: 13px;
+        font-size: 13px;
+    }
 }
+
+
 
 /*
 ================================================================
@@ -60,7 +105,7 @@ body{
 
 .admin-table
 {
-    width: 100%;
+    width: 70%;
 }
 
 .admin-thead
