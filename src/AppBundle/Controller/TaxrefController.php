@@ -66,6 +66,38 @@ class TaxrefController extends Controller
             ->getRepository('AppBundle:Observation')
             ->findByTaxref($taxref->getId())
         ;
+        
+        function parseToXML($htmlStr)
+        {
+            $xmlStr=str_replace('<','&lt;',$htmlStr);
+            $xmlStr=str_replace('>','&gt;',$xmlStr);
+            $xmlStr=str_replace('"','&quot;',$xmlStr);
+            $xmlStr=str_replace("'",'&#39;',$xmlStr);
+            $xmlStr=str_replace("&",'&amp;',$xmlStr);
+            return $xmlStr;
+        }
+
+        // header("Content-type: text/xml");
+
+        // Start XML file, echo parent node
+        echo '<markers>';
+
+        // Iterate through the rows, printing XML nodes for each
+        foreach ($observations as $observation)
+        {
+            // Add to XML document node
+            echo '<marker ';
+            echo 'id="' . $observation->getId() . '" ';
+            // echo 'img="' . $observation->getPhoto() . '" ';
+            echo 'lat="' . $observation->getLatitude() . '" ';
+            echo 'lng="' . $observation->getLongitude() . '" ';
+            echo 'com="' . parseToXML($observation->getCommune()) . '" ';
+            echo 'note="' . parseToXML($observation->getNote()) . '" ';
+            echo '/>';
+        }
+
+        // End XML file
+        echo '</markers>';
 
         return $this->render('taxref/detail.html.twig', array(
            'taxref' => $taxref,

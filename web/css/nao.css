@@ -33,23 +33,29 @@ body{
     background: #66cc99;
 }
 
+.img-vignette
+{
+    background-size: cover;
+    width: 210px;
+    height: 110px;
+    /*border-radius: 6px;*/
+}
 
-    .img-vignette
-    {
-        background-size: cover;
-        width: 210px;
-        height: 110px;
-        /*border-radius: 6px;*/
-    }
-    .image img {
-        display: none;
-    }
+.img-taxref
+{
+    height: 100%;
+    margin: 0 auto;
+}
 
-    .tab-center {
-        text-align: center;
-        padding-top: 45px;
-        font-size: 26px;
-    }
+.image img {
+    display: none;
+}
+
+.tab-center {
+    text-align: center;
+    padding-top: 45px;
+    font-size: 26px;
+}
 
 
 @media all and (max-device-width: 768px) {
@@ -105,7 +111,7 @@ body{
 
 .admin-table
 {
-    width: 70%;
+    width: 100%;
 }
 
 .admin-thead

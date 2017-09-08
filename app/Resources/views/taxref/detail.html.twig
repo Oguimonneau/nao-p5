@@ -50,12 +50,14 @@
         ================================================== -->
         {% include 'taxref/observationsTaxref.html.twig' %}
 
+        <div id="js-vars" data-vars="{{ js_vars|json_encode|e('html_attr') }}"/>
+
 {% endblock %}
 
 
 {% block javascripts %}
 
-        <script src="{{ asset('js/nao-taxref-mapping.js') }}"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFLTldKU5XQdx7B_ldPv__ZHbTTISL9PU&callback=initMap"></script>
+    <script src="{{ asset('js/nao-taxref-mapping.js') }}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFLTldKU5XQdx7B_ldPv__ZHbTTISL9PU&callback=initMap"></script>
 
 {% endblock %}
