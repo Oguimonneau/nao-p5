@@ -72,15 +72,5 @@ class TaxrefController extends Controller
            'observations' => $observations
         ));
     }
-
-    /**
-     * @Route("/espece/{id}/observation/{observationId}", name ="NAO_detail_observation",requirements={"id" = "\d+", "observationId" = "\d+"})
-     * @Method({"GET"})
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
-     */
-    public function observationAction(int $id, int $observationId)
-    {
-        return $this->render('taxref/detailObservation.html.twig');
-    }
 }
 

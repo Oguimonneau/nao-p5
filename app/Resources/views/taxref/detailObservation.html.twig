@@ -1,43 +1,72 @@
 {% extends 'base.html.twig' %}
 
+
+
 {% block body %}
-        <!-- 
-        ================================================== 
-            Global Page Section Start
-        ================================================== -->
-        <section class="global-page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="block">
-                            <h2>Détail oiseau</h2>
-                            <ol class="breadcrumb">
-                                <li>
-                                    <a href="index.html">
-                                        <i class="ion-ios-home"></i>
-                                        Home
-                                    </a>
-                                </li>
-                                <li class="active">Détail oiseau</li>
-                            </ol>
+    <!--
+    ==================================================
+        Global Page Section Start
+    ================================================== -->
+    <section class="global-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h2>{{ observation.taxref.nomVern }}</h2>
+                        <ol class="breadcrumb">
+                            <li>Cet oiseau a été observé le {{ observation.date|date('d/m/Y') }} à {{ observation.commune }}, par {{ observation.user }}</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    ==================================================
+        Admin Review Section Start
+    ================================================== -->
+    <section id="review-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1s">
+                    {# Image view #}
+                    <div class="img-view">
+                        <img class="edit-img-responsive edit-img-padding" src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.2s">
+                        <div class="col-sm-10">
+                            {{ observation.note }}
+                        </div>
+                    </div>
+
+                    <div class="wow fadeInDown " data-wow-duration="500ms" data-wow-delay="1.6s">
+                        <div class = "col-sm-2 control-label"></div>
+                        <div class = "col-sm-10">
                         </div>
                     </div>
                 </div>
-            </div>   
-        </section><!--/#Page header-->
+            </div>
+    </section>
+    <input type="Hidden" id="appbundle_observation_latitude" value="{{ observation.latitude }}">
+    <input type="Hidden" id="appbundle_observation_longitude" value="{{ observation.longitude }}">
+    <input type="Hidden" id="appbundle_observation_commune" value="{{ observation.longitude }}">
+    <input type="Hidden" id="address" value="{{ observation.commune }}">
+    <input type="Hidden"  id="legend"></input>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
 
+{% endblock %}
 
-        <!-- 
-        ================================================== 
-            Taxref's Details Section  Start
-        ================================================== -->
-        {# {% include 'taxref/detailTaxref.html.twig' %} #}
-        Rien pour le moment
-
-        <!-- 
-        ================================================== 
-            Taxref's Observations Section Start
-        ================================================== -->
-        {# {% include 'taxref/observationsTaxref.html.twig' %} #}
-
-  {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <!-- Geolocalisation-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFLTldKU5XQdx7B_ldPv__ZHbTTISL9PU&callback=initMap"></script>
+    <script src="{{ asset('js/nao-geolocalisation.js') }}"></script>
+{% endblock %}

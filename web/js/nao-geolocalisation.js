@@ -44,34 +44,39 @@ function initMap() {
     var geocoder = new google.maps.Geocoder;
     var infoWindow = new google.maps.InfoWindow({map: map});
 
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude,
-            };
-            $(appbundle_observation_latitude).val(pos.lat) ;
-            $(appbundle_observation_longitude).val(pos.lng);
-            infoWindow.setPosition(pos);
-            map.setCenter(pos);
-            geocodeLatLng(geocoder, map, infoWindow);
-            var legend = document.getElementById('legend');
-            legend.innerHTML = '<strong>Votre position</strong> </br>Latitude : ' + pos.lat + ' - Longitude : ' + pos.lng;
-        },
-        function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
+    if(document.getElementById('address').value != ''  ){
+        console.log(document.getElementById('address').value);
+        searchByVille();
+    }else{
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    };
+                    $(appbundle_observation_latitude).val(pos.lat) ;
+                    $(appbundle_observation_longitude).val(pos.lng);
+                    infoWindow.setPosition(pos);
+                    map.setCenter(pos);
+                    geocodeLatLng(geocoder, map, infoWindow);
+                    var legend = document.getElementById('legend');
+                    legend.innerHTML = '<strong>Votre position</strong> </br>Latitude : ' + pos.lat + ' - Longitude : ' + pos.lng;
+                },
+                function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
     }
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(browserHasGeolocation ?
-        'Erreur: Le service de Géolocalisation est infidsponible.' :
+        'Erreur: Le service de Géolocalisation est indidsponible.' :
         'Erreur: Votre navigateur ne supporte pas la geolocation.');
 }
 
