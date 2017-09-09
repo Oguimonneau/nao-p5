@@ -60,8 +60,15 @@ class TaxrefController extends Controller
             ->findOneById($id)
         ;
 
-        // Find taxref's related observations with paging
+        // Find taxref's related validated observations without paging (map)
         $observations = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Observation')
+            ->findBy(array('taxref' => $taxref->getId(), 'valide' => 1))
+        ;
+
+        // Find taxref's related validated observations with paging (list)
+        $observationsPaginator = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Observation')
             ->findValidatedObservationsByTaxref($taxref->getId(), $page)
@@ -127,6 +134,7 @@ class TaxrefController extends Controller
         return $this->render('taxref/detail.html.twig', array(
            'taxref' => $taxref,
            'observations' => $observations,
+           'observationsPaginator' => $observationsPaginator,
            'page' => $page,
            'nbPages' => $nbPages
         ));

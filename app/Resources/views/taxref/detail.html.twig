@@ -28,9 +28,18 @@
 
          <!-- 
         ================================================== 
-            Taxref's Details Section  Start
-        ================================================== -->       
-        <div id ="mapTaxref"></div>
+            Taxref and Observations' map
+        ================================================== -->
+        <section>
+            <figure class="col-sm-6 no-padding">
+                <div id="mapTaxref"></div>
+                <figcaption class="text-center"><em>Carte des zones d'habitation</em></figcaption>
+            </figure>
+            <figure class="col-sm-6 no-padding">
+                <div id="mapObservation"></div>
+                <figcaption class="text-center"><em>Carte des observations</em></figcaption>
+            </figure>
+        </section>
 
         <!-- 
         ================================================== 
@@ -38,22 +47,13 @@
         ================================================== -->
         {% include 'taxref/detailTaxref.html.twig' %}
 
-         <!-- 
-        ================================================== 
-            Taxref's Details Section  Start
-        ================================================== -->       
-        <div id ="mapObservation"></div>
-
         <!-- 
         ================================================== 
             Taxref's Observations Section Start
         ================================================== -->
         {% include 'taxref/observationsTaxref.html.twig' %}
 
-        <div id="js-vars" data-vars="{{ js_vars|json_encode|e('html_attr') }}"/>
-
 {% endblock %}
-
 
 {% block javascripts %}
 
