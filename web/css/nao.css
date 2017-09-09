@@ -47,6 +47,27 @@ body{
     margin: 0 auto;
 }
 
+.img-wrapper, .overlay
+{
+    height: 150px;
+}
+
+.buttons
+{
+    padding-top: 50px !important;
+}
+
+.buttons-padding
+{
+    padding-top: 0px !important;
+    padding-left: 50px !important;
+}
+
+.img-wrapper img
+{
+    width: 100%;
+}
+
 .image img {
     display: none;
 }
