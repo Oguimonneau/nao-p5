@@ -33,13 +33,18 @@ body{
     background: #66cc99;
 }
 
+.img-observation
+{
+    background-size: cover;
+    width: 555px;
+    height: 100%;
+}
 
 .img-vignette
 {
     background-size: cover;
     width: 210px;
     height: 110px;
-    /*border-radius: 6px;*/
 }
 .image img {
     display: none;
@@ -57,7 +62,6 @@ body{
         background-size: cover;
         width: 210px;
         height: 110px;
-        border-radius: 6px;
     }
     .image img {
         display: none;
@@ -67,6 +71,12 @@ body{
         padding-top: 45px;
         font-size: 26px;
     }
+    .img-observation
+    {
+        background-size: cover;
+        width: 744px;
+        height: 100%;
+    }
 }
 
 @media all and (max-device-width: 480px) {
@@ -75,7 +85,6 @@ body{
         background-size: cover;
         width: 90px;
         height: 48px;
-        border-radius: 6px;
     }
     .image img {
         display: none;
@@ -84,6 +93,12 @@ body{
         text-align: center;
         padding-top: 13px;
         font-size: 13px;
+    }
+    .img-observation
+    {
+        background-size: cover;
+        width: 345px;
+        height: 100%;
     }
 }
 

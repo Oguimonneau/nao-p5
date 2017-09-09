@@ -30,37 +30,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1s">
-                    {# Image view #}
-                    <div class="img-view">
-                        <img class="edit-img-responsive edit-img-padding" src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" />
+                    <div>
+                        <img class = "img-observation" src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" />
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.2s">
-                        <div class="col-sm-10">
-                            {{ observation.note }}
-                        </div>
-                    </div>
 
-                    <div class="wow fadeInDown " data-wow-duration="500ms" data-wow-delay="1.6s">
-                        <div class = "col-sm-2 control-label"></div>
-                        <div class = "col-sm-10">
-                        </div>
-                    </div>
+                <div class="col-sm-6 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.2s">
+                    <div id="map"></div>
                 </div>
             </div>
+            <div class = "row">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Observation</h3>
+                    </div>
+                    <div class="panel-body">{{ observation.note }}</div>
+                </div>
+
+            </div>
+        </div>
     </section>
     <input type="Hidden" id="appbundle_observation_latitude" value="{{ observation.latitude }}">
     <input type="Hidden" id="appbundle_observation_longitude" value="{{ observation.longitude }}">
     <input type="Hidden" id="appbundle_observation_commune" value="{{ observation.longitude }}">
     <input type="Hidden" id="address" value="{{ observation.commune }}">
     <input type="Hidden"  id="legend"></input>
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="map"></div>
-                </div>
-            </div>
-        </div>
 
 {% endblock %}
 
