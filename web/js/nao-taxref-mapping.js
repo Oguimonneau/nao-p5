@@ -39,10 +39,15 @@ function initMap()
             parseFloat(markerElem.getAttribute('lng'))
         );
 
-        var marker = new google.maps.Marker({
+        var marker = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.35,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
             map: mapObservation,
-            position: point,
-            // label: icon.label
+            center: point,
+            radius: 50000
         });
     });
 }
