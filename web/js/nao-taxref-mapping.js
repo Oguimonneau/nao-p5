@@ -1,8 +1,8 @@
 var mapTaxref,
     mapObservation,
-    france = {lat: 48.862725 , lng: 2.287592},
-    taxrefCoordinates,
-    observationCoordinates = [];
+    france = {lat: 48.862725 , lng: 2.287592};
+
+    // var markersArray = [];
 
 function initMap()
 {
@@ -25,6 +25,7 @@ function initMap()
     // Get XML Element values to be sent on map
     var markers = document.documentElement.getElementsByTagName('marker');
 
+
     Array.prototype.forEach.call(markers, function(markerElem) {
         // Get Observation's attributes value
         var id = markerElem.getAttribute('id'),
@@ -34,22 +35,28 @@ function initMap()
         note = markerElem.getAttribute('note');
 
         // Get marker position
-        var point = new google.maps.LatLng(
+        var location = new google.maps.LatLng(
             parseFloat(markerElem.getAttribute('lat')),
             parseFloat(markerElem.getAttribute('lng'))
         );
 
         var marker = new google.maps.Circle({
             strokeColor: '#FF0000',
-            strokeOpacity: 0.35,
+            strokeOpacity: 0,
             strokeWeight: 2,
             fillColor: '#FF0000',
             fillOpacity: 0.35,
             map: mapObservation,
-            center: point,
-            radius: 50000
+            center: location,
+            radius: 25000
         });
+
+        // markersArray.push(marker);
     });
+
+    // // Add a marker clusterer to manage the markers
+    // var markerCluster = new MarkerClusterer(mapObservation, markersArray,
+    //         {imagePath: '../../images/markerclusterer/m'});
 }
 
     // var infowincontent = document.createElement('div');
