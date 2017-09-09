@@ -27,10 +27,20 @@ body{
     margin-top: 0;
 }
 
+.block a:hover
+{
+    background-color: #e67e22 !important;
+}
+
 .btn-send {
     color: #fff;
     outline: none;
     background: #66cc99;
+}
+
+.call-to-action-2
+{
+    padding: 20px 60px !important;
 }
 
 .img-vignette
