@@ -15,6 +15,23 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class ObservationController extends Controller
 {
+
+    /**
+     * @Route("/observation/{observationId}", name ="NAO_detail_observation",requirements={"observationId" = "\d+"})
+     * @Method({"GET"})
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function indexAction(int $observationId)
+    {
+        $observation = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Observation')
+            ->findOneById($observationId)
+        ;
+        return $this->render('taxref/detailObservation.html.twig', array(
+            'observation' => $observation));
+    }
+
     /**
      * @Route("/observation/add", name ="NAO_addObservation")
      * @Method({"GET","POST"})
@@ -41,7 +58,7 @@ class ObservationController extends Controller
         ));
     }
 
-//return $this->render('default/addObservation.html.twig');
+
 
     public function listAction(Request $request)
     {
