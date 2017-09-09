@@ -6,6 +6,7 @@ var mapTaxref,
 
 function initMap()
 {
+    // Taxref's current state map
     mapTaxref = new google.maps.Map(document.getElementById('mapTaxref'), {
         center: france, // Map centered on France
         zoom: 5 // Zoom is defined on "continent"
@@ -16,11 +17,12 @@ function initMap()
         map: mapTaxref 
     });
 
+
+    // Observations' map management
     mapObservation = new google.maps.Map(document.getElementById('mapObservation'), {
         center: france,
         zoom: 5
     });
-
 
     // Get XML Element values to be sent on map
     var markers = document.documentElement.getElementsByTagName('marker');
@@ -58,20 +60,3 @@ function initMap()
     // var markerCluster = new MarkerClusterer(mapObservation, markersArray,
     //         {imagePath: '../../images/markerclusterer/m'});
 }
-
-    // var infowincontent = document.createElement('div');
-    // var strong = document.createElement('strong');
-    // strong.textContent = name
-    // infowincontent.appendChild(strong);
-    // infowincontent.appendChild(document.createElement('br'));
-
-    // var text = document.createElement('text');
-    // text.textContent = address
-    // infowincontent.appendChild(text);
-    // var icon = customLabel[type] || {};
-    // var marker = new google.maps.Marker({
-    //   map: map,
-    //   position: point,
-    //   label: icon.label
-    // });
-

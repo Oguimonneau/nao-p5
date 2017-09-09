@@ -43,4 +43,33 @@ class ObservationRepository extends \Doctrine\ORM\EntityRepository
 		// Paginator replaces QueryBuilder method getResults(), with pagination setup
 		return new \Doctrine\ORM\Tools\Pagination\Paginator($qb, true);
 	}
+
+	/**
+	 * Find validated observations by taxref
+	 *
+	 * @param int $taxref The taxref id
+	 * @param int $page The current page number
+	 *
+	 * Return array of Observation objects
+	 */
+	public function findValidatedObservationsByTaxref(int $taxref, int $page)
+	{
+		$qb = $this->createQueryBuilder('observation')
+			->addSelect('taxref')
+			->join('observation.taxref', 'taxref')
+			->where('observation.valide = :valide')
+   			->setParameter('valide', 1)
+   			->andWhere('observation.taxref = :taxref')
+   			->setParameter('taxref', $taxref)
+			->orderBy('observation.id', 'DESC')
+ 		    ->getQuery()
+			// Set default paging observation start
+			->setFirstResult(($page - 1) * 4)
+			// Set number of observations per page
+			->setMaxResults(4)
+		;	
+
+		// Paginator replaces QueryBuilder method getResults(), with pagination setup
+		return new \Doctrine\ORM\Tools\Pagination\Paginator($qb, true);
+	}
 }
