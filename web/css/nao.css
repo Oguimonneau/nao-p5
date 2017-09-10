@@ -37,6 +37,25 @@ body{
     outline: none;
     background: #66cc99;
 }
+.lien-nao:link
+{
+	color: #727272;
+}
+
+.lien-nao:hover 
+{
+  text-decoration: none;
+   color: #66cc99;
+}
+
+.texte-about:p 
+{
+  font-size: 25px;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 20px;
+  text-align: justify;
+}
 
 .buttons
 {

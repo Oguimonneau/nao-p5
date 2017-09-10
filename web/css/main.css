@@ -27,13 +27,6 @@ ul li {
 h2 {
   font-size: 26px;
 }
-a:link {
-	color: #727272;
-}
-a:hover {
-  text-decoration: none;
-   color: #66cc99;
-}
 .section-heading {
   text-align: center;
   margin-bottom: 65px;
@@ -220,6 +213,7 @@ a:hover {
   font-weight: 300;
   font-family: 'Roboto', sans-serif;
   margin-top: 20px;
+  text-align: center; 
 }
 #call-to-action .block .btn-contact {
   background: #fff;
@@ -548,7 +542,7 @@ ul.social-icons li {
 .global-page-header {
   background-attachment: fixed;
   background-size: cover;
-  padding: 80px 0 25px 0;
+  padding: 40px 0 25px 0;
   position: relative;
   background: #66cc99;
   color: #fff;
@@ -865,6 +859,7 @@ ul.social-icons li {
 }
 .about-feature .block {
   color: #fff;
+  text-align: justify;
   width: 33.33%;
   padding: 5%;
   float: left;
