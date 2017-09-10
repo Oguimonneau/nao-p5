@@ -5,7 +5,7 @@ namespace AppBundle\Services;
 /**
  * XML Parser Service
  */
-class ParserXML()
+class ParserXML
 {
     /**
      * @attr $html the HTML string to parse
