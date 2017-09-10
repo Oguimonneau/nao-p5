@@ -47,11 +47,11 @@ class TaxrefController extends Controller
     }
 
     /**
-     * @Route("/espece/{id}", name ="NAO_detailEspece",requirements={"id" = "\d+"})
-     * @Method({"GET"})
+     * @Route("/espece/{id}/{page}", name ="NAO_detailEspece", requirements={"id" = "\d+", "page" = "\d+"}, defaults={"page" = 1})
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function detailAction(int $id, Request $request)
+    public function detailAction(int $page, int $id, Request $request)
     {
         // Find taxref by id
         $taxref = $this->getDoctrine()
@@ -60,16 +60,104 @@ class TaxrefController extends Controller
             ->findOneById($id)
         ;
 
-        // Find taxref's related observations
+        // Find taxref's related validated observations without paging (map)
         $observations = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Observation')
-            ->findByTaxref($taxref->getId())
+            ->findBy(array('taxref' => $taxref->getId(), 'valide' => 1))
         ;
+
+        // Find taxref's related validated observations with paging (list)
+        $observationsPaginator = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Observation')
+            ->findValidatedObservationsByTaxref($taxref->getId(), $page)
+        ;
+        
+        function parseToXML($htmlStr)
+        {
+            $xmlStr=str_replace('<','&lt;',$htmlStr);
+            $xmlStr=str_replace('>','&gt;',$xmlStr);
+            $xmlStr=str_replace('"','&quot;',$xmlStr);
+            $xmlStr=str_replace("'",'&#39;',$xmlStr);
+            $xmlStr=str_replace("&",'&amp;',$xmlStr);
+            return $xmlStr;
+        }
+
+        header("Content-type: text/xml");
+
+        // Star XML echo node, sending taxref's geographic status
+        echo '<status>';
+        // Get status if exists in zone
+        if ($taxref->getFr() !== '')
+        {
+            $status = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('AppBundle:Statut')
+                ->findOneByCle($taxref->getFr())
+            ;
+
+            echo '<state ';
+            echo 'fr="' . parseToXML($status->getLibelle()) . '" ';
+            echo '/>';
+        }
+
+        if ($taxref->getGf() !== '')
+        {
+            $status = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('AppBundle:Statut')
+                ->findOneByCle($taxref->getGf())
+            ;
+
+            echo '<state ';
+            echo 'gf="' . parseToXML($status->getLibelle()) . '" ';
+            echo '/>';
+        }
+
+        // End XML echo node
+        echo '</status>';
+
+        // Start XML echo node, sending observations
+        echo '<markers>';
+
+        // Iterate through the rows, printing XML nodes for each
+        foreach ($observations as $observation)
+        {
+            // Add to XML document node
+            echo '<marker ';
+            echo 'id="' . $observation->getId() . '" ';
+            // echo 'img="' . $observation->getPhoto() . '" ';
+            echo 'lat="' . $observation->getLatitude() . '" ';
+            echo 'lng="' . $observation->getLongitude() . '" ';
+            echo 'com="' . parseToXML($observation->getCommune()) . '" ';
+            echo 'note="' . parseToXML($observation->getNote()) . '" ';
+            echo '/>';
+        }
+
+        // End XML echo node
+        echo '</markers>';
+
+        // Calculate total number of pages
+        // Count($observationsPaginator) returns total number of observations
+        $nbPages = ceil(count($observationsPaginator) / 8);
+
+        // If at least 1 entry exists in array,
+        // Check if page doesn't exist, returns to page 1
+        if ($nbPages > 0)
+        {
+          if ($page > $nbPages)
+            {
+                return $this->redirectToRoute('NAO_detailEspece');
+            }
+        }
 
         return $this->render('taxref/detail.html.twig', array(
            'taxref' => $taxref,
-           'observations' => $observations
+           'observations' => $observations,
+           'observationsPaginator' => $observationsPaginator,
+           'page' => $page,
+           'nbPages' => $nbPages
         ));
     }
 }

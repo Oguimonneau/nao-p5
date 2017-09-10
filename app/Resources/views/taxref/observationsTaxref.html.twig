@@ -7,11 +7,16 @@
                 Retrouvez les différentes obseravations effectuées par les membres de notre association :
             </p>
         <div class="row">
-            {% for observation in observations %}
+            {% for observation in observationsPaginator %}
                 <div class="col-sm-3">
                      <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
-                        <div class="img-wrapper">
-                            <img src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" class="img-responsive" alt="this is a title" >
+                        <div class="img-wrapper">                            
+                            <img src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" class="img-responsive" alt="this is a title">
+                            <div class="overlay">
+                                <div class="buttons buttons-padding">
+                                    <a href="{{ path('NAO_detail_observation', {'observationId': observation.id }) }}">Détails</a>
+                                </div>
+                            </div>
                         </div>
                         <figcaption>
                             <h4>
@@ -29,5 +34,54 @@
                 <p class="text-center">Aucune observation n'a été soumise pour cette espèce.</p>
             {% endfor %}
         </div>
+        {% if nbPages > 1 %}
+            <ul class="paging">
+                <li>
+                    <a href="{{ path('NAO_detailEspece', { 'id': taxref.id, 'page': 1 }) }}" class="{{ (page <= 1) ? 'not-active' }} : ''">Début</a>
+                </li>
+                <li>
+                    <a href="{{ path('NAO_detailEspece', { 'id': taxref.id, 'page': page - 1 }) }}" class="{{ (page <= 1) ? 'not-active' }} : ''">Précédent</a>
+                </li>
+                {% if page > 3 %}
+                    <li>
+                        <a href="#" class='not-active'>...</a>
+                    </li>
+                {% endif %}
+                {% if page > 2 %}
+                    <li>
+                        <a href="{{ path('NAO_detailEspece', { 'id': taxref.id, 'page': (page - 2) }) }}">{{ page - 2 }}</a>
+                    </li>
+                {% endif %}
+                {% if page > 1 %}
+                    <li>
+                        <a href="{{ path('NAO_detailEspece', { 'id': taxref.id, 'page': (page - 1) }) }}">{{ page - 1 }}</a>
+                    </li>
+                {% endif %}   
+                <li>
+                    <a href="{{ path('NAO_detailEspece', { 'id': taxref.id, 'page': page }) }}" class="current-page">{{ page }}</a>
+                </li>                            
+                {% if (page + 1) <= nbPages %}
+                    <li>
+                        <a href="{{ path('NAO_detailEspece', { 'id': taxref.id, 'page': (page + 1) }) }}">{{ page + 1 }}</a>
+                    </li>
+                {% endif %}
+                {% if (page + 2) <= nbPages %}
+                    <li>
+                        <a href="{{ path('NAO_detailEspece', { 'id': taxref.id, 'page': (page + 2) }) }}">{{ page + 2 }}</a>
+                    </li>
+                {% endif %}
+                {% if (page + 3) <= nbPages %}
+                    <li>
+                        <a href="#" class='not-active'>...</a>
+                    </li>
+                {% endif %}
+                <li>
+                    <a href="{{ path('NAO_detailEspece', { 'id': taxref.id, 'page': page + 1 }) }}" class="{{ (page >= nbPages) ? 'not-active' }} : ''">Suivant</a>
+                </li>
+                <li>
+                    <a href="{{ path('NAO_detailEspece', { 'id': taxref.id, 'page': nbPages }) }}" class="{{ (page >= nbPages) ? 'not-active' }} : ''">Fin</a>
+                </li>
+            </ul>
+        {% endif %}
     </div>
 </section>

@@ -28,21 +28,24 @@
 
          <!-- 
         ================================================== 
-            Taxref's Details Section  Start
-        ================================================== -->       
-        <div id ="mapTaxref"></div>
+            Taxref and Observations' map
+        ================================================== -->
+        <section>
+            <figure class="col-sm-6 no-padding">
+                <div id="mapTaxref"></div>
+                <figcaption class="text-center"><em>Carte des zones d'habitation</em></figcaption>
+            </figure>
+            <figure class="col-sm-6 no-padding">
+                <div id="mapObservation"></div>
+                <figcaption class="text-center"><em>Carte des observations</em></figcaption>
+            </figure>
+        </section>
 
         <!-- 
         ================================================== 
             Taxref's Details Section  Start
         ================================================== -->
         {% include 'taxref/detailTaxref.html.twig' %}
-
-         <!-- 
-        ================================================== 
-            Taxref's Details Section  Start
-        ================================================== -->       
-        <div id ="mapObservation"></div>
 
         <!-- 
         ================================================== 
@@ -52,10 +55,10 @@
 
 {% endblock %}
 
-
 {% block javascripts %}
 
-        <script src="{{ asset('js/nao-taxref-mapping.js') }}"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFLTldKU5XQdx7B_ldPv__ZHbTTISL9PU&callback=initMap"></script>
+    <script src="{{ asset('js/nao-taxref-mapping.js') }}"></script>
+    <script src="{{ asset('js/markerclusterer.js') }}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFLTldKU5XQdx7B_ldPv__ZHbTTISL9PU&callback=initMap"></script>
 
 {% endblock %}
