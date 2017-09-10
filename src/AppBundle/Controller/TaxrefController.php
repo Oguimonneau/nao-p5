@@ -84,13 +84,34 @@ class TaxrefController extends Controller
             return $xmlStr;
         }
 
+        header("Content-type: text/xml");
+
         // Star XML echo node, sending taxref's geographic status
         echo '<status>';
         // Get status if exists in zone
-        if ($taxref->getFr() !== null)
+        if ($taxref->getFr() !== '')
         {
+            $status = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('AppBundle:Statut')
+                ->findOneByCle($taxref->getFr())
+            ;
+
             echo '<state ';
-            // echo 'fr="' . $taxref->getFr()->getLibelle() . '" ';
+            echo 'fr="' . parseToXML($status->getLibelle()) . '" ';
+            echo '/>';
+        }
+
+        if ($taxref->getGf() !== '')
+        {
+            $status = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('AppBundle:Statut')
+                ->findOneByCle($taxref->getGf())
+            ;
+
+            echo '<state ';
+            echo 'gf="' . parseToXML($status->getLibelle()) . '" ';
             echo '/>';
         }
 
@@ -118,8 +139,8 @@ class TaxrefController extends Controller
         echo '</markers>';
 
         // Calculate total number of pages
-        // Count($observations) returns total number of observations
-        $nbPages = ceil(count($observations) / 4);
+        // Count($observationsPaginator) returns total number of observations
+        $nbPages = ceil(count($observationsPaginator) / 8);
 
         // If at least 1 entry exists in array,
         // Check if page doesn't exist, returns to page 1

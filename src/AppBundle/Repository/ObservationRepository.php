@@ -64,9 +64,9 @@ class ObservationRepository extends \Doctrine\ORM\EntityRepository
 			->orderBy('observation.id', 'DESC')
  		    ->getQuery()
 			// Set default paging observation start
-			->setFirstResult(($page - 1) * 4)
+			->setFirstResult(($page - 1) * 8)
 			// Set number of observations per page
-			->setMaxResults(4)
+			->setMaxResults(8)
 		;	
 
 		// Paginator replaces QueryBuilder method getResults(), with pagination setup

@@ -27,7 +27,7 @@ body{
     margin-top: 0;
 }
 
-.block a:hover
+.btn-green:hover
 {
     background-color: #e67e22 !important;
 }
@@ -36,6 +36,17 @@ body{
     color: #fff;
     outline: none;
     background: #66cc99;
+}
+
+.buttons
+{
+    padding-top: 50px !important;
+}
+
+.buttons-padding
+{
+    padding-top: 0px !important;
+    padding-left: 50px !important;
 }
 
 .call-to-action-2
@@ -60,17 +71,6 @@ body{
 .img-wrapper, .overlay
 {
     height: 150px;
-}
-
-.buttons
-{
-    padding-top: 50px !important;
-}
-
-.buttons-padding
-{
-    padding-top: 0px !important;
-    padding-left: 50px !important;
 }
 
 .img-wrapper img
