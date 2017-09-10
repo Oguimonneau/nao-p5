@@ -58,25 +58,21 @@ class DefaultController extends Controller
 
     public function contactAction(Request $request)
     {
-        $firstname = $lastname = $email = $object = $message =  NULL;
+        $nom = $email = $sujet = $message =  NULL;
         $contact_error_firstnamemin = NULL;
         $form = $this->createFormBuilder()
-            ->add('firstname', TextType::class, array('constraints' => array(new NotBlank(array(//'message' => 'contact.error.firstname'
+ 
+            ->add('nom', TextType::class, array('constraints' => array(new NotBlank(array(//'message' => 'contact.error.nom'
             ))
             ,new Length(array('min' => 3,
-                    'max' => 10,
+                    'max' => 30,
 
                 )))))
-            ->add('lastname', TextType::class, array('constraints' => array(new NotBlank(array(//'message' => 'contact.error.lastname'
-            ))
-            ,new Length(array('min' => 3,
-                    'max' => 10,
-
-                )))))
+        
             ->add('email', TextType::class,  array('constraints' => array(new Assert\Email(array('checkMX' => true)),
                 new NotBlank(),)))
 //
-            ->add('object', ChoiceType::class, array('choices' => array('' => '','Autre' => "Autre",'Bug' => "Bug", 'Demande' => "Demande")),
+            ->add('sujet', ChoiceType::class, array('choices' => array('' => '','Autre' => "Autre",'Bug' => "Bug", 'Demande' => "Demande")),
                 array('constraints' => array(new Length(array('min' => 3)))))
             ->add('message', TextareaType::class, array('constraints' => array(new NotBlank(array(//'message' => 'contact.error.messagenotblank'
             ))
@@ -93,20 +89,19 @@ class DefaultController extends Controller
         if ( $form->isValid() ){
             if ( $request->isMethod('POST') ){
                 $request = Request::createFromGlobals();
-                $firstname = $form["firstname"]->getData();
-                $lastname = $form["lastname"]->getData();
+                $nom = $form["nom"]->getData();
                 $email = $form["email"]->getData();
-                $object = $form["object"]->getData();
+                $sujet = $form["sujet"]->getData();
                 $message = $form["message"]->getData();
-                $message = (new \Swift_Message('My important subject here'))
+                $message = (new \Swift_Message('Contact NAO'))
                     ->setFrom(array($email))
                     ->setTo('contact@kahilom.com')
                     ->setCharset('utf-8')
                     ->setContentType('text/html')
-                    ->setBody($this->container->get('templating')->render('SwiftMailer/email.html.twig', array('firstname' => $firstname,
-                        'lastname'  => $lastname,
+                    ->setBody($this->container->get('templating')->render('SwiftMailer/email.html.twig', array(
+                        'nom'       => $nom,
                         'email'     => $email,
-                        'object'    => $object,
+                        'sujet'    => $sujet,
                         'message'   => $message)));
                 $this->get('mailer')->send($message);
                 $this->addFlash('success','Ok');
@@ -121,11 +116,10 @@ class DefaultController extends Controller
 
 
         return $this->render('Default/contact.html.twig', array('form'    => $form->createView(),
-            'firstname'  => $firstname,
-            'lastname'   => $lastname,
-            'email'      => $email,
-            'object'     => $object,
-            'message'    => $message));
+            'mom'       => $nom,
+            'email'     => $email,
+            'sujet'     => $sujet,
+            'message'   => $message));
 
 
     }

@@ -32,6 +32,27 @@ body{
     outline: none;
     background: #66cc99;
 }
+
+.lien-nao:link 
+{
+	color: #727272;
+}
+
+.lien-nao:hover 
+{
+  text-decoration: none;
+   color: #66cc99;
+}
+
+.texte-about:p 
+{
+  font-size: 25px;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 20px;
+  text-align: justify;
+}
+
 @media all and (max-device-width: 1024px) {
     /* Vos règles CSS pour iPad V */
 
@@ -142,27 +163,6 @@ body{
     color: #009966;
     outline: 0;
 }
-
-.lien-nao:link 
-{
-	color: #727272;
-}
-
-.lien-nao:hover 
-{
-  text-decoration: none;
-   color: #66cc99;
-}
-
-.texte-about:p 
-{
-  font-size: 25px;
-  font-weight: 300;
-  font-family: 'Roboto', sans-serif;
-  margin-top: 20px;
-  text-align: justify;
-}
-
 
 /*
 ================================================================
