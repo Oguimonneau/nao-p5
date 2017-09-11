@@ -73,55 +73,14 @@ class TaxrefController extends Controller
             ->getRepository('AppBundle:Observation')
             ->findValidatedObservationsByTaxref($taxref->getId(), $page)
         ;
-        
-        function parseToXML($htmlStr)
-        {
-            $xmlStr=str_replace('<','&lt;',$htmlStr);
-            $xmlStr=str_replace('>','&gt;',$xmlStr);
-            $xmlStr=str_replace('"','&quot;',$xmlStr);
-            $xmlStr=str_replace("'",'&#39;',$xmlStr);
-            $xmlStr=str_replace("&",'&amp;',$xmlStr);
-            return $xmlStr;
-        }
-
-        // header("Content-type: text/xml");
-
-        // // Star XML echo node, sending taxref's geographic status
-        // echo '<status>';
-        // // Get status if exists in zone
-        // if ($taxref->getFr() !== '')
-        // {
-        //     $status = $this->getDoctrine()
-        //         ->getManager()
-        //         ->getRepository('AppBundle:Statut')
-        //         ->findOneByCle($taxref->getFr())
-        //     ;
-
-        //     echo '<state ';
-        //     echo 'fr="' . parseToXML($status->getLibelle()) . '" ';
-        //     echo '/>';
-        // }
-
-        // if ($taxref->getGf() !== '')
-        // {
-        //     $status = $this->getDoctrine()
-        //         ->getManager()
-        //         ->getRepository('AppBundle:Statut')
-        //         ->findOneByCle($taxref->getGf())
-        //     ;
-
-        //     echo '<state ';
-        //     echo 'gf="' . parseToXML($status->getLibelle()) . '" ';
-        //     echo '/>';
-        // }
-
-        // // End XML echo node
-        // echo '</status>';
 
         // Call XML file creator
         header('Content-type: text/xml');
 
-        $XMLObservations = $this->get('nao.xml_file_creator')->createXMLFile($observations);
+        $XMLTaxrefStatus = $this->get('nao.xml_file_creator')->createStatusXMLFile($taxref);
+        echo $XMLTaxrefStatus;
+
+        $XMLObservations = $this->get('nao.xml_file_creator')->createObservationXMLFile($observations);
         echo $XMLObservations;
 
         // Calculate total number of pages
