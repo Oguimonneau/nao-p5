@@ -17,13 +17,17 @@
             <div class="row">
                 <h2 class="col-md-12 subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">Modification de l'annonce n°{{ observation.id }}</h2>
                 <div class="col-md-12 observation-edit-padding wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".4s">
-                    <p class="col-md-6 text-center">
+                    <p class="col-md-4 text-center">
                         <label>Utilisateur : </label>
                         {{ observation.user }}
                     </p>
-                    <p class="col-md-6 text-center">
+                    <p class="col-md-4 text-center">
                         <label>Date de soumission : </label>
                         {{ observation.date|date('d/m/Y') }}
+                    </p>
+                    <p class="col-md-4 text-center">
+                        <label>Commune : </label>
+                        {{ observation.commune }}
                     </p>
                 </div>
             </div>
@@ -35,12 +39,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div id="blocPosition" class="text-center">
-                        <div id="legend"></div>
-                        <div class="col-xs-12 input-group">
-                            <input type="textbox" id="address" class="form-control" style="text-align:right" readonly>
-                        </div>
-                    </div>
+                    <h2 class="subtitle wow fadeInDown no-padding-top" data-wow-duration="500ms" data-wow-delay=".5s">Informations à modifier :</h2>
                     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
                     {{ form_errors(form) }}
 
@@ -54,18 +53,6 @@
                         <div class="col-sm-10">
                             {# Génération de l'input. #}
                             {{ form_widget(form.taxref, {'attr': {'class': 'form-control'}}) }}
-                        </div>
-                    </div>
-                    <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
-                        {# Génération du label. #}
-                        {{ form_label(form.date, "Date", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-
-                        {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.date) }}
-
-                        <div class="col-sm-10">
-                            {# Génération de l'input. #}
-                            {{ form_widget(form.date, {'attr': {'class': 'js-datepicker form-control', 'readonly': 'readonly'}}) }}
                         </div>
                     </div>
                     <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.2s">
@@ -98,11 +85,14 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div id="map"></div>
+                    <div id="map" class="admin-map"></div>
                 </div>
             </div>
         </div>
     </section>
+
+    <input type="hidden" id="appbundle_observation_latitude" value="{{ observation.latitude }}"/>
+    <input type="hidden" id="appbundle_observation_longitude" value="{{ observation.longitude }}"/>
 
 {% endblock %}
 
@@ -110,5 +100,5 @@
     {{ parent() }}
     <!-- Geolocalisation-->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFLTldKU5XQdx7B_ldPv__ZHbTTISL9PU&callback=initMap"></script>
-    <script src="{{ asset('js/nao-geolocalisation.js') }}"></script>
+    <script src="{{ asset('js/nao-admin-geolocalisation.js') }}"></script>
 {% endblock %}
