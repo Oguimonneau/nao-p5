@@ -76,7 +76,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('fr', self::TAXREF_STATUS[$taxref->getFr()]);
+            $newState->setAttribute('zone', 'fr');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getFr()]);
         }
 
         if ($taxref->getGf() !== '')
@@ -84,7 +85,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('gf', self::TAXREF_STATUS[$taxref->getGf()]);
+            $newState->setAttribute('zone', 'gf');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getGf()]);
         }
 
         if ($taxref->getMar() !== '')
@@ -92,7 +94,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('mar', self::TAXREF_STATUS[$taxref->getMar()]);
+            $newState->setAttribute('zone', 'mar');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getMar()]);
         }
 
         if ($taxref->getGua() !== '')
@@ -100,7 +103,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('gua', self::TAXREF_STATUS[$taxref->getGua()]);
+            $newState->setAttribute('zone', 'gua');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getGua()]);
         }
 
         if ($taxref->getSm() !== '')
@@ -108,7 +112,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('sm', self::TAXREF_STATUS[$taxref->getSm()]);
+            $newState->setAttribute('zone', 'sm');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getSm()]);
         }
 
         if ($taxref->getSb() !== '')
@@ -116,7 +121,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('sb', self::TAXREF_STATUS[$taxref->getSb()]);
+            $newState->setAttribute('zone', 'sb');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getSb()]);
         }
 
         if ($taxref->getSpm() !== '')
@@ -124,7 +130,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('spm', self::TAXREF_STATUS[$taxref->getSpm()]);
+            $newState->setAttribute('zone', 'spm');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getSpm()]);
         }
 
         if ($taxref->getMay() !== '')
@@ -132,7 +139,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('may', self::TAXREF_STATUS[$taxref->getMay()]);
+            $newState->setAttribute('zone', 'may');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getMay()]);
         }
 
         if ($taxref->getEpa() !== '')
@@ -140,7 +148,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('epa', self::TAXREF_STATUS[$taxref->getEpa()]);
+            $newState->setAttribute('zone', 'epa');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getEpa()]);
         }
 
         if ($taxref->getReu() !== '')
@@ -148,7 +157,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('reu', self::TAXREF_STATUS[$taxref->getReu()]);
+            $newState->setAttribute('zone', 'reu');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getReu()]);
         }
 
         if ($taxref->getSa() !== '')
@@ -156,7 +166,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('sa', self::TAXREF_STATUS[$taxref->getSa()]);
+            $newState->setAttribute('zone', 'sa');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getSa()]);
         }
 
         if ($taxref->getTa() !== '')
@@ -164,7 +175,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('ta', self::TAXREF_STATUS[$taxref->getTa()]);
+            $newState->setAttribute('zone', 'ta');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getTa()]);
         }
 
         if ($taxref->getTaaf() !== '')
@@ -172,7 +184,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('taaf', self::TAXREF_STATUS[$taxref->getTaaf()]);
+            $newState->setAttribute('zone', 'taaf');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getTaaf()]);
         }
 
         if ($taxref->getPf() !== '')
@@ -180,7 +193,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('pf', self::TAXREF_STATUS[$taxref->getPf()]);
+            $newState->setAttribute('zone', 'pf');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getPf()]);
         }
 
         if ($taxref->getNc() !== '')
@@ -188,7 +202,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('nc', self::TAXREF_STATUS[$taxref->getNc()]);
+            $newState->setAttribute('zone', 'nc');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getNc()]);
         }
 
         if ($taxref->getWf() !== '')
@@ -196,7 +211,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('wf', self::TAXREF_STATUS[$taxref->getWf()]);
+            $newState->setAttribute('zone', 'wf');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getWf()]);
         }
 
         if ($taxref->getCli() !== '')
@@ -204,7 +220,8 @@ class XMLFileCreator
             $state = $doc->createElement('state');
             $newState = $status->appendChild($state);
 
-            $newState->setAttribute('cli', self::TAXREF_STATUS[$taxref->getCli()]);
+            $newState->setAttribute('zone', 'cli');
+            $newState->setAttribute('lib', self::TAXREF_STATUS[$taxref->getCli()]);
         }
 
         $xmlfile = $doc->saveXML();
