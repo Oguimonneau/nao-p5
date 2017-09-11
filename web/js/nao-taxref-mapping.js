@@ -57,6 +57,16 @@ function initMap()
             parseFloat(findElement(locations, 'zone', zone)['lng'])
         );
 
+        var contentString = '<div id="marker-info">'+
+                '<h4>Etat de cette espèce :</h4>'+
+                '<p>' + lib + '</p>'+
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          position: location
+        });
+
         var marker = new google.maps.Circle({
             strokeColor: '#FF0000',
             strokeOpacity: 0,
@@ -66,6 +76,10 @@ function initMap()
             map: mapTaxref,
             center: location,
             radius: 400000
+        });
+        // Show informations on marker click
+        marker.addListener('click', function() {
+          infowindow.open(mapTaxref, marker);
         });
 
         // markersArray.push(marker);
