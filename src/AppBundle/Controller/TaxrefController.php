@@ -73,70 +73,15 @@ class TaxrefController extends Controller
             ->getRepository('AppBundle:Observation')
             ->findValidatedObservationsByTaxref($taxref->getId(), $page)
         ;
-        
-        function parseToXML($htmlStr)
-        {
-            $xmlStr=str_replace('<','&lt;',$htmlStr);
-            $xmlStr=str_replace('>','&gt;',$xmlStr);
-            $xmlStr=str_replace('"','&quot;',$xmlStr);
-            $xmlStr=str_replace("'",'&#39;',$xmlStr);
-            $xmlStr=str_replace("&",'&amp;',$xmlStr);
-            return $xmlStr;
-        }
 
-        header("Content-type: text/xml");
+        // Call XML file creator
+        header('Content-type: text/xml');
 
-        // Star XML echo node, sending taxref's geographic status
-        echo '<status>';
-        // Get status if exists in zone
-        if ($taxref->getFr() !== '')
-        {
-            $status = $this->getDoctrine()
-                ->getManager()
-                ->getRepository('AppBundle:Statut')
-                ->findOneByCle($taxref->getFr())
-            ;
+        $XMLTaxrefStatus = $this->get('nao.xml_file_creator')->createStatusXMLFile($taxref);
+        echo $XMLTaxrefStatus;
 
-            echo '<state ';
-            echo 'fr="' . parseToXML($status->getLibelle()) . '" ';
-            echo '/>';
-        }
-
-        if ($taxref->getGf() !== '')
-        {
-            $status = $this->getDoctrine()
-                ->getManager()
-                ->getRepository('AppBundle:Statut')
-                ->findOneByCle($taxref->getGf())
-            ;
-
-            echo '<state ';
-            echo 'gf="' . parseToXML($status->getLibelle()) . '" ';
-            echo '/>';
-        }
-
-        // End XML echo node
-        echo '</status>';
-
-        // Start XML echo node, sending observations
-        echo '<markers>';
-
-        // Iterate through the rows, printing XML nodes for each
-        foreach ($observations as $observation)
-        {
-            // Add to XML document node
-            echo '<marker ';
-            echo 'id="' . $observation->getId() . '" ';
-            // echo 'img="' . $observation->getPhoto() . '" ';
-            echo 'lat="' . $observation->getLatitude() . '" ';
-            echo 'lng="' . $observation->getLongitude() . '" ';
-            echo 'com="' . parseToXML($observation->getCommune()) . '" ';
-            echo 'note="' . parseToXML($observation->getNote()) . '" ';
-            echo '/>';
-        }
-
-        // End XML echo node
-        echo '</markers>';
+        $XMLObservations = $this->get('nao.xml_file_creator')->createObservationXMLFile($observations);
+        echo $XMLObservations;
 
         // Calculate total number of pages
         // Count($observationsPaginator) returns total number of observations
