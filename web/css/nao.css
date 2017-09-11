@@ -1,6 +1,7 @@
 body{
     padding-top: 93px;
 }
+
 .image-nav{
     height: 80px;
     padding: 0px;
@@ -8,6 +9,7 @@ body{
     left: 25px;
     top:5px;
 }
+
 .image-footer{
     height: 65px;
     position: absolute;
@@ -23,6 +25,7 @@ body{
     padding: 10px;
     margin: 0px;
 }
+
 #legend strong {
     margin-top: 0;
 }
@@ -37,6 +40,7 @@ body{
     outline: none;
     background: #66cc99;
 }
+
 .lien-nao:link
 {
 	color: #727272;
@@ -141,10 +145,6 @@ body{
     color: #fff;
     text-transform: uppercase;
 }
-
-
-
-
 
 /*
 ================================================================
@@ -252,6 +252,11 @@ body{
 ================================================================
 */
 
+.admin-map
+{
+    margin-top: 50px;
+}
+
 .observation-edit-padding
 {
     padding: 50px 0;
@@ -259,14 +264,15 @@ body{
 
 .edit-img-padding
 {
-    padding-top: 9px;
+    padding-top: 22px;
 }
 
 .edit-img-responsive
 {
     display: block;
     margin: auto;
-    height: 100%;
+    max-height: 100%;
+    max-width: 100% !important;
 }
 
 .img-view
