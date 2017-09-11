@@ -84,59 +84,45 @@ class TaxrefController extends Controller
             return $xmlStr;
         }
 
-        header("Content-type: text/xml");
+        // header("Content-type: text/xml");
 
-        // Star XML echo node, sending taxref's geographic status
-        echo '<status>';
-        // Get status if exists in zone
-        if ($taxref->getFr() !== '')
-        {
-            $status = $this->getDoctrine()
-                ->getManager()
-                ->getRepository('AppBundle:Statut')
-                ->findOneByCle($taxref->getFr())
-            ;
+        // // Star XML echo node, sending taxref's geographic status
+        // echo '<status>';
+        // // Get status if exists in zone
+        // if ($taxref->getFr() !== '')
+        // {
+        //     $status = $this->getDoctrine()
+        //         ->getManager()
+        //         ->getRepository('AppBundle:Statut')
+        //         ->findOneByCle($taxref->getFr())
+        //     ;
 
-            echo '<state ';
-            echo 'fr="' . parseToXML($status->getLibelle()) . '" ';
-            echo '/>';
-        }
+        //     echo '<state ';
+        //     echo 'fr="' . parseToXML($status->getLibelle()) . '" ';
+        //     echo '/>';
+        // }
 
-        if ($taxref->getGf() !== '')
-        {
-            $status = $this->getDoctrine()
-                ->getManager()
-                ->getRepository('AppBundle:Statut')
-                ->findOneByCle($taxref->getGf())
-            ;
+        // if ($taxref->getGf() !== '')
+        // {
+        //     $status = $this->getDoctrine()
+        //         ->getManager()
+        //         ->getRepository('AppBundle:Statut')
+        //         ->findOneByCle($taxref->getGf())
+        //     ;
 
-            echo '<state ';
-            echo 'gf="' . parseToXML($status->getLibelle()) . '" ';
-            echo '/>';
-        }
+        //     echo '<state ';
+        //     echo 'gf="' . parseToXML($status->getLibelle()) . '" ';
+        //     echo '/>';
+        // }
 
-        // End XML echo node
-        echo '</status>';
+        // // End XML echo node
+        // echo '</status>';
 
-        // Start XML echo node, sending observations
-        echo '<markers>';
+        // Call XML file creator
+        header('Content-type: text/xml');
 
-        // Iterate through the rows, printing XML nodes for each
-        foreach ($observations as $observation)
-        {
-            // Add to XML document node
-            echo '<marker ';
-            echo 'id="' . $observation->getId() . '" ';
-            // echo 'img="' . $observation->getPhoto() . '" ';
-            echo 'lat="' . $observation->getLatitude() . '" ';
-            echo 'lng="' . $observation->getLongitude() . '" ';
-            echo 'com="' . parseToXML($observation->getCommune()) . '" ';
-            echo 'note="' . parseToXML($observation->getNote()) . '" ';
-            echo '/>';
-        }
-
-        // End XML echo node
-        echo '</markers>';
+        $XMLObservations = $this->get('nao.xml_file_creator')->createXMLFile($observations);
+        echo $XMLObservations;
 
         // Calculate total number of pages
         // Count($observationsPaginator) returns total number of observations

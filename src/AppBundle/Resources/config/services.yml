@@ -1,0 +1,3 @@
+services:
+    nao.xml_file_creator:
+        class: AppBundle\Services\XMLFileCreator

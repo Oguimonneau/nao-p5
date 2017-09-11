@@ -43,3 +43,6 @@ services:
 
     acme.js_vars:
         class: stdClass
+
+    nao.xml_file_creator:
+        class: AppBundle\Services\XMLFileCreator
