@@ -58,7 +58,7 @@ function initMap()
         );
 
         var contentString = '<div id="marker-info">'+
-                '<h4>Etat de cette espèce :</h4>'+
+                '<h4>Statut de cette espèce :</h4>'+
                 '<p>' + lib + '</p>'+
             '</div>';
 
