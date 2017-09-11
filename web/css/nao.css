@@ -21,7 +21,7 @@ body{
 #blocPosition {
     background: #99cc99;
     padding: 10px;
-    margin: 10px;
+    margin: 0px;
 }
 #legend strong {
     margin-top: 0;
@@ -129,52 +129,20 @@ body{
     padding-top: 45px;
     font-size: 26px;
 }
-
-@media all and (max-device-width: 768px) {
-    .img-vignette
-    {
-        background-size: cover;
-        width: 210px;
-        height: 110px;
-    }
-    .image img {
-        display: none;
-    }
-    .tab-center {
-        text-align: center;
-        padding-top: 45px;
-        font-size: 26px;
-    }
-    .img-observation
-    {
-        background-size: cover;
-        width: 744px;
-        height: 100%;
-    }
+.global-page-header-front {
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 15px 0 25px 0;
+    position: relative;
+}
+.global-page-header-front h2 {
+    font-size: 42px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
 }
 
-@media all and (max-device-width: 480px) {
-    .img-vignette
-    {
-        background-size: cover;
-        width: 90px;
-        height: 48px;
-    }
-    .image img {
-        display: none;
-    }
-    .tab-center {
-        text-align: center;
-        padding-top: 13px;
-        font-size: 13px;
-    }
-    .img-observation
-    {
-        background-size: cover;
-        width: 345px;
-        height: 100%;
-    }
-}
+
 
 
 
@@ -424,4 +392,67 @@ body{
 .sorting-form-padding
 {
     padding: 15px 0 0 0;
+}
+
+@media all and (max-device-width: 768px) {
+    .img-vignette
+    {
+        background-size: cover;
+        width: 210px;
+        height: 110px;
+    }
+    .image img {
+        display: none;
+    }
+    .tab-center {
+        text-align: center;
+        padding-top: 45px;
+        font-size: 26px;
+    }
+    .img-observation
+    {
+        background-size: cover;
+        width: 744px;
+        height: 100%;
+    }
+}
+
+@media all and (max-device-width: 480px) {
+    .img-vignette
+    {
+        background-size: cover;
+        width: 90px;
+        height: 48px;
+    }
+    .image img {
+        display: none;
+    }
+    .tab-center {
+        text-align: center;
+        padding-top: 13px;
+        font-size: 13px;
+    }
+    .img-observation
+    {
+        background-size: cover;
+        width: 345px;
+        height: 100%;
+    }
+
+    .global-page-header-front {
+        background-attachment: fixed;
+        background-size: cover;
+        padding: 0px 0 10px 0;
+        position: relative;
+    }
+    .global-page-header-front h2 {
+        font-size: 20px;
+    }
+
+    #review-section {
+        padding: 5px 0;
+    }
+    .Copyright {
+        text-align: center;
+    }
 }
