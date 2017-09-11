@@ -72,7 +72,7 @@ class DefaultController extends Controller
             ->add('email', TextType::class,  array('constraints' => array(new Assert\Email(array('checkMX' => true)),
                 new NotBlank(),)))
 //
-            ->add('sujet', ChoiceType::class, array('choices' => array('' => '','Autre' => "Autre",'Bug' => "Bug", 'Demande' => "Demande")),
+            ->add('sujet', ChoiceType::class, array('choices' => array('' => '','Demande' => "Demande",'Bug' => "Bug",'Autre' => "Autre" )),
                 array('constraints' => array(new Length(array('min' => 3)))))
             ->add('message', TextareaType::class, array('constraints' => array(new NotBlank(array(//'message' => 'contact.error.messagenotblank'
             ))
