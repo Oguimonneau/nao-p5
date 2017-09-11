@@ -142,7 +142,10 @@ body{
     text-transform: uppercase;
 }
 
-
+.review-section
+{
+    padding: 0px 0;
+}
 
 
 
@@ -455,4 +458,9 @@ body{
     .Copyright {
         text-align: center;
     }
+    .review-section
+    {
+        padding: 0px 0;
+    }
+
 }
