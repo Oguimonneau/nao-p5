@@ -115,7 +115,7 @@ class DefaultController extends Controller
 
 
 
-        return $this->render('Default/contact.html.twig', array('form'    => $form->createView(),
+        return $this->render('default/contact.html.twig', array('form'    => $form->createView(),
             'mom'       => $nom,
             'email'     => $email,
             'sujet'     => $sujet,

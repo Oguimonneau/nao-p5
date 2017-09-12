@@ -26,8 +26,7 @@ class ObservationController extends Controller
         $observation = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Observation')
-            ->findOneById($observationId)
-        ;
+            ->findOneById($observationId);
         return $this->render('taxref/detailObservation.html.twig', array(
             'observation' => $observation));
     }
@@ -44,6 +43,9 @@ class ObservationController extends Controller
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             // On fait le lien avec l'utilisateur en cours
             $observation->setUser($this->getUser());
+            if ($observation->getPhoto()->getFile() === null) {
+                $observation->setPhoto(null);
+            }
             //On déplace l'immage
             $em = $this->getDoctrine()->getManager();
             $em->persist($observation);
@@ -57,13 +59,5 @@ class ObservationController extends Controller
             'form' => $form->createView(),
         ));
     }
-
-
-
-    public function listAction(Request $request)
-    {
-        return $this->render('default/listObservation.html.twig');
-    }
-
 }
 
