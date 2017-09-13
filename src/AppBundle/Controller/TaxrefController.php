@@ -60,28 +60,12 @@ class TaxrefController extends Controller
             ->findOneById($id)
         ;
 
-        // Find taxref's related validated observations without paging (map)
-        $observations = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('AppBundle:Observation')
-            ->findBy(array('taxref' => $taxref->getId(), 'valide' => 1))
-        ;
-
         // Find taxref's related validated observations with paging (list)
         $observationsPaginator = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Observation')
             ->findValidatedObservationsByTaxref($taxref->getId(), $page)
         ;
-
-        // Call XML file creator
-        header('Content-type: text/xml');
-
-        $XMLTaxrefStatus = $this->get('nao.xml_file_creator')->createStatusXMLFile($taxref);
-        echo $XMLTaxrefStatus;
-
-        $XMLObservations = $this->get('nao.xml_file_creator')->createObservationXMLFile($observations);
-        echo $XMLObservations;
 
         // Calculate total number of pages
         // Count($observationsPaginator) returns total number of observations
@@ -99,10 +83,36 @@ class TaxrefController extends Controller
 
         return $this->render('taxref/detail.html.twig', array(
            'taxref' => $taxref,
-           'observations' => $observations,
            'observationsPaginator' => $observationsPaginator,
            'page' => $page,
            'nbPages' => $nbPages
+        ));
+    }
+
+    /**
+     * @Route("/parser-api/{id}/taxref.{_format}", name ="NAO_xml_taxref_infos_api", requirements={"id" = "\d+"}, defaults={"_format" = "xml"})
+     *
+     * @return xml document with Observation informations
+     */
+    public function buildXmlObservationsAction(int $id, Request $request)
+    {
+        // Find taxref by id
+        $taxref = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Taxref')
+            ->findOneById($id)
+        ;
+
+        // Find taxref's related validated observations
+        $observations = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Observation')
+            ->findBy(array('taxref' => $taxref->getId(), 'valide' => 1))
+        ;
+
+        return $this->render('taxref/xml/taxrefInformations.xml.twig', array(
+            'taxref' => $taxref,
+            'observations' => $observations
         ));
     }
 }

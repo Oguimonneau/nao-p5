@@ -13,7 +13,7 @@
         ================================================== -->
         <section>
             <figure class="col-sm-6 no-padding">
-                <div id="mapTaxref"></div>
+                <div id="mapHabitat"></div>
                 <figcaption class="text-center"><em>Carte des zones d'habitation</em></figcaption>
             </figure>
             <figure class="col-sm-6 no-padding">
@@ -38,6 +38,10 @@
 
 {% block javascripts %}
 
+    {{ parent() }}
+    <script type="text/javascript">
+        var xmlTaxrefInfosRoute = "{{ path('NAO_xml_taxref_infos_api', { 'id': taxref.id }) }}";
+    </script>
     <script src="{{ asset('js/nao-taxref-mapping.js') }}"></script>
     <script src="{{ asset('js/markerclusterer.js') }}"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFLTldKU5XQdx7B_ldPv__ZHbTTISL9PU&callback=initMap"></script>
