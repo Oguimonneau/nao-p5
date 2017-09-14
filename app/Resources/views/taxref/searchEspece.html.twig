@@ -1,31 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends ':default:base.html.twig' %}
 
-{% block body %}
+    {% block title %}
+        Chercher une espèce
+    {% endblock %}
 
-    <!--
-    ==================================================
-        Global Page Section Start
-    ================================================== -->
-    <section class="global-page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="block">
-                        <h2>Chercher une Espèce</h2>
-                        <ol class="breadcrumb">
-                            <li>
-                                <a href="index.html">
-                                    <i class="ion-ios-home"></i>
-                                    Home
-                                </a>
-                            </li>
-                            <li class="active">Chercher une Espèce</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+{% block section %}
+
     <section id="review-section">
         <DIV class="container">
             <form class="form-inline" id="contact-form" method="get" action="{{ path('NAO_searchEspece') }}" role="form">

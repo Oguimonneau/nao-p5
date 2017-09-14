@@ -13,7 +13,6 @@ function searchByVille(){
     var map = new google.maps.Map(document.getElementById('map'), {});
     var geocoder = new google.maps.Geocoder;
     var address = document.getElementById('address').value;
-    var infoWindow = new google.maps.InfoWindow({map: map});
 
     geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == 'OK') {
@@ -23,16 +22,16 @@ function searchByVille(){
 
             map.setZoom(11);
             map.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
+            var marker = new google.maps.Circle({
                 map: map,
-                position: results[0].geometry.location
+                center: results[0].geometry.location,
+                radius:800,
+                strokeColor:"#ff0000",
+                strokeOpacity:0,
+                fillColor:"#ff0000",
+                fillOpacity:0.35,
+                strokeWeight:2,
             });
-            infoWindow.setPosition(results[0].geometry.location);
-            infoWindow.setContent(results[0].formatted_address);
-            infoWindow.open(map, marker);
-            $(address).val(results[0].formatted_address);
-            var legend = document.getElementById('legend');
-            legend.innerHTML = '<strong>Votre position</strong> </br>Latitude : ' + appbundle_observation_latitude.value + ' - Longitude : ' + appbundle_observation_longitude.value;
         } else {
             alert('Echec de Géolocalisation : ' + status);
         }

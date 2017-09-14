@@ -60,83 +60,12 @@ class TaxrefController extends Controller
             ->findOneById($id)
         ;
 
-        // Find taxref's related validated observations without paging (map)
-        $observations = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('AppBundle:Observation')
-            ->findBy(array('taxref' => $taxref->getId(), 'valide' => 1))
-        ;
-
         // Find taxref's related validated observations with paging (list)
         $observationsPaginator = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Observation')
             ->findValidatedObservationsByTaxref($taxref->getId(), $page)
         ;
-        
-        function parseToXML($htmlStr)
-        {
-            $xmlStr=str_replace('<','&lt;',$htmlStr);
-            $xmlStr=str_replace('>','&gt;',$xmlStr);
-            $xmlStr=str_replace('"','&quot;',$xmlStr);
-            $xmlStr=str_replace("'",'&#39;',$xmlStr);
-            $xmlStr=str_replace("&",'&amp;',$xmlStr);
-            return $xmlStr;
-        }
-
-        header("Content-type: text/xml");
-
-        // Star XML echo node, sending taxref's geographic status
-        echo '<status>';
-        // Get status if exists in zone
-        if ($taxref->getFr() !== '')
-        {
-            $status = $this->getDoctrine()
-                ->getManager()
-                ->getRepository('AppBundle:Statut')
-                ->findOneByCle($taxref->getFr())
-            ;
-
-            echo '<state ';
-            echo 'fr="' . parseToXML($status->getLibelle()) . '" ';
-            echo '/>';
-        }
-
-        if ($taxref->getGf() !== '')
-        {
-            $status = $this->getDoctrine()
-                ->getManager()
-                ->getRepository('AppBundle:Statut')
-                ->findOneByCle($taxref->getGf())
-            ;
-
-            echo '<state ';
-            echo 'gf="' . parseToXML($status->getLibelle()) . '" ';
-            echo '/>';
-        }
-
-        // End XML echo node
-        echo '</status>';
-
-        // Start XML echo node, sending observations
-        echo '<markers>';
-
-        // Iterate through the rows, printing XML nodes for each
-        foreach ($observations as $observation)
-        {
-            // Add to XML document node
-            echo '<marker ';
-            echo 'id="' . $observation->getId() . '" ';
-            // echo 'img="' . $observation->getPhoto() . '" ';
-            echo 'lat="' . $observation->getLatitude() . '" ';
-            echo 'lng="' . $observation->getLongitude() . '" ';
-            echo 'com="' . parseToXML($observation->getCommune()) . '" ';
-            echo 'note="' . parseToXML($observation->getNote()) . '" ';
-            echo '/>';
-        }
-
-        // End XML echo node
-        echo '</markers>';
 
         // Calculate total number of pages
         // Count($observationsPaginator) returns total number of observations
@@ -154,10 +83,36 @@ class TaxrefController extends Controller
 
         return $this->render('taxref/detail.html.twig', array(
            'taxref' => $taxref,
-           'observations' => $observations,
            'observationsPaginator' => $observationsPaginator,
            'page' => $page,
            'nbPages' => $nbPages
+        ));
+    }
+
+    /**
+     * @Route("/parser-api/{id}/taxref.{_format}", name ="NAO_xml_taxref_infos_api", requirements={"id" = "\d+"}, defaults={"_format" = "xml"})
+     *
+     * @return xml document with Observation informations
+     */
+    public function buildXmlObservationsAction(int $id, Request $request)
+    {
+        // Find taxref by id
+        $taxref = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Taxref')
+            ->findOneById($id)
+        ;
+
+        // Find taxref's related validated observations
+        $observations = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Observation')
+            ->findBy(array('taxref' => $taxref->getId(), 'valide' => 1))
+        ;
+
+        return $this->render('taxref/xml/taxrefInformations.xml.twig', array(
+            'taxref' => $taxref,
+            'observations' => $observations
         ));
     }
 }

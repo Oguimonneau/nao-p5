@@ -1,0 +1,33 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <!--
+    ==================================================
+        Global Page Section Start
+    ================================================== -->
+    <section class="global-page-header global-page-header-front">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h2>
+                            {% block title %}
+                            {% endblock %}
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#page-header-->
+
+
+    <!--
+    ==================================================
+        Admin Review Section Start
+    ================================================== -->
+    {% block section %}
+    {% endblock %}
+
+
+{% endblock %}

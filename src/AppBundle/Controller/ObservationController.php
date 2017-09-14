@@ -66,3 +66,4 @@ class ObservationController extends Controller
     }
 
 }
+
