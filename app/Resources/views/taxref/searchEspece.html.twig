@@ -28,7 +28,10 @@
                                         <a href="{{ path('NAO_detailEspece', { 'id': taxref.id }) }}"><div class="img-vignette" style="background-image:url({{ asset('images/taxref/' ~ taxref.image) }})"></div></a>
                                     {% endif %}
                                 </TD>
+                                <TD class = "col-xs-10">
+                                    <a href="{{ path('NAO_detailEspece', { 'id': taxref.id }) }}"><p class = "tab-center">{{ taxref.nomVern }}</p></a>
 
+                                </TD>
                             </TR>
                         {% endfor %}
                         </tbody>
