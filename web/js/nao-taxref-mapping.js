@@ -1,6 +1,16 @@
-var mapTaxref,
-    mapObservation,
-    france = {lat: 48.862725 , lng: 2.287592};
+//===============================================
+// 
+// Javascript management for Taxref's description
+// 
+// =====================
+// 
+// View in app/Resources/views/taxref/detail.html.twig
+// XML views in app/Resources/views/taxref/xml
+// 
+//===============================================
+
+var mapHabitat,
+    mapObservation;
 
 var locations = [
     {zone: 'fr',lat: '46.2276380', lng: '2.2137490'},
@@ -22,6 +32,25 @@ var locations = [
     {zone: 'cli',lat: '10.2833333', lng: '-109.2166667'}
 ];
 
+var taxrefStatus = [
+    {code: 'P', label: 'Présent (indigène ou indeterminé)'},
+    {code: 'B', label: 'Occasionnel'},
+    {code: 'E', label: 'Endémique'},
+    {code: 'S', label: 'Subendémique'},
+    {code: 'C', label: 'Cryptogène'},
+    {code: 'I', label: 'Introduit'},
+    {code: 'G', label: 'Introduit envahissant'},
+    {code: 'M', label: 'Introduit non établi(dont domestique)'},
+    {code: 'D', label: 'Douteux'},
+    {code: 'A', label: 'Absent'},
+    {code: 'W', label: 'Disparu'},
+    {code: 'E', label: 'Eteint'},
+    {code: 'Y', label: 'Introduit éteint/disparu'},
+    {code: 'Z', label: 'Endémique éteint'},
+    {code: 'Q', label: 'Mentionné par erreur'}
+];
+
+// Find attribut in an array's line (paired with locations and taxrefStatus)
 function findElement(arr, propName, propValue)
 {
     for (var i = 0; i < arr.length; i++)
@@ -33,96 +62,107 @@ function findElement(arr, propName, propValue)
     }
 }
 
-// var markersArray = [];
+// Get XML informations from app/Resources/views/taxref/xml/taxrefInformations.xml.twig
+var infos;
 
+$.ajax({
+    'url': xmlTaxrefInfosRoute,
+    'type': 'GET',
+    'dataType': 'xml',
+    'success': function(data)
+    {
+        infos = data;
+    }
+});
+
+
+// Google Map API management
 function initMap()
 {
     // Taxref's current state map
-    mapTaxref = new google.maps.Map(document.getElementById('mapTaxref'), {
-        center: {lat: 27.955591 , lng: 11.975098}, // Map centered on France
-        zoom: 2 // Zoom is defined on "continent"
-    });
-
-    // Get XML markers Element values to be sent on map
-    var status = document.documentElement.getElementsByTagName('state');
-
-    Array.prototype.forEach.call(status, function(stateElem) {
-        // Get Observation's attributes value
-        var zone = stateElem.getAttribute('zone'),
-            lib = stateElem.getAttribute('lib');
-
-        // Get marker position
-        var location = new google.maps.LatLng(
-            parseFloat(findElement(locations, 'zone', zone)['lat']),
-            parseFloat(findElement(locations, 'zone', zone)['lng'])
-        );
-
-        var contentString = '<div id="marker-info">'+
-                '<h4>Statut de cette espèce :</h4>'+
-                '<p>' + lib + '</p>'+
-            '</div>';
-
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString,
-          position: location
-        });
-
-        var marker = new google.maps.Circle({
-            strokeColor: '#FF0000',
-            strokeOpacity: 0,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35,
-            map: mapTaxref,
-            center: location,
-            radius: 400000
-        });
-        // Show informations on marker click
-        marker.addListener('click', function() {
-          infowindow.open(mapTaxref, marker);
-        });
-
-        // markersArray.push(marker);
+    mapHabitat = new google.maps.Map(document.getElementById('mapHabitat'), {
+        center: {lat: 27.955591 , lng: 11.975098}, // Map centered
+        zoom: 2 // Zoom is defined on "world"
     });
 
     // Observations' map management
     mapObservation = new google.maps.Map(document.getElementById('mapObservation'), {
-        center: france,
-        zoom: 5
+        center: {lat: 46.2276380 , lng: 2.2137490}, // Map centered on France
+        zoom: 5 // Zoom is defined on "country"
     });
 
-    // Get XML markers Element values to be sent on map
-    var markers = document.documentElement.getElementsByTagName('marker');
 
-    Array.prototype.forEach.call(markers, function(markerElem) {
-        // Get Observation's attributes value
-        var id = markerElem.getAttribute('id'),
-            lat = markerElem.getAttribute('lat'),
-            lng = markerElem.getAttribute('lng'),
-            com = markerElem.getAttribute('com'),
-            note = markerElem.getAttribute('note');
+    // Wait for Ajax to complete to add markers on the map
+    $(document).ajaxComplete(function() {
+        // Habitats' markers management
+        // Get XML markers Element values to be sent on map
+        var status = infos.documentElement.getElementsByTagName('state');
 
-        // Get marker position
-        var location = new google.maps.LatLng(
-            parseFloat(lat),
-            parseFloat(lng)
-        );
+        Array.prototype.forEach.call(status, function(stateElem) {
+            // Get Taxref's habitats' attributes value
+            var zone = stateElem.getAttribute('zone'),
+                lib = stateElem.getAttribute('lib');
 
-        var marker = new google.maps.Circle({
-            strokeColor: '#FF0000',
-            strokeOpacity: 0,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35,
-            map: mapObservation,
-            center: location,
-            radius: 25000
+            // Get marker position
+            var location = new google.maps.LatLng(
+                parseFloat(findElement(locations, 'zone', zone)['lat']),
+                parseFloat(findElement(locations, 'zone', zone)['lng'])
+            );
+
+            var contentString = '<div id="marker-info">'+
+                    '<h4>Statut de cette espèce :</h4>'+
+                    '<p>' + findElement(taxrefStatus, 'code', lib)['label'] + '</p>'+
+                '</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString,
+              position: location
+            });
+
+            var marker = new google.maps.Circle({
+                strokeColor: '#FF0000',
+                strokeOpacity: 0,
+                strokeWeight: 2,
+                fillColor: '#FF0000',
+                fillOpacity: 0.35,
+                map: mapHabitat,
+                center: location,
+                radius: 400000
+            });
+            // Show informations on marker click
+            marker.addListener('click', function() {
+              infowindow.open(mapHabitat, marker);
+            });
         });
 
-        // markersArray.push(marker);
-    });
+        // Observations' markers management
+        // Get XML markers Element values to be sent on map
+        var markers = infos.getElementsByTagName('marker');
 
-    // // Add a marker clusterer to manage the markers
-    // var markerCluster = new MarkerClusterer(mapObservation, markersArray,
-    //         {imagePath: '../../images/markerclusterer/m'});
+        Array.prototype.forEach.call(markers, function(markerElem) {
+            // Get Observation's attributes value
+            var id = markerElem.getAttribute('id'),
+                lat = markerElem.getAttribute('lat'),
+                lng = markerElem.getAttribute('lng'),
+                com = markerElem.getAttribute('com'),
+                note = markerElem.getAttribute('note');
+
+            // Get marker position
+            var location = new google.maps.LatLng(
+                parseFloat(lat),
+                parseFloat(lng)
+            );
+
+            var marker = new google.maps.Circle({
+                strokeColor: '#FF0000',
+                strokeOpacity: 0,
+                strokeWeight: 2,
+                fillColor: '#FF0000',
+                fillOpacity: 0.35,
+                map: mapObservation,
+                center: location,
+                radius: 25000
+            });
+        });
+    });
 }

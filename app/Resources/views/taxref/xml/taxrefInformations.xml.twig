@@ -1,0 +1,76 @@
+<infos>
+	<markers>
+		{% for observation in observations %}
+			<marker id="{{ observation.id }}" lat="{{ observation.latitude }}" lng="{{ observation.longitude }}" com="{{ observation.commune }}"></marker>
+		{% endfor %}
+	</markers>
+	<status>
+		{% if taxref.fr %}
+			<state zone="fr" lib="{{ taxref.fr }}"></state>
+		{% endif %}
+
+		{% if taxref.gf %}
+			<state zone="gf" lib="{{ taxref.gf }}"></state>
+		{% endif %}
+
+		{% if taxref.mar %}
+			<state zone="mar" lib="{{ taxref.mar }}"></state>
+		{% endif %}
+
+		{% if taxref.gua %}
+			<state zone="gua" lib="{{ taxref.gua }}"></state>
+		{% endif %}
+
+		{% if taxref.sm %}
+			<state zone="sm" lib="{{ taxref.sm }}"></state>
+		{% endif %}
+
+		{% if taxref.sb %}
+			<state zone="sb" lib="{{ taxref.sb }}"></state>
+		{% endif %}
+
+		{% if taxref.spm %}
+			<state zone="spm" lib="{{ taxref.spm }}"></state>
+		{% endif %}
+
+		{% if taxref.may %}
+			<state zone="may" lib="{{ taxref.may }}"></state>
+		{% endif %}
+
+		{% if taxref.epa %}
+			<state zone="epa" lib="{{ taxref.epa }}"></state>
+		{% endif %}
+
+		{% if taxref.reu %}
+			<state zone="reu" lib="{{ taxref.reu }}"></state>
+		{% endif %}
+
+		{% if taxref.sa %}
+			<state zone="sa" lib="{{ taxref.sa }}"></state>
+		{% endif %}
+
+		{% if taxref.ta %}
+			<state zone="ta" lib="{{ taxref.ta }}"></state>
+		{% endif %}
+
+		{% if taxref.taaf %}
+			<state zone="taaf" lib="{{ taxref.taaf }}"></state>
+		{% endif %}
+
+		{% if taxref.pf %}
+			<state zone="pf" lib="{{ taxref.pf }}"></state>
+		{% endif %}
+
+		{% if taxref.nc %}
+			<state zone="nc" lib="{{ taxref.nc }}"></state>
+		{% endif %}
+
+		{% if taxref.wf %}
+			<state zone="wf" lib="{{ taxref.wf }}"></state>
+		{% endif %}
+
+		{% if taxref.cli %}
+			<state zone="cli" lib="{{ taxref.cli }}"></state>
+		{% endif %}
+	</status>
+</infos>
