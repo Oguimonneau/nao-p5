@@ -60,7 +60,11 @@
                                     title="<strong>{{ observation.taxref.nomVern }}</strong>" 
                                     data-content="
                                         <div class='img-container'>
-                                            <img src='{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}'>
+                                            {% if observation.photo.id is defined %}
+                                                <img src='{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}'>
+                                            {%  else %}
+                                                <img src='{{ asset('images/logo.png') }}'>
+                                            {% endif %}
                                         </div>
                                         <p><strong>Utilisateur :</strong></p>
                                         <p>{{ observation.user }}</p>

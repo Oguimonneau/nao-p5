@@ -10,8 +10,12 @@
             {% for observation in observationsPaginator %}
                 <div class="col-sm-3">
                      <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
-                        <div class="img-wrapper">                            
-                            <img src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" class="img-responsive" alt="this is a title">
+                        <div class="img-wrapper">
+                            {% if observation.photo.id is defined %}
+                                <img src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" class="img-responsive" alt="this is a title">
+                            {%  else %}
+                                <img src="{{ asset('images/logo.png') }}" class="img-responsive" alt="{{ observation.taxref.nomVern }}" >
+                            {% endif %}
                             <div class="overlay">
                                 <div class="buttons buttons-padding">
                                     <a href="{{ path('NAO_detail_observation', {'observationId': observation.id }) }}">Détails</a>
