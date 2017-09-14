@@ -18,13 +18,13 @@
                             {% endif %}
                             <div class="overlay">
                                 <div class="buttons">
-                                    <a target="_blank" href="#">Details</a>
+                                    <a href="{{ path('NAO_detail_observation', {'observationId': observation.id }) }}">Détails</a>
                                 </div>
                             </div>
                         </div>
                         <figcaption>
                             <h4>
-                                <a href="#">
+                                <a href="{{ path('NAO_detail_observation', {'observationId': observation.id }) }}">
                                     {{ observation.taxref.nomVern }}
                                 </a>
                             </h4>
