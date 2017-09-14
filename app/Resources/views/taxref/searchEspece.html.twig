@@ -28,11 +28,7 @@
                                         <a href="{{ path('NAO_detailEspece', { 'id': taxref.id }) }}"><div class="img-vignette" style="background-image:url({{ asset('images/taxref/' ~ taxref.image) }})"></div></a>
                                     {% endif %}
                                 </TD>
-                                <TD class = "col-xs-10">
-                                    <a href="{{ path('NAO_detailEspece', { 'id': taxref.id }) }}"><p class = "tab-center">{{ taxref.nomVern }}</p></a>
-                                    <a target="_blank" href="https://inpn.mnhn.fr/espece/cd_nom/{{ taxref.cdNom }}" >https://inpn.mnhn.fr/espece/cd_nom/ {{ taxref.cdNom }}</a>
 
-                                </TD>
                             </TR>
                         {% endfor %}
                         </tbody>
