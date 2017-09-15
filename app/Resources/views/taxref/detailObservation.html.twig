@@ -19,7 +19,12 @@
             <div class="row">
                 <div class="col-md-6 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1s">
                     <div>
-                        <img class = "img-observation" src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" />
+                        {% if observation.photo.id is defined %}
+                            <img class = "img-observation" src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" />
+                        {%  else %}
+                            <img src="{{ asset('images/logo.png') }}" class="img-responsive" alt="{{ observation.taxref.nomVern }}" >
+                        {% endif %}
+
                     </div>
                 </div>
 
