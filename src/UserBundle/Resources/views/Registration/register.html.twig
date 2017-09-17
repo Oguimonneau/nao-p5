@@ -19,47 +19,56 @@
 
     <section id="FOSUser-section">
         <div class="container">
-            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register form-horizontal col-xs-12'}}) }}
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register form-horizontal col-lg-12'}}) }}
             <div class="form-group">
                 <input type="hidden" name="_csrf_token" value="" />
             </div>
             <div class="row">
                 <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".6s">
-                    <label for="username" class="col-xs-3 control-label">Login</label>
-                    <div class="col-xs-9">
+                    <div class="col-lg-3"></div>
+                    <label for="username" class="col-lg-3 control-label">Nom d'utilisateur</label>
+                    <div class="col-lg-3">
                         {{ form_widget(form.username, { 'atrr': {'class': 'form-control'}}) }}
                         {{ form_errors(form.username) }}
                     </div>
+                    <div class="col-lg-3"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
-                    <label for="email" class="col-xs-3 control-label">Email</label>
-                    <div class="col-xs-9">
+                    <div class="col-lg-3"></div>
+                    <label for="email" class="col-lg-3 control-label">email</label>
+                    <div class="col-lg-3">
                         {{ form_widget(form.email, { 'atrr': {'class': 'form-control'}}) }}
                     </div>
+                    <div class="col-lg-3"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1s">
-                    <label for="pasword" class="col-xs-3 control-label">Mot de passe</label>
-                    <div class="col-xs-9">
+                    <div class="col-lg-3"></div>
+                    <label for="pasword" class="col-lg-3 control-label">Mot de passe</label>
+                    <div class="col-lg-3">
                         {{ form_widget(form.plainPassword.first, { 'atrr': {'class': 'form-control'}}) }}
                     </div>
+                    <div class="col-lg-3"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.2s">
-                    <label for="pasword" class="col-xs-3 control-label">Repetez</label>
-                    <div class="col-xs-9">
+                    <div class="col-lg-3"></div>
+                    <label for="pasword" class="col-lg-3 control-label">Repetez</label>
+                    <div class="col-lg-3">
                         {{ form_widget(form.plainPassword.second, { 'atrr': {'class': 'form-control'}}) }}
                     </div>
+                    <div class="col-lg-3"></div>
                 </div>
             </div>
-            <div class="row">
-                <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.4s">
-                    <div class="col-xs-12"><input type="submit" class="pull-right btn btn-default btn-send" id="_submit" name="_submit" value="S'inscrire" /></div>
-                </div>
+            <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.4s">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-3"></div>
+                <div class="col-lg-3"><input type="submit" class="pull-right btn btn-default btn-send" id="_submit" name="_submit" value="S'inscrire" /></div>
+                <div class="col-lg-3"></div>
             </div>
         {{ form_end(form) }}
         </div>
