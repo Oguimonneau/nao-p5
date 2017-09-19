@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\AppBundle;
+use AppBundle\Entity\Taxref;
 use AppBundle\Repository\TaxrefRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -39,6 +40,8 @@ class TaxrefController extends Controller
             ->findTaxrefs($page, 20, $search)
         ;
 
+        dump($taxrefsList);
+
         return $this->render(':taxref:searchEspece.html.twig', array(
             'taxrefsList' => $taxrefsList,
             'nbPages' => ceil ($nbLines/20),
@@ -51,15 +54,8 @@ class TaxrefController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function detailAction(int $page, int $id, Request $request)
+    public function detailAction(int $page, Taxref $taxref, Request $request)
     {
-        // Find taxref by id
-        $taxref = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('AppBundle:Taxref')
-            ->findOneById($id)
-        ;
-
         // Find taxref's related validated observations with paging (list)
         $observationsPaginator = $this->getDoctrine()
             ->getManager()
@@ -73,12 +69,9 @@ class TaxrefController extends Controller
 
         // If at least 1 entry exists in array,
         // Check if page doesn't exist, returns to page 1
-        if ($nbPages > 0)
+        if ($page > $nbPages)
         {
-          if ($page > $nbPages)
-            {
-                return $this->redirectToRoute('NAO_detailEspece');
-            }
+            return $this->redirectToRoute('NAO_detailEspece');
         }
 
         return $this->render('taxref/detail.html.twig', array(
@@ -94,15 +87,8 @@ class TaxrefController extends Controller
      *
      * @return xml document with Observation informations
      */
-    public function buildXmlObservationsAction(int $id, Request $request)
+    public function buildXmlObservationsAction(Taxref $taxref, Request $request)
     {
-        // Find taxref by id
-        $taxref = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('AppBundle:Taxref')
-            ->findOneById($id)
-        ;
-
         // Find taxref's related validated observations
         $observations = $this->getDoctrine()
             ->getManager()

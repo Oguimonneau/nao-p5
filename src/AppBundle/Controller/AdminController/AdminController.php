@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller\AdminController;
 
+use AppBundle\Entity\Observation;
+use UserBundle\Entity\User;
 use AppBundle\Form\AdminType\ObservationEditType;
 use AppBundle\Form\AdminType\UserEditType;
 use AppBundle\Form\AdminType\SortingType;
@@ -180,23 +182,13 @@ class AdminController extends Controller
      *
      * @Route("/observation/{id}/edit", name="NAO_back_office_modification", requirements={"id" = "\d+"})
      */
-    public function modificationAction(int $id, Request $request)
+    public function modificationAction(Observation $observation, Request $request)
     {
-        /**
-         * Get observation's content
-         */
-        $observation = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('AppBundle:Observation')
-            ->findOneBy(array('id' => $id))
-        ;
-
         $form = $this->get('form.factory')->create(ObservationEditType::class, $observation);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
         {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($observation);
             $em->flush();
 
             $request->getSession()->getFlashBag()->add('notice', 'L\'observation n°' . $observation->getId() . ' a bien été modifiée.');
@@ -272,19 +264,8 @@ class AdminController extends Controller
      *
      * @Route("/user/{id}/edit", name="NAO_back_office_user_edit", requirements={"id" = "\d+"})
      */
-    public function userEditAction(int $id, Request $request)
+    public function userEditAction(User $user, Request $request)
     {
-        /**
-         * Get user
-         *
-         * @repository UserBundle\Repository\UserRepository
-         */
-        $user = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UserBundle:User')
-            ->findOneById($id)
-        ;
-
         return $this->render('admin/userEdit.html.twig', array(
             'user' => $user
         ));
