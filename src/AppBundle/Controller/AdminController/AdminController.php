@@ -100,6 +100,9 @@ class AdminController extends Controller
         // Count($observationsList) returns total number of observations
         $nbPages = ceil(count($observationsList) / (($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE));
 
+        // Set nbPages < 1 to 1
+        $nbPages = ($nbPages < 1) ? 1 : $nbPages;
+
         // Check if page number is valid
         if ($page == 0 || $page > $nbPages)
         {
@@ -156,10 +159,13 @@ class AdminController extends Controller
         // Count($observationsList) returns total number of observations
         $nbPages = ceil(count($observationsList) / (($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE));
 
+        // Set nbPages < 1 to 1
+        $nbPages = ($nbPages < 1) ? 1 : $nbPages;
+
         // Check if page number is valid
         if ($page == 0 || $page > $nbPages)
         {
-            return $this->redirectToRoute('NAO_back_office_observations_list');
+            return $this->redirectToRoute('NAO_back_office_validation_list');
         }
 
         return $this->render('admin/validationList.html.twig', array(
@@ -234,10 +240,13 @@ class AdminController extends Controller
         // Count($userList) returns total number of observations
         $nbPages = ceil(count($userList) / (($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE));
 
+        // Set nbPages < 1 to 1
+        $nbPages = ($nbPages < 1) ? 1 : $nbPages;
+
         // Check if page number is valid
         if ($page == 0 || $page > $nbPages)
         {
-            return $this->redirectToRoute('NAO_back_office_observations_list');
+            return $this->redirectToRoute('NAO_back_office_user_list');
         }
 
         return $this->render('admin/userList.html.twig', array(

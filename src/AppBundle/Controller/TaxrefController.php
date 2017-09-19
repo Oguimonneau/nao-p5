@@ -40,8 +40,6 @@ class TaxrefController extends Controller
             ->findTaxrefs($page, 20, $search)
         ;
 
-        dump($taxrefsList);
-
         return $this->render(':taxref:searchEspece.html.twig', array(
             'taxrefsList' => $taxrefsList,
             'nbPages' => ceil ($nbLines/20),
@@ -66,6 +64,9 @@ class TaxrefController extends Controller
         // Calculate total number of pages
         // Count($observationsPaginator) returns total number of observations
         $nbPages = ceil(count($observationsPaginator) / 8);
+
+        // Set nbPages < 1 to 1
+        $nbPages = ($nbPages < 1) ? 1 : $nbPages;
 
         // Check if page number is valid
         if ($page == 0 || $page > $nbPages)
