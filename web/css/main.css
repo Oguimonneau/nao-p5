@@ -566,7 +566,7 @@ ul.social-icons li {
 }
 .global-page-header .block {
   position: relative;
-  z-index: 99;
+  /*z-index: 99;*/
   text-align: center;
 }
 #product-showcase-banner {
