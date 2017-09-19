@@ -37,8 +37,13 @@ body{
 
 .btn-send {
     color: #fff;
-    outline: none;
     background: #66cc99;
+}
+
+.btn-send:hover
+{
+    background-color: #009966;
+    color: #fff;
 }
 
 .lien-nao:link
