@@ -35,7 +35,14 @@
                 <div class="col-md-6 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1s">
                     {# Image view #}
                     <div class="img-view">
-                        <img class="edit-img-responsive edit-img-padding" src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" />
+                        {% if observation.photo.id is defined %}
+                            <img class="edit-img-responsive edit-img-padding" src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" />
+                        {%  else %}
+                            <img src='{{ asset('images/logo.png') }}' class="edit-img-responsive edit-img-padding">
+                            <br>
+                            <br>
+                            <p class="text-center">Pas de photo disponible pour cette observation.</p>
+                        {% endif %}                     
                     </div>
                 </div>
                 <div class="col-sm-6">
