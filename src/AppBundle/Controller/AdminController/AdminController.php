@@ -100,15 +100,12 @@ class AdminController extends Controller
         // Count($observationsList) returns total number of observations
         $nbPages = ceil(count($observationsList) / (($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE));
 
-        // If at least 1 entry exists in array,
-        // Check if page doesn't exist, returns to page 1
-        if ($nbPages > 0)
+        // Check if page number is valid
+        if ($page == 0 || $page > $nbPages)
         {
-          if ($page > $nbPages)
-            {
-                return $this->redirectToRoute('NAO_back_office_observations_list');
-            }
+            return $this->redirectToRoute('NAO_back_office_observations_list');
         }
+
 
     	return $this->render('admin/observationsList.html.twig', array(
     		'observationsList' => $observationsList,
@@ -159,14 +156,10 @@ class AdminController extends Controller
         // Count($observationsList) returns total number of observations
         $nbPages = ceil(count($observationsList) / (($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE));
 
-        // If at least 1 entry exists in array,
-        // Check if page doesn't exist, returns to page 1
-        if ($nbPages > 0)
+        // Check if page number is valid
+        if ($page == 0 || $page > $nbPages)
         {
-          if ($page > $nbPages)
-            {
-                return $this->redirectToRoute('NAO_back_office_observations_list');
-            }
+            return $this->redirectToRoute('NAO_back_office_observations_list');
         }
 
         return $this->render('admin/validationList.html.twig', array(
@@ -241,14 +234,10 @@ class AdminController extends Controller
         // Count($userList) returns total number of observations
         $nbPages = ceil(count($userList) / (($request->getSession()->get('nbPerPage') !== null) ? $request->getSession()->get('nbPerPage') : self::NB_PER_PAGE));
 
-        // If at least 1 entry exists in array,
-        // Check if page doesn't exist, returns 404 error
-        if ($nbPages > 0)
+        // Check if page number is valid
+        if ($page == 0 || $page > $nbPages)
         {
-          if ($page > $nbPages)
-            {
-                return $this->redirectToRoute('NAO_back_office_user_list');
-            }
+            return $this->redirectToRoute('NAO_back_office_observations_list');
         }
 
         return $this->render('admin/userList.html.twig', array(

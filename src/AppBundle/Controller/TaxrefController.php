@@ -67,11 +67,10 @@ class TaxrefController extends Controller
         // Count($observationsPaginator) returns total number of observations
         $nbPages = ceil(count($observationsPaginator) / 8);
 
-        // If at least 1 entry exists in array,
-        // Check if page doesn't exist, returns to page 1
-        if ($page > $nbPages)
+        // Check if page number is valid
+        if ($page == 0 || $page > $nbPages)
         {
-            return $this->redirectToRoute('NAO_detailEspece');
+            return $this->redirectToRoute('NAO_detailEspece', array('id' => $taxref->getId()));
         }
 
         return $this->render('taxref/detail.html.twig', array(
