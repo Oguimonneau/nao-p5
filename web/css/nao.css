@@ -405,7 +405,7 @@ body{
     padding: 15px 0 0 0;
 }
 
-@media all and (max-device-width: 768px) {
+@media all and (max-device-width: 767px) {
     .img-vignette
     {
         background-size: cover;
@@ -426,7 +426,14 @@ body{
         width: 744px;
         height: 100%;
     }
+    #top-bar .main-menu li > a {
+        color: #fff;
+        padding: 10px 10px;
+        background: transparent;
+    }
+
 }
+
 
 @media all and (max-device-width: 480px) {
     .img-vignette
