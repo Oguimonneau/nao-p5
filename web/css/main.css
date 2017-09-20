@@ -99,11 +99,11 @@ h2 {
 #top-bar .navbar-nav > li > a:hover {
   background: transparent;
 }
-#top-bar.animated-header {
+/*#top-bar.animated-header {
   padding: 20px 0;
   background: #ffffff;
   box-shadow: none;
-}
+}*/
 #top-bar .main-menu li > a {
   color: #444;
 }

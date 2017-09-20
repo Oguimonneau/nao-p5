@@ -27,11 +27,11 @@
     		<div class="row">
     			<div class="col-md-12">
                 	<h2 class="col-md-6 no-padding subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">Observations en attente de validation</h2>
-                    <div class="col-md-4 pull-right text-right wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">
+                    <div class="col-xs-12 col-md-4 pull-right wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">
                         {{ form_start(sorting, { 'attr': { 'class': 'form-horizontal sorting-form-padding' } }) }}
                             <div class="form-group">
-                                {{ form_label(sorting.nbPerPageSelect, 'Afficher par page :', { 'label_attr': { 'class': 'col-md-6 control-label' } }) }}
-                                <div class="col-md-4">
+                                {{ form_label(sorting.nbPerPageSelect, 'Afficher par page :', { 'label_attr': { 'class': 'col-xs-12 col-md-6 align-left' } }) }}
+                                <div class="col-xs-6 col-md-4">
                                     {{ form_widget(sorting.nbPerPageSelect, { 'label_attr': { 'class': 'form-control' } }) }}
                                 </div>
                                 <input type="submit" class="btn btn-send" value="Trier" />
@@ -41,8 +41,8 @@
                 	<table class="admin-table wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
                 		<thead class="admin-thead">
                             <tr>
-                                <th class="col-xs-1">N°</th>
-                                <th class="col-xs-1">Date</th>
+                                <th class="col-xs-1 hidden-xs">N°</th>
+                                <th class="col-xs-1 hidden-xs">Date</th>
                                 <th class="col-xs-2">Utilisateur</th>
                                 <th class="col-xs-6">Espèce</th>
                                 <th class="col-xs-2">Action</th>
@@ -71,8 +71,8 @@
                                         <p><strong>Notes :</strong></p>
                                         <p>{{ observation.note }}</p>
                                     ">
-                                    <td class="col-xs-1">{{ observation.id }}</td>
-                                    <td class="col-xs-1">{{ observation.date|date('d/m/Y') }}</td>
+                                    <td class="col-xs-1 hidden-xs">{{ observation.id }}</td>
+                                    <td class="col-xs-1 hidden-xs">{{ observation.date|date('d/m/Y') }}</td>
                                     <td class="col-xs-2">{{ observation.user }}</td>
                                     <td class="col-xs-6">{{ observation.taxref.nomVern }}</td>
                                     <td class="col-xs-2">

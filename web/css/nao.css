@@ -2,6 +2,11 @@ body{
     padding-top: 93px;
 }
 
+.align-left
+{
+    text-align: left !important;
+}
+
 .image-nav{
     height: 80px;
     padding: 0px;
@@ -28,6 +33,11 @@ body{
 
 #legend strong {
     margin-top: 0;
+}
+
+header
+{
+    padding: 20px !important;
 }
 
 .btn-green:hover

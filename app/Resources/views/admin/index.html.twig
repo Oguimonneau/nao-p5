@@ -20,8 +20,8 @@
                 	<table class="admin-table wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
                 		<thead class="admin-thead">
                 			<tr>
-                				<th class="col-xs-1">N°</th>
-                				<th class="col-xs-1">Date</th>
+                				<th class="col-xs-1 hidden-xs">N°</th>
+                				<th class="col-xs-1 hidden-xs">Date</th>
                 				<th class="col-xs-5">Espèce</th>
                 				<th class="col-xs-4">Utilisateur</th>
                 			</tr>
@@ -29,8 +29,8 @@
                         <tbody>
                             {% for observation in validatedList %}
                                 <tr>
-                                    <td class="col-xs-1">{{ observation.id }}</td>
-                                    <td class="col-xs-1">{{ observation.date|date('d/m/Y') }}</td>
+                                    <td class="col-xs-1 hidden-xs">{{ observation.id }}</td>
+                                    <td class="col-xs-1 hidden-xs">{{ observation.date|date('d/m/Y') }}</td>
                                     <td class="col-xs-5">{{ observation.taxref.nomVern }}</td>
                                     <td class="col-xs-4">{{ observation.user }}</td>
                                 </tr>
@@ -49,8 +49,8 @@
                 	<table class="admin-table wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.1s">
                         <thead class="admin-thead">
                             <tr>
-                                <th class="col-xs-1">N°</th>
-                                <th class="col-xs-2">Date</th>
+                                <th class="col-xs-1 hidden-xs">N°</th>
+                                <th class="col-xs-2 hidden-xs">Date</th>
                                 <th class="col-xs-5">Espèce</th>
                                 <th class="col-xs-4">Utilisateur</th>
                             </tr>
@@ -58,8 +58,8 @@
                         <tbody>
                             {% for observation in invalidatedList %}
                                 <tr>
-                                    <td class="col-xs-1">{{ observation.id }}</td>
-                                    <td class="col-xs-1">{{ observation.date|date('d/m/Y') }}</td>
+                                    <td class="col-xs-1 hidden-xs">{{ observation.id }}</td>
+                                    <td class="col-xs-1 hidden-xs">{{ observation.date|date('d/m/Y') }}</td>
                                     <td class="col-xs-5">{{ observation.taxref.nomVern }}</td>
                                     <td class="col-xs-4">{{ observation.user }}</td>
                                 </tr>
@@ -78,18 +78,18 @@
                     <table class="admin-table wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.1s">
                         <thead class="admin-thead">
                             <tr>
-                                <th class="col-xs-1">N°</th>
+                                <th class="col-xs-1 hidden-xs">N°</th>
                                 <th class="col-xs-1">Nom</th>
-                                <th class="col-xs-2">E-mail</th>
+                                <th class="col-xs-2 hidden-xs">E-mail</th>
                                 <th class="col-xs-5">Statut</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for user in userList %}
                                 <tr>
-                                    <td class="col-xs-1">{{ user.id }}</td>
+                                    <td class="col-xs-1 hidden-xs">{{ user.id }}</td>
                                     <td class="col-xs-1">{{ user.username }}</td>
-                                    <td class="col-xs-2">{{ user.email }}</td>
+                                    <td class="col-xs-2 hidden-xs">{{ user.email }}</td>
                                     <td class="col-xs-5">
                                         {% if user.roles.0 == 'ROLE_NATURALISTE' %}
                                             Naturaliste

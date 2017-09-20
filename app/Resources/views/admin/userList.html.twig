@@ -27,10 +27,10 @@
     		<div class="row">
     			<div class="col-md-12">
                 	<h2 class="col-md-6 no-padding subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">Utilisateurs</h2>
-                    <div class="col-xs-12 col-md-4 pull-right text-right wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">
+                    <div class="col-xs-12 col-md-4 pull-right wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">
                         {{ form_start(sorting, { 'attr': { 'class': 'form-horizontal sorting-form-padding' } }) }}
                             <div class="form-group">
-                                {{ form_label(sorting.nbPerPageSelect, 'Afficher par page :', { 'label_attr': { 'class': 'col-xs-4 col-md-6 control-label' } }) }}
+                                {{ form_label(sorting.nbPerPageSelect, 'Afficher par page :', { 'label_attr': { 'class': 'col-xs-12 col-md-6 align-left' } }) }}
                                 <div class="col-xs-6 col-md-4">
                                     {{ form_widget(sorting.nbPerPageSelect, { 'label_attr': { 'class': 'form-control' } }) }}
                                 </div>
@@ -41,9 +41,9 @@
                 	<table class="admin-table wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
                 		<thead class="admin-thead">
                             <tr>
-                                <th class="col-xs-1">N°</th>
+                                <th class="col-xs-1 hidden-xs">N°</th>
                                 <th class="col-xs-1">Nom</th>
-                                <th class="col-xs-2">E-mail</th>
+                                <th class="col-xs-2 hidden-xs">E-mail</th>
                                 <th class="col-xs-5">Statut</th>
                                 <th class="col-xs-2">Action</th>
                             </tr>
@@ -51,9 +51,9 @@
                 		<tbody class="admin-table-body">
                             {% for user in userList %}
                                 <tr>
-                                    <td class="col-xs-1">{{ user.id }}</td>
+                                    <td class="col-xs-1 hidden-xs">{{ user.id }}</td>
                                     <td class="col-xs-1">{{ user.username }}</td>
-                                    <td class="col-xs-2">{{ user.email }}</td>
+                                    <td class="col-xs-2 hidden-xs">{{ user.email }}</td>
                                     <td class="col-xs-5">
                                         {% if user.role('ROLE_NATURALISTE') %}
                                             Naturaliste
