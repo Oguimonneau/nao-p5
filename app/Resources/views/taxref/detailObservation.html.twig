@@ -9,8 +9,6 @@
 
 {% block section %}
     <!--
-
-    <!--
     ==================================================
         Admin Review Section Start
     ================================================== -->
@@ -22,7 +20,7 @@
                         {% if observation.photo.id is defined %}
                             <img class = "img-observation" src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" />
                         {%  else %}
-                            <img src='{{ asset('images/logo.png') }}' class="edit-img-responsive edit-img-padding">
+                            <img src='{{ asset('images/logo.png') }}' class="edit-img-responsive {# img-responsive #} edit-img-padding" alt="{{ observation.taxref.nomVern }}">
                             <br>
                             <br>
                             <p class="text-center">Pas de photo disponible pour cette observation.</p>
