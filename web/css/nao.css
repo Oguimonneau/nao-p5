@@ -67,6 +67,12 @@ header
    color: #66cc99;
 }
 
+.nothingToSearch
+{
+    height: 300px;
+    padding-top: 100px;
+}
+
 .texte-about:p 
 {
   font-size: 25px;
@@ -491,6 +497,12 @@ header
     .review-section
     {
         padding: 0px 0;
+    }
+
+    .nothingToSearch
+    {
+        height: 50px;
+        padding-top: 10px;
     }
 
 }

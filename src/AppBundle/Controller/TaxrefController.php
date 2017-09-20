@@ -34,6 +34,7 @@ class TaxrefController extends Controller
             ->getRepository('AppBundle:Taxref')
             ->countTaxrefs($search)
         ;
+        
         $taxrefsList = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Taxref')

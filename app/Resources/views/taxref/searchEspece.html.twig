@@ -30,9 +30,13 @@
                                 </TD>
                                 <TD class = "col-xs-10">
                                     <a href="{{ path('NAO_detailEspece', { 'id': taxref.id }) }}"><p class = "tab-center">{{ taxref.nomVern }}</p></a>
-
                                 </TD>
                             </TR>
+                        {% else %}
+                            <div class="nothingToSearch">
+                                <p class="text-center"><strong>Aucune espèce ne correspond à votre recherche.</strong></p>
+                                <p class="text-center"><a href="{{ path('NAO_searchEspece') }}">Revenir à la page précédente.</a></p>
+                            </div>
                         {% endfor %}
                         </tbody>
                     </table>
