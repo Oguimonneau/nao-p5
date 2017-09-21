@@ -51,7 +51,6 @@ class AdminController extends Controller
             ->findBy(array(), array(), self::NB_PER_PAGE)
         ;
 
-
         return $this->render('admin/index.html.twig', array(
         	'validatedList' => $validatedList,
         	'invalidatedList' => $invalidatedList,
