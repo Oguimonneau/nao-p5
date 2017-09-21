@@ -42,14 +42,14 @@
             <div class="col-md-6">
                 <div class="block text-center">
                     {%  if taxref.image == "" %}
-                        <img src="{{ asset('images/logo.png') }}" class="img-vignette" alt="Logo NAO">
+                        <img src="{{ asset('images/logo.png') }}" class="img-vignette" alt="NAO - Nos amis les oiseaux - Logo">
                         <br>
                         <br>
                         <p>Pas de photo correspondant à cette espèce.</p>
                     {% else %}
                         <div class="taxref-img-container">
-                        <img src="{{ asset('images/taxref/'~taxref.image|e) }}" class="edit-img-responsive" alt="{{ taxref.cdNom }}">
-                    </div>
+                            <img src="{{ asset('images/taxref/'~taxref.image|e) }}" class="edit-img-responsive" alt="{{ taxref.nomVern }}">
+                        </div>
 
                     {% endif %}
                 </div>

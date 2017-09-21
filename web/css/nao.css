@@ -1,5 +1,12 @@
 body{
     padding-top: 93px;
+    text-align: justify;
+}
+
+.about-block
+{
+    color: #fff;
+    padding: 5%;
 }
 
 .align-left

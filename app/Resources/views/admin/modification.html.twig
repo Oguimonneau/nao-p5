@@ -36,9 +36,9 @@
                     {# Image view #}
                     <div class="img-view">
                         {% if observation.photo.id is defined %}
-                            <img class="edit-img-responsive edit-img-padding" src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" />
+                            <img class="edit-img-responsive edit-img-padding" src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" alt="{{ observation.taxref.nomVern }}" />
                         {%  else %}
-                            <img src='{{ asset('images/logo.png') }}' class="edit-img-responsive edit-img-padding">
+                            <img src='{{ asset('images/logo.png') }}' class="edit-img-responsive edit-img-padding" alt="NAO - Nos amis les oiseaux - Logo">
                             <br>
                             <br>
                             <p class="text-center">Pas de photo disponible pour cette observation.</p>
