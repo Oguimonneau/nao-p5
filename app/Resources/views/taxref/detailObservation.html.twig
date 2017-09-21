@@ -16,11 +16,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1s">
-                    <div class="obs-img-view">
+                    <div>
+                        <h2 class="subtitle wow">Photo prise par l'observateur</h2>
                         {% if observation.photo.id is defined %}
-                            <h2 class="subtitle wow">Photo prise par l'observateur</h2>
-                            <img class = "img-observation" src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" alt="{{ observation.taxref.nomVern }}" />
+                            <img class = "img-responsive" src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" alt="{{ observation.taxref.nomVern }}" />
                         {%  else %}
+
                             <img src='{{ asset('images/logo.png') }}' class="edit-img-responsive {# img-responsive #} edit-img-padding" alt="NAO - Nos amis les oiseaux - Logo">
                             <br>
                             <br>
@@ -28,7 +29,8 @@
                         {% endif %}    
                     </div>
                 </div>
-                <div class="col-md-6 wow fadeInDown edit-img-padding" data-wow-duration="500ms" data-wow-delay="1.2s">
+                <div class="col-md-6 wow fadeInDown observation-map" data-wow-duration="500ms" data-wow-delay="1.2s">
+                    <h2 class="subtitle wow">Localisation de l'observation</h2>
                     <div id="map"></div>
                 </div>
             </div>

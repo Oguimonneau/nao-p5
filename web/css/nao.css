@@ -1,6 +1,5 @@
 body{
     padding-top: 93px;
-    text-align: justify;
 }
 
 .about-block
@@ -456,7 +455,7 @@ header
     padding: 15px 0 0 0;
 }
 
-@media all and (max-device-width: 767px) {
+@media all and (max-device-width: 768px) {
     .img-vignette
     {
         background-size: cover;
@@ -483,6 +482,11 @@ header
         background: transparent;
     }
 
+    .observation-map
+    {
+        margin-top: 50px;
+    }
+
 }
 
 
@@ -504,7 +508,7 @@ header
     .img-observation
     {
         background-size: cover;
-        width: 345px;
+        width: 245px;
         height: 100%;
     }
 
