@@ -28,13 +28,14 @@
                         {% endif %}    
                     </div>
                 </div>
-                <div class="col-sm-6 wow fadeInDown edit-img-padding" data-wow-duration="500ms" data-wow-delay="1.2s">
+                <div class="col-md-6 wow fadeInDown edit-img-padding" data-wow-duration="500ms" data-wow-delay="1.2s">
                     <div id="map"></div>
                 </div>
             </div>
             <div class="row">
-                <h2 class="subtitle wow note-obs-margin">Observation</h2>
-                <p>{{ observation.note }}</p>
+            <div class="note-container">
+                <h2 class="col-sm-12 subtitle wow note-obs-margin">Observation</h2>
+                <p class="col-sm-12">{{ observation.note }}</p>
             </div>
             <div class="row">
                 <p class="text-center">
