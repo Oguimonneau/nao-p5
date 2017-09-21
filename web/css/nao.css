@@ -21,7 +21,7 @@ body{
     top:-15px;
 }
 
-#map, #mapHabitat, #mapObservation {
+#map, #mapHabitat, #mapObservation, .obs-img-view {
     height: 475px;
 }
 
@@ -33,6 +33,17 @@ body{
 
 #legend strong {
     margin-top: 0;
+}
+
+.btn-obs-margin, .note-obs-margin
+{
+    margin-top: 30px;
+}
+
+ol
+{
+    margin: 0 !important;
+    padding: 10px 0 0 0 !important;
 }
 
 header
@@ -134,9 +145,10 @@ header
 
 .img-observation
 {
-    background-size: cover;
-    width: 555px;
-    height: 100%;
+    display: block;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100% !important;
 }
 
 .img-vignette
