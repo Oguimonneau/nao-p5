@@ -40,6 +40,11 @@ body{
     margin-top: 30px;
 }
 
+.taxref-img-container
+{
+    height: 400px;
+}
+
 ol
 {
     margin: 0 !important;
@@ -515,6 +520,11 @@ header
     {
         height: 50px;
         padding-top: 10px;
+    }
+
+    .taxref-img-container
+    {
+        height: 200px;
     }
 
 }
