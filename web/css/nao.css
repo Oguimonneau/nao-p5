@@ -35,6 +35,12 @@ body{
     margin-top: 0;
 }
 
+iframe
+{
+    height: 100%;
+    width: 100%;
+}
+
 .btn-obs-margin, .note-obs-margin
 {
     margin-top: 30px;
