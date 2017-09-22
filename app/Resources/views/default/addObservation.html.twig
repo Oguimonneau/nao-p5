@@ -76,12 +76,8 @@
                             <input type="submit" class = "btn btn-send pull-right" value="Poster" />
                         </div>
                     </div>
-                    {# Génération automatique des champs pas encore écrits.
-                       Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
-                       et tous les champs cachés (type « hidden »). #}
                     {{ form_rest(form) }}
 
-                    {# Fermeture de la balise <form> du formulaire HTML #}
                     {{ form_end(form) }}
                 </div>
                 <div class="col-lg-6">
