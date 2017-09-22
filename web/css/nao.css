@@ -455,12 +455,18 @@ header
     padding: 15px 0 0 0;
 }
 
-@media all and (max-device-width: 768px) {
+@media all and (max-device-width: 767px) {
     .img-vignette
     {
         background-size: cover;
         width: 210px;
         height: 110px;
+    }
+
+
+    .navbar-brand
+    {
+        display: block;
     }
     .image img {
         display: none;
@@ -543,5 +549,68 @@ header
     {
         height: 200px;
     }
+}
 
+/*
+================================================================
+
+    Menu hamburger CSS Specifications
+
+================================================================
+*/
+@media (max-width: 1024px)
+{
+    .navbar-header
+    {
+        float: none;
+    }
+
+    .navbar-toggle 
+    {
+        display: block;
+    }
+
+    .navbar-collapse 
+    {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .navbar-collapse.collapse 
+    {
+        display: none!important;
+    }
+
+    .navbar-nav 
+    {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+
+    .navbar-nav>li 
+    {
+        float: none;
+    }
+
+    .navbar-nav>li>a 
+    {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .navbar-text 
+    {
+        float: none;
+        margin: 15px 0;
+    }
+
+    .navbar-collapse.collapse.in 
+    { 
+        display: block!important;
+    }
+
+    .collapsing 
+    {
+        overflow: hidden!important;
+    }
 }
