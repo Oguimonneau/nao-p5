@@ -89,7 +89,7 @@ class DefaultController extends Controller
                 $message = $form["message"]->getData();
                 $message = (new \Swift_Message('Contact NAO'))
                     ->setFrom(array($email))
-                    ->setTo('contact@kahilom.com')
+                    ->setTo('contact-nao@gmail.com')
                     ->setCharset('utf-8')
                     ->setContentType('text/html')
                     ->setBody($this->container->get('templating')->render('SwiftMailer/email.html.twig', array(
