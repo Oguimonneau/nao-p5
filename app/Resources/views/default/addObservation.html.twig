@@ -61,12 +61,9 @@
                     <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.4s">
                         <div class="col-xs-3">
                         {{ form_label(form.photo, "Fichier", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-
-                        {# Affichage des erreurs pour ce champ précis. #}
                         {{ form_errors(form.photo) }}
                         </div>
                         <div class="col-xs-9">
-                            {# Génération de l'input. #}
                             {{ form_widget(form.photo.file) }}
                         </div>
                     </div>
