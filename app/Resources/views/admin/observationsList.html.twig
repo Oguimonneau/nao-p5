@@ -61,9 +61,9 @@
                                     data-content="
                                         <div class='img-container'>
                                             {% if observation.photo.id is defined %}
-                                                <img src='{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}'>
+                                                <img src='{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}' alt='{{ observation.taxref.nomVern }}'>
                                             {%  else %}
-                                                <img src='{{ asset('images/logo.png') }}'>
+                                                <img src='{{ asset('images/logo.png') }}' alt='NAO- Nos amis les oiseaux - Logo'>
                                             {% endif %}
                                         </div>
                                         <p><strong>Utilisateur :</strong></p>

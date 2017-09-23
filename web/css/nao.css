@@ -2,6 +2,12 @@ body{
     padding-top: 93px;
 }
 
+.about-block
+{
+    color: #fff;
+    padding: 5%;
+}
+
 .align-left
 {
     text-align: left !important;
@@ -35,9 +41,20 @@ body{
     margin-top: 0;
 }
 
+iframe
+{
+    height: 100%;
+    width: 100%;
+}
+
 .btn-obs-margin, .note-obs-margin
 {
     margin-top: 30px;
+}
+
+.taxref-img-container
+{
+    height: 400px;
 }
 
 ol
@@ -445,6 +462,12 @@ header
         width: 210px;
         height: 110px;
     }
+
+
+    .navbar-brand
+    {
+        display: block;
+    }
     .image img {
         display: none;
     }
@@ -463,6 +486,11 @@ header
         color: #fff;
         padding: 10px 10px;
         background: transparent;
+    }
+
+    .observation-map
+    {
+        margin-top: 50px;
     }
 
 }
@@ -486,7 +514,7 @@ header
     .img-observation
     {
         background-size: cover;
-        width: 345px;
+        width: 245px;
         height: 100%;
     }
 
@@ -517,4 +545,72 @@ header
         padding-top: 10px;
     }
 
+    .taxref-img-container
+    {
+        height: 200px;
+    }
+}
+
+/*
+================================================================
+
+    Menu hamburger CSS Specifications
+
+================================================================
+*/
+@media (max-width: 1024px)
+{
+    .navbar-header
+    {
+        float: none;
+    }
+
+    .navbar-toggle 
+    {
+        display: block;
+    }
+
+    .navbar-collapse 
+    {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .navbar-collapse.collapse 
+    {
+        display: none!important;
+    }
+
+    .navbar-nav 
+    {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+
+    .navbar-nav>li 
+    {
+        float: none;
+    }
+
+    .navbar-nav>li>a 
+    {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .navbar-text 
+    {
+        float: none;
+        margin: 15px 0;
+    }
+
+    .navbar-collapse.collapse.in 
+    { 
+        display: block!important;
+    }
+
+    .collapsing 
+    {
+        overflow: hidden!important;
+    }
 }

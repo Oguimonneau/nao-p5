@@ -52,10 +52,6 @@ class DefaultController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-
-
-
-
     public function contactAction(Request $request)
     {
         $nom = $email = $sujet = $message =  NULL;
@@ -67,11 +63,9 @@ class DefaultController extends Controller
             ,new Length(array('min' => 3,
                     'max' => 30,
 
-                )))))
-        
+            )))))        
             ->add('email', TextType::class,  array('constraints' => array(new Assert\Email(array('checkMX' => true)),
                 new NotBlank(),)))
-//
             ->add('sujet', ChoiceType::class, array('choices' => array('' => '','Demande' => "Demande",'Bug' => "Bug",'Autre' => "Autre" )),
                 array('constraints' => array(new Length(array('min' => 3)))))
             ->add('message', TextareaType::class, array('constraints' => array(new NotBlank(array(//'message' => 'contact.error.messagenotblank'
@@ -80,7 +74,7 @@ class DefaultController extends Controller
                     'max' => 350,
 
                 )))))
-            ->add('send', SubmitType::class , array('label' => 'Envoyer'))
+            ->add('send', SubmitType::class, array('label' => 'Envoyer', 'attr' => array('class' => 'btn-send')))
             ->add('reset', ResetType::class , array('label' => 'Annuler'))
             ->getForm();
 

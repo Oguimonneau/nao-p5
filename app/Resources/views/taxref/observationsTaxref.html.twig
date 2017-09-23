@@ -12,9 +12,9 @@
                      <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
                         <div class="img-wrapper">
                             {% if observation.photo.id is defined %}
-                                <img src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" class="img-responsive" alt="this is a title">
+                                <img src="{{ asset('uploads/img/'~observation.photo.id|e~'.jpeg') }}" class="img-responsive" alt="{{ observation.taxref.nomVern }}">
                             {%  else %}
-                                <img src="{{ asset('images/logo.png') }}" class="img-responsive" alt="{{ observation.taxref.nomVern }}" >
+                                <img src="{{ asset('images/logo.png') }}" class="img-responsive" alt="NAO - Nos amis les oiseaux - Logo" >
                             {% endif %}
                             <div class="overlay">
                                 <div class="buttons buttons-padding">
