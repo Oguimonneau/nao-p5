@@ -25,7 +25,7 @@ class ObservationController extends Controller
             ->getManager()
             ->getRepository('AppBundle:Observation')
             ->findOneById($observationId);
-        return $this->render('taxref/detailObservation.html.twig', array(
+        return $this->render('default/detailObservation.html.twig', array(
             'observation' => $observation));
     }
 
