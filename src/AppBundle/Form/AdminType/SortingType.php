@@ -36,9 +36,6 @@ class SortingType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        // $resolver->setDefaults(array(
-        //     'data_class' => 'AppBundle\Entity\Observation'
-        // ));
     }
 
     /**
@@ -50,3 +47,4 @@ class SortingType extends AbstractType
     }
 
 }
+

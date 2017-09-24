@@ -179,6 +179,7 @@ class AdminController extends Controller
      * @Security("has_role('ROLE_NATURALISTE')")
      *
      * @Route("/observation/{id}/edit", name="NAO_back_office_modification", requirements={"id" = "\d+"})
+     *
      */
     public function modificationAction(Observation $observation, Request $request)
     {
