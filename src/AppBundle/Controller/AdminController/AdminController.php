@@ -48,7 +48,7 @@ class AdminController extends Controller
         $userList = $this->getDoctrine()
             ->getManager()
             ->getRepository('UserBundle:User')
-            ->findBy(array(), array(), self::NB_PER_PAGE)
+            ->findBy(array(), array('id' => 'DESC'), self::NB_PER_PAGE)
         ;
 
         return $this->render('admin/index.html.twig', array(
